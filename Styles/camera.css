@@ -1,0 +1,13 @@
+/* Copyright 2018 F.I.R.E
+
+Author : Nicolas FELTEN
+Version : 0.1
+Date : 26/10/2018
+*/
+
+
+div.my-camera-line {
+  margin: 5px;
+  border: 1px solid #9C9C9C;
+  border-radius: 5px;
+}
