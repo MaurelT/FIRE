@@ -1,0 +1,42 @@
+/* Copyright 2018 F.I.R.E
+
+Author : Thomas Maurel
+Version : 0.1
+Date : 15/10/2018
+*/
+
+
+#core {
+  background: url("../Images/background.jpeg") no-repeat center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.logo {
+  background-image: url("../Images/logo2.png");
+  width: 250px;
+  height: 250px;
+}
+
+.inputForm {
+  background: 0;
+  border: 0;
+}
+
+.btn-style {
+  border: 0;
+  background: 0;
+  color : #6a696c;
+}
+
+.border-line {
+  margin: 5px;
+  border: 1px solid white;
+  border-radius: 5px;
+}
+
+.btn-style:hover {
+  border-bottom: 1px #fff;
+}
