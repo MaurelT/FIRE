@@ -19,54 +19,35 @@
   <meta name="msapplication-TileColor" content="#2F3BA2">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
-  <body id="body" style="background-color:#DDDBD5; margin-top:20px;background: url('images/forest_1080.png'); background-repeat : no-repeat;">
+  <body style="background-color:#DDDBD5; margin-top:20px;">
+    <div class="" align="top">
 
-    <div id="captor_body">
+      <div class="split left" align="center">
 
+        <div id="map" style="width:80%;height:400px;"></div>
 
-    <div style="width:100%" align="center">
+      </div>
 
-      <img id="switch_to_map" src="images/map-icons/map-location.png" alt="">
-    </div>
+      <div class="split middle" align="center">
+          <img src="images/tmp_photo.jpg" class="camera-border"alt="Avatar woman">
 
-    <div style="float:right;">
-      <div class="my-embedded-container" style="display:inline-block;">
-        <div class="">
-          <img src="images/map-icons/wind.png" alt="" style="display:inline-block; width:32px; height:32px;">
-          <p id="wind-captor" class="captors" style="display:inline-block;">No informations.</p>
-        </div>
-        <div class="">
-          <img src="images/map-icons/humidity.png" alt="" style="display:inline-block; width:32px; height:32px;">
-          <p id="humidity-captor" class="captors" style="display:inline-block;">No informations.</p>
-        </div>
-        <div class="">
-          <img src="images/map-icons/barometer.png" alt="" style="display:inline-block; width:32px; height:32px;">
-          <p id="pression-captor" class="captors" style="display:inline-block;">No informations.</p>
-        </div>
-        <div class="">
-          <img src="images/map-icons/thermometer.png" alt="" style="display:inline-block; width:32px; height:32px;">
-          <p id="temperature-captor" class="captors" style="display:inline-block;">No informations.</p>
-        </div>
-        <div class="">
-          <img src="images/map-icons/mountain.png" alt="" style="display:inline-block; width:32px; height:32px;">
-          <p id="altitude-captor" class="captors" style="display:inline-block;">No informations.</p>
+      </div>
+
+      <div class="split right">
+        <div class="centered">
+          <div class="my-embedded-container" style="display:inline-block;">
+            <p class="captors">INFORMATION CAPTEURS</p>
+            <p id="wind-captor" class="captors">Vent : No informations.</p>
+            <p id="humidity-captor" class="captors">Humidité : No informations.</p>
+            <p id="pression-captor" class="captors">Pression : No informations.</p>
+            <p id="temperature-captor" class="captors">Température : No informations.</p>
+            <p id="altitude-captor" class="captors">Altitude : No informations.</p>
+          </div>
         </div>
       </div>
+      </div>
     </div>
-        </div>
-
-
-  <div id="map_body" align="center" style="visibility:hidden; flex-grow : 1;">
-
-    <div style="width:100%" align="center">
-      <img id="switch_to_camera" src="images/map-icons/photo-camera.png" alt="">
-    </div>
-
-    <div id="map" class="camera-border" style="width:500px;height:500px;" align="center">
-    </div>
-  </div>
   </body>
-
 </html>
 
 

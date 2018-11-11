@@ -12,30 +12,53 @@ var macarte = null;
 
 var iconFolder = "images/map-icons/"
 
+var isMapInit = false;
+
 window.onload = function heightWindow() {
   setCaptors(14, 18, 6, 28, 148);
-  initMap();
-  addMarker(lat, lon)
+  //initMap();
+  //addMarker(lat, lon)
+
+  $("#switch_to_map").click(function(){
+    $("#captor_body").css("visibility", "hidden");
+    $("#body").css('background-image', 'none');
+    $("#body").css('background-color', "#DDDBD5")
+    $("#map_body").css("visibility", "visible");
+    if (!isMapInit) {
+      initMap();
+      addMarker(lat, lon);
+      isMapInit = true
+    }
+  });
+
+  $("#switch_to_camera").click(function(){
+    $("#map_body").css("visibility", "hidden");
+    $("#captor_body").css("visibility", "visible");
+    $("#body").css('background-image', "url('images/forest_1080.png')");
+  });
 };
+
+
+
 
 function setCaptors(wind, humidity, pression, temperature, altitude) {
   if (wind != null) {
-    document.getElementById("wind-captor").innerHTML = "Vent : " + wind + "Km/h";
+    document.getElementById("wind-captor").innerHTML = wind + "Km/h";
   }
   if (humidity != null) {
-    document.getElementById("humidity-captor").innerHTML = "Humidité : " + humidity + "%";
+    document.getElementById("humidity-captor").innerHTML = humidity + "%";
   }
   if (pression != null)
   {
-    document.getElementById("pression-captor").innerHTML = "Pression : " + pression + "bars";
+    document.getElementById("pression-captor").innerHTML = pression + "bars";
   }
   if (temperature != null)
   {
-    document.getElementById("temperature-captor").innerHTML = "Température : " + temperature + "°C";
+    document.getElementById("temperature-captor").innerHTML = temperature + "°C";
   }
   if (altitude != null)
   {
-    document.getElementById("altitude-captor").innerHTML = "Altitude : " + altitude + "m";
+    document.getElementById("altitude-captor").innerHTML = altitude + "m";
   }
 }
 
