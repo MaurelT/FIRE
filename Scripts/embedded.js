@@ -36,8 +36,13 @@ window.onload = function heightWindow() {
     $("#captor_body").css("visibility", "visible");
     $("#body").css('background-image', "url('images/forest_1080.png')");
   });
+
+  load_sidebar()
 };
 
+function load_sidebar() {
+  //$("#mySidenav").load("toolbar.html");
+}
 
 
 
