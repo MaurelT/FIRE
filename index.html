@@ -13,7 +13,6 @@ Date : 15/10/2018
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>FIRE</title>
-  <link rel="stylesheet" type="text/css" href="styles/inline.css">
 
   <!-- TODO add manifest here -->
   <link rel="manifest" href="/manifest.json">
@@ -21,10 +20,13 @@ Date : 15/10/2018
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   <meta name="apple-mobile-web-app-title" content="Fire">
-  <link rel="apple-touch-icon" href="images/icons/icon-152x152.png">
+  <link rel="apple-touch-icon" href="Images/Icons/iconeFire.png">
+  <link rel="icon" type="image/png" href="Images/Icons/iconeFire.png">
   <meta name="msapplication-TileImage" content="images/icons/icon-144x144.png">
   <meta name="msapplication-TileColor" content="#2F3BA2">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="styles/inline.css">
+
 </head>
 
 <body id="core" class="border-line">
@@ -39,24 +41,24 @@ Date : 15/10/2018
   <form id="submit">
     <div class="form-group">
       <div class="text-center">
-        <input type="text" placeholder="Username" class="inputForm border-bottom m-3" id="username">
+        <input type="text" placeholder="Nom d'utilisateur" class="inputForm border-bottom m-3" id="username">
       </div>
     </div>
     <div class="form-group">
       <div class="text-center">
-        <input type="password" placeholder="Password" value="" class="inputForm border-bottom m-3" id="password">
+        <input type="password" placeholder="Mot de passe" value="" class="inputForm border-bottom m-3" id="password">
       </div>
     </div>
-    <div class="text-center">
-      <button type="submit" class="btn-style mt-5">Submit</button>
-    </div>
-    <div class="">
   </form>
+  <div class="text-center">
+    <button id="connexion" type="submit" class="btn btn-secondary mt-5">Connexion</button>
+  </div>
 </body>
 
 </html>
 
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+
+<script src="scripts/jquery-3.3.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-<script src="Scripts/connexion.js"></script>
+<script src="scripts/core.js" async></script>

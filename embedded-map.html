@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Embedded</title>
+  <title>Embedded-Map</title>
 
   <!-- TODO add manifest here -->
   <link rel="manifest" href="manifest.json">
@@ -13,6 +13,7 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   <meta name="apple-mobile-web-app-title" content="Fire">
   <link rel="apple-touch-icon" href="images/icons/icon-152x152.png">
+
   <link rel="icon" type="image/png" href="Images/Icons/iconeFire.png">
   <meta name="msapplication-TileImage" content="images/icons/icon-144x144.png">
   <meta name="msapplication-TileColor" content="#2F3BA2">
@@ -69,41 +70,10 @@
   </div>
   <!-- END NAVBAR -->
   <div class="text-center">
-    <button id="switchToMap" type="submit" class="button-img mt-2 mb-2"><img src="Images/Icons/map-embedded-icon.png"></button>
+    <button id="switchToCamera" type="submit" class="button-img mt-2 mb-2"><img src="Images/Icons/map-embedded-icon.png"></button>
+      <div id="map" class="w-100"  style="height: 720px; z-index: 90" align="center"></div>
   </div>
-  <div class="text-center mb-4">
-    <iframe class="video-stream"  src="https://www.youtube-nocookie.com/embed/qiyGyo6TW2M" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-  <!--  <img class="video-stream" src="Images/Stream.jpg"> -->
-  </div>
-  <div class="container sensor-box">
-    <div class="row">
-      <div class="col text-center">
-        <img class="red-icone" src="Images/Icons/Icone-Wind.png">
-        <p id=""> ?? </p>
-      </div>
-      <div class="col text-center">
-        <img class="green-icone" src="Images/Icons/Icone-Water.png">
-        <p id="">10 %</p>
-      </div>
-      <div class="col text-center">
-        <img class="green-icone" src="Images/Icons/Icone-Barometre.png">
-        <p id=""> 1 bar</p>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col text-center">
-        <img class="green-icone" src="Images/Icons/Icone-Temperature.png">
-        <p id="">21 °C</p>
-      </div>
-      <div class="col text-center">
-        <img class="green-icone" src="Images/Icons/Icone-Height.png">
-        <p id="">7 m</p>
-      </div>
-    </div>
-  </div>
-  <div class="text-center">
-    <button type="submit" class="btn btn-secondary">Détails</button>
-  </div>
+
 </body>
 
 
@@ -120,44 +90,8 @@
 
 </html>
 
-<!-- <body id="body" style="background-color:#DDDBD5;background: url('images/forest_1080.png'); background-repeat : no-repeat;">
-<div class="wrapper">
-  <div id="content">
 
-    <div id="captor_body">
-
-
-      <div class="w-100 text-center">
-
-        <img id="switch_to_map" class="m-3" src="images/Icons/map-embedded-icon.png" alt="">
-      </div>
-
-      <div class="float-right mr-3">
-        <div class="mt-5 d-inline-block">
-          <div class="">
-            <img src="images/Icons/Icone-Wind.png" alt="" class="icone-size d-inline-block">
-            <p id="wind-captor" class="captors d-inline-block">No informations.</p>
-          </div>
-          <div class="">
-            <img src="images/Icons/Icone-Water.png" alt="" class="icone-size d-inline-block">
-            <p id="humidity-captor" class="captors d-inline-block">No informations.</p>
-          </div>
-          <div class="">
-            <img src="images/Icons/Icone-Barometre.png" alt="" class="icone-size d-inline-block">
-            <p id="pression-captor" class="captors d-inline-block">No informations.</p>
-          </div>
-          <div class="">
-            <img src="images/Icons/Icone-Temperature.png" alt="" class="icone-size d-inline-block">
-            <p id="temperature-captor" class="captors d-inline-block">No informations.</p>
-          </div>
-          <div class="">
-            <img src="images/Icons/Icone-Height.png" alt="" class="icone-size d-inline-block">
-            <p id="altitude-captor" class="captors d-inline-block">No informations.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
+<!--
 
     <div id="map_body" align="center" style="visibility:hidden; flex-grow : 1;">
 

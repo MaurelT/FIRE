@@ -1,0 +1,41 @@
+/* Copyright 2018 F.I.R.Eg
+
+Author : Nicolas FELTEN
+Version : 0.1
+Date : 11/12/2018
+*/
+
+.white-text {
+    color : white;
+}
+
+.white-text:hover {
+    color : white;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+    background-color:  #82373b;
+    border: 1px solid white;
+    border-radius: 5px;
+}
+
+.nav-pills .nav-link:hover {
+    border: 1px solid white;
+    border-radius: 5px;
+}
+
+.input-small {
+    width: 50%;
+}
+
+.btn-submit-form {
+    background-color : transparent;
+    border-color: white;
+    color : white;
+}
+
+.btn-submit-form:hover {
+    background-color : #82373b;
+    border-color: white;
+    color : white;
+}

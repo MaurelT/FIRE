@@ -7,11 +7,17 @@ Date : 15/10/2018
 
 
 #core {
-  background: url("../Images/background.jpeg") no-repeat center fixed;
+  background-color: #202029;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+
+  color: white;
+}
+
+input:focus, textarea:focus, select:focus, a:focus, button:focus {
+    outline:none;
 }
 
 .logo {
@@ -23,20 +29,20 @@ Date : 15/10/2018
 .inputForm {
   background: 0;
   border: 0;
+  color: white;
 }
 
-.btn-style {
-  border: 0;
-  background: 0;
-  color : #6a696c;
+Form .btn-secondary {
+  background-color: #202029!important;
+  border-color: #202029!important;
 }
-
+/*
 .border-line {
   margin: 5px;
   border: 1px solid white;
   border-radius: 5px;
 }
-
+*/
 .btn-style:hover {
   border-bottom: 1px #fff;
 }
