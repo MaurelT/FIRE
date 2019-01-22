@@ -15,11 +15,11 @@ var isMapInit = false;
 
 var id = -1;
 
-$("#switchToCamera").click(function (e) {
+document.getElementById('switchToCamera').click(function (e) {
   window.location.href = '/embedded.html'
 });
 
-$("#switchToMap").click(function (e) {
+document.getElementById('switchToMap').click(function (e) {
     window.location.href = '/embedded-map.html'
     if (!isMapInit) {
       initMap();
