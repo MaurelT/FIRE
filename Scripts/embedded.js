@@ -16,43 +16,22 @@ var isMapInit = false;
 var id = -1;
 
 
-$(document).ready(function() {
-    $("#switchToMap").click(function (e) {
-      window.location.href = 'embedded-map.html'
-  });
-});
+window.onload = function init_triggers() {
+  setCaptors(14, 18, 6, 28, 148);
 
-
-
-$(document).ready(function() {
   $("#switchToCamera").click(function (e) {
     window.location.href = 'embedded.html'
   });
-});
 
-
-
-window.onload = function init_triggers() {
-  setCaptors(14, 18, 6, 28, 148);
-  //initMap();
-  //addMarker(lat, lon) /
-  $("#switch_to_map").click(function(){
-    $("#captor_body").css("visibility", "hidden");
-    $("#body").css('background-image', 'none');
-    $("#body").css('background-color', "#DDDBD5")
-    $("#map_body").css("visibility", "visible");
-    if (!isMapInit) {
-      initMap();
-      addMarker(lat, lon);
-      isMapInit = true
-    }
+  $("#switchToMap").click(function (e) {
+      window.location.href = 'embedded-map.html'
+      if (!isMapInit) {
+        initMap();
+        addMarker(lat, lon);
+        isMapInit = true
+      }
   });
 
-  $("#switch_to_camera").click(function(){
-    $("#map_body").css("visibility", "hidden");
-    $("#captor_body").css("visibility", "visible");
-    $("#body").css('background-image', "url('images/forest_1080.png')");
-  });
 
 
   id = GetCookie("EmbeddedId");
