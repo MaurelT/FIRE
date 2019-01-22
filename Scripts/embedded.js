@@ -15,22 +15,23 @@ var isMapInit = false;
 
 var id = -1;
 
+$("#switchToCamera").click(function (e) {
+  window.location.href = '/embedded.html'
+});
+
+$("#switchToMap").click(function (e) {
+    window.location.href = '/embedded-map.html'
+    if (!isMapInit) {
+      initMap();
+      addMarker(lat, lon);
+      isMapInit = true
+    }
+});
 
 window.onload = function init_triggers() {
   setCaptors(14, 18, 6, 28, 148);
 
-  $("#switchToCamera").click(function (e) {
-    window.location.href = 'embedded.html'
-  });
 
-  $("#switchToMap").click(function (e) {
-      window.location.href = 'embedded-map.html'
-      if (!isMapInit) {
-        initMap();
-        addMarker(lat, lon);
-        isMapInit = true
-      }
-  });
 
 
 
