@@ -16,6 +16,12 @@ Date : 15/10/2018
   color: white;
 }
 
+
+.button-img {
+  background: 0;
+  border: 0;
+}
+
 input:focus, textarea:focus, select:focus, a:focus, button:focus {
     outline:none;
 }
