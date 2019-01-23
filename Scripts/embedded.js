@@ -15,18 +15,18 @@ var isMapInit = false;
 
 var id = -1;
 
-document.getElementById('switchToCamera').click(function (e) {
+document.getElementById('switchToCamera').onclick() = function() {
   window.location.href = '/embedded.html'
-});
+};
 
-document.getElementById('switchToMap').click(function (e) {
+document.getElementById('switchToMap').onclick() = function() {
     window.location.href = '/embedded-map.html'
     if (!isMapInit) {
       initMap();
       addMarker(lat, lon);
       isMapInit = true
     }
-});
+};
 
 window.onload = function init_triggers() {
   setCaptors(14, 18, 6, 28, 148);
