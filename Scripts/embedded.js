@@ -24,7 +24,6 @@ function goToMap() {
 };
 
 window.onload = function init_triggers() {
-  setCaptors(14, 18, 6, 28, 148);
 
 
     initMap();
