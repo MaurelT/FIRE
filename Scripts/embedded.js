@@ -27,11 +27,10 @@ window.onload = function init_triggers() {
   setCaptors(14, 18, 6, 28, 148);
 
 
-  if (!isMapInit) {
     initMap();
     addMarker(lat, lon);
     isMapInit = true
-  }
+
 
   id = GetCookie("EmbeddedId");
   eraseCookie("EmbeddedId");
