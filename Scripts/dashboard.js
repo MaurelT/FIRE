@@ -60,7 +60,6 @@ function createEmbeddedView(embeddedList) {
 
     console.log(embeddedList);
 
-    nbEmbedded = embeddedList.length;
 
     while (i < embeddedList.length) {
         var htmlText = '<div class="container">';
