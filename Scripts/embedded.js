@@ -24,15 +24,6 @@ function goToMap() {
 };
 
 window.onload = function init_triggers() {
-
-
-    initMap();
-    addMarker(lat, lon);
-    isMapInit = true
-
-
-  id = GetCookie("EmbeddedId");
-  eraseCookie("EmbeddedId");
   callEmbedded();
 };
 
