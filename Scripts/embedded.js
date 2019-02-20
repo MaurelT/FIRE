@@ -36,8 +36,44 @@ window.onload = function init_triggers() {
   callEmbedded();
 };
 
-function callEmbedded() {
+function getCookieVal(offset) {
+    var endstr=document.cookie.indexOf (";", offset);
+    if (endstr==-1) endstr=document.cookie.length;
+    return unescape(document.cookie.substring(offset, endstr));
+}
+function GetCookie (name) {
+    var arg=name+"=";
+    var alen=arg.length;
+    var clen=document.cookie.length;
+    var i=0;
+    while (i<clen) {
+        var j=i+alen;
+        if (document.cookie.substring(i, j)==arg) return getCookieVal (j);
+        i=document.cookie.indexOf(" ",i)+1;
+        if (i==0) break;
+    }
+    return null;
+}
 
+
+function callEmbedded() {
+  let userTmp = JSON.parse(GetCookie("UserTmp"));
+  let embeddedId = JSON.parse(GetCookie("EmbeddedId"));
+  let token = userTmp['token'];
+  let data = { embedded_id: embeddedId };
+
+  $.ajax({
+      type: "GET",
+      url: "http://109.255.19.77:81/API/Sensor/sensor.php",
+      headers: {'Authorization': token},
+      dataType: data,
+      success: function(response) {
+        console.log(response);
+      },
+      error: function(XMLHttpRequest, textStatus, errorThrown) {
+          alert("An error happened");
+      }
+  });
 }
 
 
