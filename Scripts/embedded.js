@@ -51,7 +51,7 @@ function callSensor() {
   let userTmp = JSON.parse(GetCookie("UserTmp"));
   let embeddedId = JSON.parse(GetCookie("EmbeddedId"));
   let token = userTmp['token'];
-  let data = { embedded_id: embeddedId };
+  let data = JSON.stringify({embedded_id: embeddedId});
 
   $.ajax({
       type: "GET",
