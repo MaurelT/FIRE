@@ -23,7 +23,7 @@ function goToMap() {
     window.location.href = '/embedded-map.html'
 };
 
-window.onload = function init_triggers() {
+window.onload = function start() {
   callSensor();
 };
 
