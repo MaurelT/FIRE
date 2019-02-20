@@ -24,7 +24,7 @@ function goToMap() {
 };
 
 window.onload = function init_triggers() {
-  callEmbedded();
+  callSensor();
 };
 
 function getCookieVal(offset) {
@@ -47,7 +47,7 @@ function GetCookie (name) {
 }
 
 
-function callEmbedded() {
+function callSensor() {
   let userTmp = JSON.parse(GetCookie("UserTmp"));
   let embeddedId = JSON.parse(GetCookie("EmbeddedId"));
   let token = userTmp['token'];
