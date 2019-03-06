@@ -1,8 +1,14 @@
-window.onload = function Init() {
+var swapcontent = $("#swapcontent");
 
+swapcontent.click(function() {
+    var id = $(this).attr("id");
+    $("#pages div").css("display", "none");
+    $("#pages div#" + id + "").css("display", "block");
+});
+
+window.onload = function Init() {
     initTabOne();
     initTabTwo();
-
 };
 
 var userTableListPage = 0;
