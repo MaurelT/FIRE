@@ -10,9 +10,9 @@ var dataCacheName = "FireData-v0.1";
 var cacheName = "FirePWA-v0.1";
 var filesToCache =  [
   '/',
-  '/index.html',
-  '/scripts/app.js',
-  '/styles/inline.css',
+  '/*',
+  '/scripts/*',
+  '/styles/*',
   '/manifest.json',
 ];
 
@@ -25,4 +25,3 @@ self.addEventListener('install', function(e) {
         })
     );
 });
-

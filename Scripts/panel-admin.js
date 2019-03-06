@@ -1,8 +1,14 @@
-window.onload = function Init() {
+var swapcontent = $("#swapcontent");
 
+swapcontent.click(function() {
+    var id = $(this).attr("id");
+    $("#pages div").css("display", "none");
+    $("#pages div#" + id + "").css("display", "block");
+});
+
+window.onload = function Init() {
     initTabOne();
     initTabTwo();
-
 };
 
 var userTableListPage = 0;
@@ -47,7 +53,7 @@ function initTabOne() {
 
             $.post({
                 type: "POST",
-                url: "http://109.255.19.77:80/FIRE/API/User/create.php",
+                url: "http://109.255.19.77:81/API/User/create.php",
                 headers: {'Authorization': token},
                 data: JSON.stringify(newUser),
                 dataType:"JSON",
@@ -225,7 +231,7 @@ function updateUser() {
 
     $.ajax({
         type: "PUT",
-        url: "http://109.255.19.77:80/FIRE/API/User/update",
+        url: "http://109.255.19.77:81/API/User/update",
         headers: {'Authorization': token},
         data: JSON.stringify(newUser),
         dataType:"JSON",
@@ -251,7 +257,7 @@ function openModal(value) {
 
         $.ajax({
             type: "GET",
-            url: "http://109.255.19.77:80/FIRE/API/User/user.php",
+            url: "http://109.255.19.77:81/API/User/user.php",
             //url: "http://109.255.19.77:80/FIRE/API/Camera/camera",
             headers: {'Authorization': token},
             data: data,
@@ -286,7 +292,7 @@ function callTable() {
 
     $.ajax({
         type: "GET",
-        url: "http://109.255.19.77:80/FIRE/API/User/user.php",
+        url: "http://109.255.19.77:81/API/User/user.php",
         headers: {'Authorization': token},
         dataType:"JSON",
         success: function(response) {
