@@ -15,17 +15,27 @@ var isMapInit = false;
 
 var id = -1;
 
+var callEmbedded = null;
+
 function goToEmbedded() {
   window.location.href = '/embedded.html'
-};
+}
 
 function goToMap() {
     window.location.href = '/embedded-map.html'
-};
+}
 
 window.onload = function start() {
   callSensor();
+
+  second = 1000;
+  callEmbedded = setInterval(callSensor, second * 5);
 };
+
+function stopCallingEmbedded()
+{
+    clearInterval(callEmbedded);
+}
 
 function getCookieVal(offset) {
     var endstr=document.cookie.indexOf (";", offset);
@@ -51,42 +61,81 @@ function callSensor() {
   let userTmp = JSON.parse(GetCookie("UserTmp"));
   let embeddedId = JSON.parse(GetCookie("EmbeddedId"));
   let token = userTmp['token'];
-  let data = JSON.stringify({embedded_id: embeddedId});
+
+  console.log("http://109.255.19.77:81/API/Sensor/sensor.php?embedded_id="+embeddedId+"&quantity=last");
+  console.log(token);
 
   $.ajax({
       type: "GET",
-      url: "http://109.255.19.77:81/API/Sensor/sensor.php",
+      url: "http://109.255.19.77:81/API/Sensor/sensor.php?embedded_id="+embeddedId,
       headers: {'Authorization': token},
-      dataType: data,
       success: function(response) {
-        console.log(response);
+          console.log(response);
+          parseResponse(response);
       },
       error: function(XMLHttpRequest, textStatus, errorThrown) {
-          alert("An error happened");
+        //console.log(textStatus);
+        console.log(errorThrown);
       }
   });
 }
 
+function parseResponse(response) {
+    var cnt = 0;
+    var wind = null;
+    var humi = null;
+    var pression = null;
+    var temp = null;
+    var altitude = null;
+
+
+    response['Sensors'] = response['Sensors'].reverse();
+
+    console.log(response['Sensors']);
+
+
+    while (cnt < response['Sensors'].length) {
+        if (altitude == null && response['Sensors'][cnt]['name'] == 'Altitude')
+            altitude = response['Sensors'][cnt];
+        else if (humi == null && response['Sensors'][cnt]['name'] == 'Humidity')
+            humi = response['Sensors'][cnt];
+        else if (pression == null && response['Sensors'][cnt]['name'] == 'Pression')
+            pression = response['Sensors'][cnt];
+        else if (temp == null && response['Sensors'][cnt]['name'] == 'Temperature')
+            temp = response['Sensors'][cnt];
+        else if (wind == null && response['Sensors'][cnt]['name'] == 'Wind')
+            wind = response['Sensors'][cnt];
+
+        if (altitude != null && humi != null && pression != null && temp != null && wind != null) {
+            cnt = response['Sensors'].length;
+        }
+        cnt += 1;
+    }
+
+    console.log(wind, humi, pression, temp, altitude);
+
+    setCaptors(wind, humi, pression, temp, altitude);
+}
 
 
 function setCaptors(wind, humidity, pression, temperature, altitude) {
   if (wind != null) {
-    document.getElementById("wind-captor").innerHTML = wind + "Km/h";
+    document.getElementById("wind-captor").innerHTML = wind['value'] + wind['unit'];
   }
   if (humidity != null) {
-    document.getElementById("humidity-captor").innerHTML = humidity + "%";
+    document.getElementById("humidity-captor").innerHTML = humidity['value'] + humidity['unit'];
   }
   if (pression != null)
   {
-    document.getElementById("pression-captor").innerHTML = pression + "bars";
+    document.getElementById("pression-captor").innerHTML = pression['value'] + pression['unit'];
   }
   if (temperature != null)
   {
-    document.getElementById("temperature-captor").innerHTML = temperature + "°C";
+    document.getElementById("temperature-captor").innerHTML = temperature['value'] + temperature['unit'];
   }
   if (altitude != null)
   {
-    document.getElementById("altitude-captor").innerHTML = altitude + "m";
+    document.getElementById("altitude-captor").innerHTML = altitude['value'] + altitude['unit'];
   }
 }
 
