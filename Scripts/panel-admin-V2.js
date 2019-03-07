@@ -1,22 +1,35 @@
+$(document).ready(function(){
+    var bc = $('#bc');
+    var divSelected = document.getElementsByClassName('itemPosition');
+    var manageuser = document.getElementById('manageuser');
+    var manageembedded = document.getElementById('manageembedded');
 
-$(document).ready(function() {
+    manageuser.classList.add('selected');
+    bc.load('manageuser.html');
 
-  $("#manageembedded").click(function() {
-    document.getElementById("manageuser").classList.remove("selected");
-    document.getElementById("manageembedded").classList.add("selected");
-    document.getElementById("manageembeddedcontent").classList.remove("unshowcontent");
-    document.getElementById("manageembeddedcontent").classList.add("showcontent");
-    document.getElementById("manageusercontent").classList.remove("showcontent");
-    document.getElementById("manageusercontent").classList.add("unshowcontent");
-  })
+    $('#manageuser').click(function(){
+      removeClass(divSelected, 'selected');
+      manageuser.classList.add('selected');
+      bc.load('manageuser.html');
+    });
 
-  $("#manageuser").click(function() {
-    document.getElementById("manageembedded").classList.remove("selected");
-    document.getElementById("manageuser").classList.add("selected");
-    document.getElementById("manageusercontent").classList.remove("unshowcontent");
-    document.getElementById("manageusercontent").classList.add("showcontent");
-    document.getElementById("manageembeddedcontent").classList.remove("showcontent");
-    document.getElementById("manageembeddedcontent").classList.add("unshowcontent");
-  })
-
+    $('#manageembedded').click(function(){
+      removeClass(divSelected, 'selected');
+      manageembedded.classList.add('selected');
+      bc.load('manageembedded.html');
+    });
 });
+
+function removeClass(divSelected, removeElement) {
+  for(var i=0; i < divSelected.length; i++){
+    var parentElement = divSelected[i];
+    // do something to each parent as needed
+    // access children of parent element
+    var childClassList= parentElement.getElementsByClassName(removeElement);
+    // do something with `childClassList`
+    for (var j= 0; j < childClassList.length; j++){
+      var child = childClassList[j];
+      child.classList.remove("selected");
+    }
+  }
+}
