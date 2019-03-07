@@ -230,8 +230,6 @@ function updateUser() {
     let token = userTmp['token'];
     let newUser = { id:id, name:nom, first_name: prenom, user_name:userName, email:email, rank:rank };
 
-    console.log("updateUser");
-
     $.ajax({
         type: "PUT",
         url: "http://109.255.19.77:81/API/User/update",
@@ -258,8 +256,6 @@ function openModal(value) {
         let token = userTmp['token'];
         let data = { id:value };
 
-        console.log("openModal");
-
         $.ajax({
             type: "GET",
             url: "http://109.255.19.77:81/API/User/user.php",
@@ -280,7 +276,7 @@ function openModal(value) {
 function fillModal(parsedTab, id) {
 
     $('#myModal').modal();
-    if (parsedTabg != null) {
+    if (parsedTab != null) {
         $("#modal_title").text(parsedTab.name + " " + parsedTab.first_name);
         $("#modal-userName").val(parsedTab.user_name);
         $("#modal-prenom").val(parsedTab.name);
@@ -295,9 +291,6 @@ function callTable() {
     let userTmp = JSON.parse(GetCookie("UserTmp"));
     let token = userTmp['token'];
 
-    console.log("calltable");
-
-    console.log("token = " + token);
     $.ajax({
         type: "GET",
         url: "http://109.255.19.77:81/API/User/user.php",
