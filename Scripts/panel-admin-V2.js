@@ -44,6 +44,8 @@ $(document).ready(function(){
           }
         });
       });
+      
+
 });
 
 function removeClass(divSelected, removeElement) {
