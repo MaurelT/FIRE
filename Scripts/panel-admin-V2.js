@@ -5,14 +5,65 @@ $(document).ready(function(){
     var manageembedded = document.getElementById('manageembedded');
 
     manageuser.classList.add('selected');
-    bc.load('manageuser.html');
+    bc.load('manageuser.html', function() {
+        var manageuserembedded = $("#allFacets, #userFacets");
 
-    var manageuserembedded = $("#allFacets, #userFacets");
+        $(function() {
+            manageuserembedded.sortable({
+                connectWith: "ul",
+                placeholder: "placeholder",
+                delay: 150
+            })
+                .disableSelection()
+                .dblclick( function(e){
+                    var item = e.target;
+                    if (e.currentTarget.id === 'allFacets') {
+                        //move from all to user
+                        $(item).fadeOut('fast', function() {
+                            $(item).appendTo($('#userFacets')).fadeIn('slow');
+                        });
+                    } else {
+                        //move from user to all
+                        $(item).fadeOut('fast', function() {
+                            $(item).appendTo($('#allFacets')).fadeIn('slow');
+                        });
+                    }
+                });
+        });
+
+    });
+
 
     $('#manageuser').click(function(){
       removeClass(divSelected, 'selected');
       manageuser.classList.add('selected');
-      bc.load('manageuser.html');
+        bc.load('manageuser.html', function() {
+            var manageuserembedded = $("#allFacets, #userFacets");
+
+            $(function() {
+                manageuserembedded.sortable({
+                    connectWith: "ul",
+                    placeholder: "placeholder",
+                    delay: 150
+                })
+                    .disableSelection()
+                    .dblclick( function(e){
+                        var item = e.target;
+                        if (e.currentTarget.id === 'allFacets') {
+                            //move from all to user
+                            $(item).fadeOut('fast', function() {
+                                $(item).appendTo($('#userFacets')).fadeIn('slow');
+                            });
+                        } else {
+                            //move from user to all
+                            $(item).fadeOut('fast', function() {
+                                $(item).appendTo($('#allFacets')).fadeIn('slow');
+                            });
+                        }
+                    });
+            });
+
+        });
     });
 
     $('#manageembedded').click(function(){
@@ -22,29 +73,6 @@ $(document).ready(function(){
     });
 
 
-    $(function() {
-        manageuserembedded.sortable({
-          connectWith: "ul",
-          placeholder: "placeholder",
-          delay: 150
-        })
-        .disableSelection()
-        .dblclick( function(e){
-          var item = e.target;
-          if (e.currentTarget.id === 'allFacets') {
-            //move from all to user
-            $(item).fadeOut('fast', function() {
-              $(item).appendTo($('#userFacets')).fadeIn('slow');
-            });
-          } else {
-            //move from user to all
-            $(item).fadeOut('fast', function() {
-              $(item).appendTo($('#allFacets')).fadeIn('slow');
-            });
-          }
-        });
-      });
-      
 
 });
 
