@@ -7,6 +7,8 @@ $(document).ready(function(){
     manageuser.classList.add('selected');
     bc.load('manageuser.html');
 
+    var manageuserembedded = $("#allFacets, #userFacets");
+
     $('#manageuser').click(function(){
       removeClass(divSelected, 'selected');
       manageuser.classList.add('selected');
@@ -18,6 +20,30 @@ $(document).ready(function(){
       manageembedded.classList.add('selected');
       bc.load('manageembedded.html');
     });
+
+
+    $(function() {
+        manageuserembedded.sortable({
+          connectWith: "ul",
+          placeholder: "placeholder",
+          delay: 150
+        })
+        .disableSelection()
+        .dblclick( function(e){
+          var item = e.target;
+          if (e.currentTarget.id === 'allFacets') {
+            //move from all to user
+            $(item).fadeOut('fast', function() {
+              $(item).appendTo($('#userFacets')).fadeIn('slow');
+            });
+          } else {
+            //move from user to all
+            $(item).fadeOut('fast', function() {
+              $(item).appendTo($('#allFacets')).fadeIn('slow');
+            });
+          }
+        });
+      });
 });
 
 function removeClass(divSelected, removeElement) {
