@@ -7,6 +7,7 @@ $(document).ready(function(){
     manageuser.classList.add('selected');
     bc.load('manageuser.html', function() {
         initEmbeddedSwitchManager();
+        uniqueSwitchManager($('#usersList'));
     });
 
 
@@ -22,11 +23,31 @@ $(document).ready(function(){
       removeClass(divSelected, 'selected');
       manageembedded.classList.add('selected');
       bc.load('manageembedded.html');
+        initEmbeddedSwitchManager();
     });
 
 
 
 });
+
+function uniqueSwitchManager(switchable) {
+  $(function() {
+      switchable.sortable({
+          connectWith: "ul",
+          placeholder: "placeholder",
+          delay: 150
+      })
+          .disableSelection()
+          .dblclick( function(e){
+              var item = e.target;
+              if (e.currentTarget.id === 'usersList') {
+                $(item).fadeOut('fast', function() {
+                  $(item).appendTo($('#usersList')).fadeIn('slow');
+                });
+              }
+          });
+  });
+}
 
 function initEmbeddedSwitchManager() {
     var manageuserembedded = $("#allFacets, #userFacets");
