@@ -140,13 +140,10 @@ p {
     width: 100%
   }
 
-  .blockembedded {
-    margin: 1.5rem 0 0 0!important;
-  }
-
   .blockinfo {
+      margin-left: 1%;
       margin-top: 1.5rem;
-      width: 100%;
+      width: 98%;
       padding: 15px 15px 80px;
       background-color: #2A2A36;
   }
@@ -154,6 +151,17 @@ p {
   .itemPosition {
     position: relative;
     top: 50%;
+  }
+
+  .blockembeddeduser, .blockmanageuser, .blockembedded {
+    padding: 0px 0px 80px;
+    background-color: #2A2A36;
+    max-height: 360px;
+    overflow-y: overlay;
+    overflow-x: hidden;
+    white-space: nowrap;
+    margin-left: 1%!important;
+    margin-right: 1%!important;
   }
 
 }
