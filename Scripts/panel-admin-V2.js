@@ -72,7 +72,7 @@ function uniqueSwitchManager(switchable) {
       switchable.sortable({
           connectWith: "ul",
           placeholder: "placeholder",
-          delay: 150
+          delay: 150,
       })
           .disableSelection()
           .dblclick( function(e){
@@ -84,6 +84,7 @@ function uniqueSwitchManager(switchable) {
               }
           });
   });
+
 }
 
 function initEmbeddedSwitchManager() {
@@ -101,15 +102,35 @@ function initEmbeddedSwitchManager() {
                 if (e.currentTarget.id === 'allFacets') {
                     //move from all to user
                     $(item).fadeOut('fast', function() {
+                        console.log("Enlever embedded d'un utilisateur DB click");
                         $(item).appendTo($('#userFacets')).fadeIn('slow');
                     });
-                } else {
+                } else if (e.currentTarget.id === 'userFacets' ) {
                     //move from user to all
                     $(item).fadeOut('fast', function() {
+                        console.log("assigner embedded à un utilisateur DB click");
                         $(item).appendTo($('#allFacets')).fadeIn('slow');
                     });
                 }
-            });
+            })
+            .droppable({
+            drop: function(e) {
+
+                var target = e.target;
+                //var item = $(this).data().uiSortable.currentItem[0].id;
+
+
+                //var test = $(this).data().uiSortable.currentItem;
+                //console.log(test);
+
+                if (target.id === 'allFacets') {
+                    console.log("Assigner à utilisateur drop");
+                }
+                else if (target.id === 'userFacets') {
+                    console.log("Désassigner d'un utilisateur drop");
+                }
+            }
+        });
     });
 }
 
