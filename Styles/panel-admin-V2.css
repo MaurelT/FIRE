@@ -37,7 +37,6 @@
 }
 
 .on_off_icon {
-  margin-top: 9%;
   height: 10px;
   border-radius: 20px;
 }
@@ -46,9 +45,18 @@
   font-weight:bold;
 }
 
+.usercreate {
+  background-color: #1C1C22;
+  border-radius: 20px;
+}
+
 .pencil {
   margin-top: 7%;
   margin-left: 5%;
+  height: 20px;
+}
+
+.iconeslist {
   height: 20px;
 }
 
@@ -81,6 +89,11 @@
   border-radius: 50px;
 }
 
+.rprofil {
+  height: 30px;
+  border-radius: 20px;
+}
+
 .selected {
   background-color: #202029;
 }
@@ -90,7 +103,7 @@
   top: 50%;
 }
 
-#manageuser a, #manageembedded a {
+#manageuser a, #manageembedded a, #createuser a {
   margin: 3%;
 }
 
@@ -151,6 +164,10 @@ p {
   .itemPosition {
     position: relative;
     top: 50%;
+  }
+
+  .input-small {
+      width: 50%;
   }
 
   .blockembeddeduser, .blockmanageuser, .blockembedded {
