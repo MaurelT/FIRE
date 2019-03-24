@@ -297,11 +297,11 @@ function callTable() {
         headers: {'Authorization': token},
         dataType:"JSON",
         success: function(response) {
-            console.log(response);
             userList = response['Users'];
             fillTable()
         },
         error: function(XMLHttpRequest, textStatus, errorThrown) {
+            console.log("textStatus : " + textStatus + ", errorThrown : " + errorThrown);
             alert("An error happened");
         }
     });
@@ -310,6 +310,8 @@ function callTable() {
 function fillTable() {
 
     var i = 0;
+
+    console.log(userList);
 
     while (i < 10) {
         let cnt = userTableListPage * 10 + i;
