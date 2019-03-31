@@ -90,8 +90,10 @@ function callApi() {
 function createLineChart() {
     var ctx = document.getElementById("myChart").getContext("2d");
 
-    var dotImage = new Image()
-    dotImage.src ='http://your.site.com/your_image.png';
+    var dotImage = new Image();
+    dotImage.src ='Images/graphic/cross.png';
+    dotImage.height = 16;
+    dotImage.width = 16;
 
     var data = {
         labels: [1, 2, 3, 4, 5],
@@ -100,7 +102,8 @@ function createLineChart() {
                 backgroundColor: "rgba(220,220,220, 0)",
                 borderColor: "#82373b",
                 pointBackgroundColor : "#fff",
-                pointStyle : "cross",
+                //pointStyle : "cross",
+                pointStyle : dotImage,
                 pointRadius: 10,
                 data: [2, 3, 5, 7, 11]
             }
