@@ -6,8 +6,8 @@ Date : 26/10/2018
 */
 
 .map-box {
-  height: 730px;
-
+  width: 800px;
+height: 100px;
 }
 .sensor-box {
   max-width: 440px;
