@@ -71,10 +71,10 @@ function createEmbeddedView(embeddedList) {
         htmlText += '<img class="pin-size" src="Images/pin-pos.png">';
         htmlText += '</div>';
         htmlText += '<div class="col-4 text-center">';
-        htmlText += '<p id="longitude" class="mt-2">43.228160,</p>';
+        htmlText += '<p id="longitude" class="mt-2">43.2281,</p>';
         htmlText += '</div>';
         htmlText += '<div class="col-4 text-center">';
-        htmlText += '<p id="latitude" class="mt-2">5.430091</p>';
+        htmlText += '<p id="latitude" class="mt-2">5.4300</p>';
         htmlText += '</div>';
         htmlText += '</div>';
         htmlText += '<div class="row p-3 mr-2 ml-2">';
