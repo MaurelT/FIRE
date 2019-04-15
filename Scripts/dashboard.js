@@ -62,7 +62,7 @@ function createEmbeddedView(embeddedList) {
 
     nbEmbedded = embeddedList.length;
     while (i < embeddedList.length) {
-        htmlText += '<div class="row">'
+        var htmlText += '<div class="row">'
         htmlText += '<div class="m-3 box-embedded">'
         htmlText += '<div class="m-4">'
         htmlText += '<div id="map' + i + '" class="map-view-image mt-4"></div>'
