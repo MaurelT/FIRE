@@ -20,6 +20,7 @@ Date : 26/10/2018
   position: fixed;
   right: 0;
   top: 5%;
+  z-index: 100;
   max-width: 15%;
 
 }
