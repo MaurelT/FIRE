@@ -62,51 +62,51 @@ function createEmbeddedView(embeddedList) {
 
     nbEmbedded = embeddedList.length;
     while (i < embeddedList.length) {
-        var htmlText += '<div class="row">'
-        htmlText += '<div class="m-3 box-embedded">'
-        htmlText += '<div class="m-4">'
-        htmlText += '<div id="map' + i + '" class="map-view-image mt-4"></div>'
-        htmlText += '</div>'
-        htmlText += '<div class="row p-3 mr-2 ml-2">'
-        htmlText += '<div class="col-4 text-center">'
-        htmlText += '<img class="pin-size" src="Images/pin-pos.png">'
-        htmlText += '</div>'
-        htmlText += '<div class="col-4 text-center">'
-        htmlText += '<p id="longitude" class="mt-2">43.228160,</p>'
-        htmlText += '</div>'
-        htmlText += '<div class="col-4 text-center">'
-        htmlText += '<p id="latitude" class="mt-2">5.430091</p>'
-        htmlText += '</div>'
-        htmlText += '</div>'
-        htmlText += '<div class="row p-3 mr-2 ml-2">'
-        htmlText += '<div class="col-4 text-center">'
-        htmlText += '<img class="pin-size" src="Images/signal-tower.png">'
-        htmlText += '</div>'
-        htmlText += '<div class="col-4 text-center">'
-        htmlText += '<img class="pin-size" src="Images/checked.png">'
-        htmlText += '</div>'
-        htmlText += '<div class="col-4 text-center">'
-        htmlText += '<img class="pin-size" src="Images/cancel.png" style="opacity:0.2;">'
-        htmlText += '</div>'
-        htmlText += '</div>'
-        htmlText += '<div class="row p-3 mr-2 ml-2">'
-        htmlText += '<div class="col-4 text-center">'
-        htmlText += '<img class="pin-size" src="Images/photo-camera.png">'
-        htmlText += '</div>'
-        htmlText += '<div class="col-4 text-center">'
-        htmlText += '<img class="pin-size" src="Images/checked.png">'
-        htmlText += '</div>'
-        htmlText += '<div class="col-4 text-center">'
-        htmlText += '<img class="pin-size" src="Images/cancel.png" style="opacity:0.2;">'
-        htmlText += '</div>'
-        htmlText += '</div>'
-        htmlText += '<div class="text-center mb-3 mt-3">'
-        htmlText += '<button id="details" onClick="goToEmbeddedView('+ embeddedList[i].id +')" type="submit" class="btn btn-secondary float-center">Details</button>'
-        htmlText += '</div>'
-        htmlText += '</div>'
-        htmlText += '</div>'
+        var htmlText += '<div class="row">';
+        htmlText += '<div class="m-3 box-embedded">';
+        htmlText += '<div class="m-4">';
+        htmlText += '<div id="map' + i + '" class="map-view-image mt-4"></div>';
+        htmlText += '</div>';
+        htmlText += '<div class="row p-3 mr-2 ml-2">';
+        htmlText += '<div class="col-4 text-center">';
+        htmlText += '<img class="pin-size" src="Images/pin-pos.png">';
+        htmlText += '</div>';
+        htmlText += '<div class="col-4 text-center">';
+        htmlText += '<p id="longitude" class="mt-2">43.228160,</p>';
+        htmlText += '</div>';
+        htmlText += '<div class="col-4 text-center">';
+        htmlText += '<p id="latitude" class="mt-2">5.430091</p>';
+        htmlText += '</div>';
+        htmlText += '</div>';
+        htmlText += '<div class="row p-3 mr-2 ml-2">';
+        htmlText += '<div class="col-4 text-center">';
+        htmlText += '<img class="pin-size" src="Images/signal-tower.png">';
+        htmlText += '</div>';
+        htmlText += '<div class="col-4 text-center">';
+        htmlText += '<img class="pin-size" src="Images/checked.png">';
+        htmlText += '</div>';
+        htmlText += '<div class="col-4 text-center">';
+        htmlText += '<img class="pin-size" src="Images/cancel.png" style="opacity:0.2;">';
+        htmlText += '</div>';
+        htmlText += '</div>';
+        htmlText += '<div class="row p-3 mr-2 ml-2">';
+        htmlText += '<div class="col-4 text-center">';
+        htmlText += '<img class="pin-size" src="Images/photo-camera.png">';
+        htmlText += '</div>';
+        htmlText += '<div class="col-4 text-center">';
+        htmlText += '<img class="pin-size" src="Images/checked.png">';
+        htmlText += '</div>';
+        htmlText += '<div class="col-4 text-center">';
+        htmlText += '<img class="pin-size" src="Images/cancel.png" style="opacity:0.2;">';
+        htmlText += '</div>';
+        htmlText += '</div>';
+        htmlText += '<div class="text-center mb-3 mt-3">';
+        htmlText += '<button id="details" onClick="goToEmbeddedView('+ embeddedList[i].id +')" type="submit" class="btn btn-secondary float-center">Details</button>';
+        htmlText += '</div>';
+        htmlText += '</div>';
+        htmlText += '</div>';
         $("#bm").append(htmlText);
-        i += 1
+        i += 1;
       }
     initMap();
 }
