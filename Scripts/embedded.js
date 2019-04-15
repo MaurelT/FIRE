@@ -26,6 +26,7 @@ function goToMap() {
 }
 
 window.onload = function start() {
+  initMap();
   callSensor();
 
   second = 1000;
