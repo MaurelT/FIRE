@@ -18,11 +18,13 @@ Date : 15/10/2018
 
 
 .map-view-image {
-  border: 1px solid #82363B;  
+  border: 1px solid #82363B;
   height: 450px;
 }
 
 .button-img {
+  position: fixed;
+  z-index: 100;
   background: 0;
   border: 0;
 }
