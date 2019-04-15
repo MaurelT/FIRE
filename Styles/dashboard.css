@@ -13,34 +13,34 @@ Date : 15/10/2018
   background-size: cover;
 }
 
-
-
 .map-view-image {
   border: 1px solid #82363B;
-  border-radius: 5px;
-  height: 350px;
+  height: 250px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#longitude, #latitude {
+  color: #ffffff;
+  line-height: 0.8rem;
 }
 
 .box-embedded {
-      background-color: #FFFFFF;
-      border: 1px solid #82363B;
-      border-radius: 5px;
-      margin-left: 9.5%;
-      margin-right: 9.5%;
+      position: relative;
+      width: 300px;
+      background-color: #2A2A36;
+      border: 1px solid;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
-
 
 @media (min-width: 768px) {
-.box-embedded {
-  margin-left: 11.5%;
-  margin-right: 11.5%;
-}
-
 }
 
 .btn-secondary {
-  background-color: #9C9C9C!important;
-  border-color: #9C9C9C!important;
+  padding: 0;
+  width: 75%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  background-color: #202029!important;
+  border-color: #202029!important;
 }
 
 .pin-size {
