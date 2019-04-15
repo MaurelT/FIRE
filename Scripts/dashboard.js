@@ -62,8 +62,7 @@ function createEmbeddedView(embeddedList) {
 
     nbEmbedded = embeddedList.length;
     while (i < embeddedList.length) {
-        var htmlText = '<div class="row">';
-        htmlText += '<div class="m-3 box-embedded">';
+        var htmlText += '<div class="m-3 box-embedded">';
         htmlText += '<div class="m-4">';
         htmlText += '<div id="map' + i + '" class="map-view-image mt-4"></div>';
         htmlText += '</div>';
@@ -102,7 +101,6 @@ function createEmbeddedView(embeddedList) {
         htmlText += '</div>';
         htmlText += '<div class="text-center mb-3 mt-3">';
         htmlText += '<button id="details" onClick="goToEmbeddedView('+ embeddedList[i].id +')" type="submit" class="btn btn-secondary float-center">Details</button>';
-        htmlText += '</div>';
         htmlText += '</div>';
         htmlText += '</div>';
         $("#bm").append(htmlText);
