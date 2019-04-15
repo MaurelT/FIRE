@@ -107,6 +107,7 @@ function createEmbeddedView(embeddedList) {
         htmlText += '</div>'
         $("#bm").append(htmlText);
         i += 1
+      }
     initMap();
 }
 
