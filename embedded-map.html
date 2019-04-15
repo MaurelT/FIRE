@@ -25,6 +25,7 @@
 </head>
 
 <body id="core">
+
   <button type="button" class="button-img mt-2 ml-2" data-toggle="modal" data-target="#exampleModal"><img src="Images/Icons/menu.png"></button>
   <div class="container">
       <div class="modal left fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -72,13 +73,47 @@
   <div class="text-center">
     <a href="/embedded.html" class="button-img mt-2 mb-2"><img src="Images/Icons/camera-embedded-icon.png"></a>
   </div>
-    <div class="container">
-      <div class="row">
+      <div class="map-box">
         <div class="mr-auto ml-auto w-100">
-          <div id="map" class="map-view-image mt-5"></div>
+          <div id="map"></div>
         </div>
       </div>
-    </div>
+
+      <div class="sensor-box-embedded">
+        <div class="row m-3">
+          <p class="col" id="wind-captor"> ?? </p>
+          <div class="text-center">
+            <img class="red-icone" src="Images/Icons/Icone-Wind.png">
+          </div>
+        </div>
+
+        <div class="row m-3">
+          <p class="col" id="humidity-captor">10 %</p>
+          <div class="text-center">
+            <img class="green-icone" src="Images/Icons/Icone-Water.png">
+          </div>
+        </div>
+
+        <div class="row m-3">
+          <p class="col" id="pression-captor"> 1 bar</p>
+          <div class="text-center">
+            <img class="green-icone" src="Images/Icons/Icone-Barometre.png">
+          </div>
+        </div>
+
+        <div class="row m-3">
+          <p class="col" id="temperature-captor">21 °C</p>
+          <div class="text-center">
+            <img class="green-icone" src="Images/Icons/Icone-Temperature.png">
+          </div>
+        </div>
+
+        <div class="row m-3">
+          <p class="col" id="altitude-captor">7 m</p>
+          <div class="text-center">
+            <img class="green-icone" src="Images/Icons/Icone-Height.png">
+          </div>
+        </div>
 
 </body>
 
@@ -95,18 +130,3 @@
 
 
 </html>
-
-
-<!--
-
-    <div id="map_body" align="center" style="visibility:hidden; flex-grow : 1;">
-
-      <div align="center">
-        <img id="switch_to_camera" src="images/Icons/camera-embedded-icon.png" alt="" style="z-index: 100">
-      </div>
-
-      <div id="map" class="w-100"  style="height: 720px; z-index: 90" align="center">
-      </div>
-    </div>
-  </div>
-</div> -->

@@ -5,8 +5,22 @@ Version : 0.1
 Date : 26/10/2018
 */
 
+.map-box {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%
+}
+
 .sensor-box {
   max-width: 440px;
+}
+
+.sensor-box-embedded {
+  position: fixed;
+  right: 0;
+  top: 5%;
+
 }
 
 
