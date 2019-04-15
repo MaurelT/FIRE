@@ -61,9 +61,8 @@ function createEmbeddedView(embeddedList) {
     console.log(embeddedList);
 
     nbEmbedded = embeddedList.length;
-
+    var htmlText = '<div class="container">';
     while (i < embeddedList.length) {
-        var htmlText = '<div class="container">';
         htmlText += '<div class="row">'
         htmlText += '<div class="m-3 box-embedded">'
         htmlText += '<div class="m-4">'
@@ -107,12 +106,10 @@ function createEmbeddedView(embeddedList) {
         htmlText += '</div>'
         htmlText += '</div>'
         htmlText += '</div>'
-        htmlText += '</div>'
-
         $("#dashboard").append(htmlText);
-
         i += 1
     }
+    htmlText += '</div>'
     initMap();
 }
 
