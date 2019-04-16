@@ -27,7 +27,7 @@
 .blockembedded {
       margin-top: 1.5rem;
       position: relative;
-      width: 50%;
+      width: 80%;
       padding: 15px 15px 80px;
       background-color: #2A2A36;
 }
@@ -177,6 +177,15 @@ p {
 
   .input-small {
       width: 50%;
+  }
+
+
+  .blockembedded {
+        margin-top: 1.5rem;
+        position: relative;
+        width: 80%;
+        padding: 15px 15px 80px;
+        background-color: #2A2A36;
   }
 
   .blockembeddeduser, .blockmanageuser, .blockembedded {
