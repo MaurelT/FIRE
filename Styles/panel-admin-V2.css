@@ -163,6 +163,13 @@ p {
   background-color: #202029;
 
 }
+
+.map-box {
+    width: 100%;
+    z-index: 50;
+    position: fixed;
+}
+
 /*****************************/
 @media screen and (max-width: 992px) {
   .blocklistcontent  {
