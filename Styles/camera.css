@@ -36,6 +36,15 @@ Date : 26/10/2018
 }
 
 
+.button-img {
+  position: fixed;
+  left: 58%;
+  z-index: 100;
+  background: 0;
+  border: 0;
+}
+
+
 .video-stream {
   max-width: 480px;
   height: 400px;

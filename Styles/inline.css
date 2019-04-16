@@ -22,12 +22,6 @@ Date : 15/10/2018
   height: 450px;
 }
 
-.button-img {
-  position: fixed;
-  z-index: 100;
-  background: 0;
-  border: 0;
-}
 
 input:focus, textarea:focus, select:focus, a:focus, button:focus {
     outline:none;
