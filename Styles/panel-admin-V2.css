@@ -36,10 +36,10 @@
     position: absolute;
     width: 28%;
     right: 20%;
-    margin-top: 1.5rem;
 }
 
 .manageuserembeded, .manageuserlist {
+  margin-top: 1.5rem;
   padding: 0px 0px 80px;
   background-color: #2A2A36;
   max-height: 360px;
