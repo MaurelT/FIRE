@@ -23,10 +23,10 @@ function goToEmbedded() {
 
 function goToMap() {
     window.location.href = '/embedded-map.html'
+    initMap();
 }
 
 window.onload = function start() {
-  initMap();
   callSensor();
 
   second = 1000;

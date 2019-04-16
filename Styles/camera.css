@@ -25,6 +25,19 @@ Date : 26/10/2018
   max-width: 440px;
 }
 
+.sensor-box-camera {
+  background-color: #202029;
+}
+
+
+.btn-secondary {
+  padding: 0;
+  width: 75%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  background-color: #2A2A36!important;
+  border-color: #2A2A36!important;
+}
+
 .sensor-box-embedded {
   position: fixed;
   right: 0;
@@ -34,12 +47,15 @@ Date : 26/10/2018
   color: black;
   line-height: 2rem;
   font-weight: bold;
+
 }
 
 .box-camera {
-  padding: 10px 10px 50px;
-  position: relative;
-  width: 900px;
+  padding: 25px 25px 50px;
+  position: absolute;
+  top:9%;
+  left: 55%;
+  width: 600px;
   background-color: #2A2A36;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
