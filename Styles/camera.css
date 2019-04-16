@@ -36,6 +36,13 @@ Date : 26/10/2018
   font-weight: bold;
 }
 
+.box-camera {
+  padding: 10px 10px 50px;
+  position: relative;
+  width: 900px;
+  background-color: #2A2A36;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
 
 .button-img-2 {
   position: fixed;
