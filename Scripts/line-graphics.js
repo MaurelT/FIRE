@@ -8,6 +8,8 @@ var updateCaptors = null;
 
 var lineChart = null;
 
+var type = "Altitude";
+
 $(document).ready(function() {
 
     var second = 1000;
@@ -15,76 +17,124 @@ $(document).ready(function() {
 
     $(document).on('change','#select_nb_displayed',function(){
         var newVal = $('#select_nb_displayed').val();
-
+        nb_val_displayed = newVal;
         alert(newVal);
-        //TODO rajouter firstCallApi()
+        firstCallApi();
 
     });
-    
-    $('#test').click(function () {
-       if (nb_val_displayed === 15) {
-           nb_val_displayed = 5
-       }
-       else
-           nb_val_displayed = 15;
-       firstCallApi()
+
+    $(document).on('change','#type_displayed',function(){
+        type = $('#type_displayed').val();
     });
+
 
     firstCallApi();
 
 });
 
-function dataManager(response) {
-    switch (nb_val_displayed) {
-        case 5 :
-            console.log(5);
-            break;
+function dataManager(data) {
+    var dataArray = [];
+    var cnt = 0;
+    var fastCnt = 0;
+    console.log(data);
 
-        case 10 :
-            console.log(10);
-            break;
-
-        case 15 :
-            console.log(15);
-            break;
-        case 20 :
-            console.log(20);
-            break;
-
-        case 25 :
-            console.log(25);
-            break;
-
-        default:
-            alert("An error happenend : function dataManager line-graphics.js");
+    while (cnt < nb_val_displayed && fastCnt < data.length) {
+        if (type == data[fastCnt]['name']) {
+            dataArray[cnt] = data[fastCnt];
+            cnt += 1;
+        }
+        fastCnt += 1;
     }
+
+
+    console.log(dataArray);
+
+    createLineChart();
 }
 
 function firstCallApi() {
     last_nb_called = nb_val_displayed;
-    createLineChart();
+
+    let userTmp = JSON.parse(GetCookie("UserTmp"));
+    let embeddedId = JSON.parse(GetCookie("EmbeddedId"));
+    let token = userTmp['token'];
+
+    console.log("http://109.255.19.77:81/API/Sensor/sensor.php?embedded_id="+embeddedId+"&quantity="+ last_nb_called);
+    console.log(token);
+
+    $.ajax({
+        type: "GET",
+        url: "http://109.255.19.77:81/API/Sensor/sensor.php?embedded_id="+embeddedId,
+        headers: {'Authorization': token},
+        success: function(response) {
+            dataManager(response['Sensors']);
+        },
+        error: function(XMLHttpRequest, textStatus, errorThrown) {
+            //console.log(textStatus);
+            console.log(errorThrown);
+        }
+    });
+}
+
+function getCookieVal(offset) {
+    var endstr=document.cookie.indexOf (";", offset);
+    if (endstr==-1) endstr=document.cookie.length;
+    return unescape(document.cookie.substring(offset, endstr));
+}
+function GetCookie (name) {
+    var arg=name+"=";
+    var alen=arg.length;
+    var clen=document.cookie.length;
+    var i=0;
+    while (i<clen) {
+        var j=i+alen;
+        if (document.cookie.substring(i, j)==arg) return getCookieVal (j);
+        i=document.cookie.indexOf(" ",i)+1;
+        if (i==0) break;
+    }
+    return null;
 }
 
 function callApi() {
 
     if (last_nb_called === nb_val_displayed) {
 
-        //Call pour recevoir la dernière data des capteurs.
+        let userTmp = JSON.parse(GetCookie("UserTmp"));
+        let embeddedId = JSON.parse(GetCookie("EmbeddedId"));
+        let token = userTmp['token'];
 
-        var newData = (Math.random() * 100);
-        newData = Math.round(newData) % 11;
+        console.log("http://109.255.19.77:81/API/Sensor/sensor.php?embedded_id="+embeddedId+"&quantity=last");
+        console.log(token);
 
-        removeFirstData(lineChart);
-        addData(lineChart, null, newData);
+        $.ajax({
+            type: "GET",
+            url: "http://109.255.19.77:81/API/Sensor/sensor.php?embedded_id="+embeddedId,
+            headers: {'Authorization': token},
+            success: function(response) {
+                addNewData(response['Sensors']);
+            },
+            error: function(XMLHttpRequest, textStatus, errorThrown) {
+                //console.log(textStatus);
+                console.log(errorThrown);
+            }
+        });
     }
     else {
-        // Call pour recevoir les x dernières data des capteurs (où x = nb_val_displayed)
-        /* Réset toutes les datas du graph */
-        last_nb_called = nb_val_displayed;
-        createLineChart();
+        firstCallApi();
     }
+}
 
-
+function addNewData(sensors) {
+    console.log(sensors);
+    var cnt = 0;
+    while (cnt < sensors.length) {
+        if (type == sensors[cnt]['name']) {
+            removeFirstData(lineChart);
+            addData(lineChart, null, sensors[cnt]['value']);
+            cnt = sensors.length;
+        }
+        cnt += 1;
+    }
 }
 
 function createLineChart() {
