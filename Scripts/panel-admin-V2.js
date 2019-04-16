@@ -292,6 +292,9 @@ function  noEmptyInput() {
 
 // Fonction d'initialisation de la carte
 function initMap() {
+
+  var lat = 43.219839;
+  var lon = 5.520354;
   // Créer l'objet "macarte" et l'insèrer dans l'élément HTML qui a l'ID "map"
   macarte = L.map('map').setView([lat, lon], 11);
   // Leaflet ne récupère pas les cartes (tiles) sur un serveur par défaut. Nous devons lui préciser où nous souhaitons les récupérer. Ici, openstreetmap.fr
