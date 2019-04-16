@@ -33,9 +33,10 @@
 }
 
 .blocklistuser {
-    position: relative;
+    position: absolute;
     width: 28%;
     right: 20%;
+    top:0;
 }
 
 .manageuserembeded, .manageuserlist {
