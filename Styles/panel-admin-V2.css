@@ -192,14 +192,29 @@ p {
       width: 50%;
   }
 
+  .blocklistuser {
+    margin-left: 1%!important;
+    margin-right: 1%!important;
+    position: absolute;
+    width: 98%;
+  }
+
+  .manageuserembeded, .manageuserlist {
+    margin-top: 1.5rem;
+    padding: 0px 0px 80px;
+    background-color: #2A2A36;
+    max-height: 360px;
+
+  }
+
 
   .blockembeddedinfo {
-        margin-left: 1%;
-        margin-top: 1.5rem;
-        position: relative;
-        width: 98%;
-        padding: 15px 15px 80px;
-        background-color: #2A2A36;
+    margin-left: 1%;
+    margin-top: 1.5rem;
+    position: relative;
+    width: 98%;
+    padding: 15px 15px 80px;
+    background-color: #2A2A36;
   }
 
   .blockembeddeduser, .blockmanageuser, .blockembedded {
