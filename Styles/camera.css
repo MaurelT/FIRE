@@ -19,7 +19,8 @@ Date : 26/10/2018
     z-index: 50;
     position: fixed;
     top: 0;
-    left: 18%
+    left: 18%;
+    color: black;
 }
 .sensor-box {
   max-width: 440px;
@@ -46,7 +47,6 @@ Date : 26/10/2018
 #map {
   position: relative;
   height: 940px;
-  max-height: 100%;
   outline: none;
 }
 
