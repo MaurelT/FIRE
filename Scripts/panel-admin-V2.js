@@ -33,6 +33,8 @@ $(document).ready(function(){
       manageembedded.classList.add('selected');
       bc.load('manageembedded.html' , function () {
           initEmbeddedSwitchManager();
+
+              initMap();
         });
     });
 
@@ -62,7 +64,6 @@ $(document).ready(function(){
         });
     });
 
-    initMap();
 
 
 });
