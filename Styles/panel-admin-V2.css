@@ -197,6 +197,7 @@ p {
     margin-right: 1%!important;
     position: absolute;
     width: 98%;
+    right: 0;
   }
 
   .manageuserembeded, .manageuserlist {
