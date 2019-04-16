@@ -4,13 +4,22 @@ Author : Nicolas FELTEN
 Version : 0.1
 Date : 26/10/2018
 */
+.blockleft {
+  position: fixed;
+  left: 0;
+  width: 18%;
+  height: 100%;
+  padding: 15px 15px 80px;
+  background-color: #2A2A36;
+}
 
 .map-box {
-    width: 100%;
+    width: 82%;
     height: 700px;
     z-index: 50;
     position: fixed;
     top: 0;
+    left: 18%
 }
 .sensor-box {
   max-width: 440px;
@@ -34,6 +43,13 @@ Date : 26/10/2018
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
 }
 
+#map {
+  position: relative;
+  height: 940px;
+  max-height: 100%;
+  outline: none;
+}
+
 @media (min-width: 768px) {
   .video-stream {
     height: 560px;
@@ -42,13 +58,13 @@ Date : 26/10/2018
 
 
 .green-icone {
-  border: 1px solid #32BA7C;
+  border: 3px solid #32BA7C;
   border-radius: 35px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
 }
 
 .red-icone {
-  border: 1px solid #82363B;
+  border: 3px solid #82363B;
   border-radius: 35px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
 }
