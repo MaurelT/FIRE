@@ -34,7 +34,6 @@ $(document).ready(function(){
       bc.load('manageembedded.html' , function () {
           initEmbeddedSwitchManager();
         });
-      initMap();
     });
 
     //CONTROLER MOBILE
@@ -63,6 +62,7 @@ $(document).ready(function(){
         });
     });
 
+    initMap();
 
 
 });
