@@ -30,6 +30,7 @@ window.onload = function start() {
 
   second = 1000;
   callEmbedded = setInterval(callSensor, second * 5);
+  initMap();
 };
 
 function stopCallingEmbedded()
