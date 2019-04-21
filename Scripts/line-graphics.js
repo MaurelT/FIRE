@@ -25,8 +25,8 @@ $(document).ready(function() {
 
     $(document).on('change','#type_displayed',function(){
         type = $('#type_displayed').val();
+        firstCallApi();
     });
-
 
     firstCallApi();
 
@@ -49,7 +49,7 @@ function dataManager(data) {
 
     console.log(dataArray);
 
-    createLineChart();
+    createLineChart(dataArray);
 }
 
 function firstCallApi() {
@@ -137,7 +137,30 @@ function addNewData(sensors) {
     }
 }
 
-function createLineChart() {
+function getLabel() {
+    var label = [];
+    var cnt = 0;
+
+    while (cnt < nb_val_displayed) {
+        label[cnt] = cnt + 1;
+        cnt += 1;
+    }
+    return (label);
+}
+
+function fkingtmpFunction() {
+    var tmpArray = [];
+
+    var cnt = 0;
+
+    while (cnt < nb_val_displayed) {
+        tmpArray[cnt] = 0;
+        cnt += 1;
+    }
+    return (tmpArray);
+}
+
+function createLineChart(dataArray) {
     var ctx = document.getElementById("myChart").getContext("2d");
 
     var dotImage = new Image();
@@ -145,8 +168,17 @@ function createLineChart() {
     dotImage.height = 16;
     dotImage.width = 16;
 
+    var label = getLabel();
+
+    console.log("createLineChart");
+    console.log(dataArray);
+
+    /* TODO Changer data: [2, 3, 5, 7, 11] par data: dataArray une fois que le endpoint est fonctionnel */
+
+    var tmpArray = fkingtmpFunction();
+
     var data = {
-        labels: [1, 2, 3, 4, 5],
+        labels: label,
         datasets: [
             {
                 backgroundColor: "rgba(220,220,220, 0)",
@@ -155,7 +187,7 @@ function createLineChart() {
                 //pointStyle : "cross",
                 pointStyle : dotImage,
                 pointRadius: 10,
-                data: [2, 3, 5, 7, 11]
+                data: tmpArray
             }
         ]
     };
