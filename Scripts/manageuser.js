@@ -16,7 +16,7 @@ function openModal(value) {
 
         $.ajax({
             type: "GET",
-            url: "http://109.255.19.77:81/API/User/user.php",
+            url: "http://109.10.72.8:81/API/User/user.php",
             //url: "http://109.255.19.77:80/FIRE/API/Camera/camera",
             headers: {'Authorization': token},
             data: data,

@@ -18,7 +18,7 @@ $(document).ready(function() {
         e.preventDefault();
         $.ajax({
             type: "POST",
-            url: "http://109.255.19.77:81/API/connect.php",
+            url: "http://109.10.72.8:81/API/connect.php",
             data: JSON.stringify({user_name: $("#username").val(), password: $("#password").val()}),
             dataType: "JSON",
             success: function (response) {

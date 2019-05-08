@@ -192,7 +192,7 @@ function initcreateuser() {
 
             $.post({
                 type: "POST",
-                url: "http://109.255.19.77:81/API/User/create.php",
+                url: "http://109.10.72.8:81/API/User/create.php",
                 headers: {'Authorization': token},
                 data: JSON.stringify(newUser),
                 dataType:"JSON",

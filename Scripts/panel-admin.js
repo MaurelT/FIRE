@@ -54,7 +54,7 @@ function initTabOne() {
 
             $.post({
                 type: "POST",
-                url: "http://109.255.19.77:81/API/User/create.php",
+                url: "http://109.10.72.8:81/API/User/create.php",
                 headers: {'Authorization': token},
                 data: JSON.stringify(newUser),
                 dataType:"JSON",
@@ -232,7 +232,7 @@ function updateUser() {
 
     $.ajax({
         type: "PUT",
-        url: "http://109.255.19.77:81/API/User/update",
+        url: "http://109.10.72.8:81/API/User/update",
         headers: {'Authorization': token},
         data: JSON.stringify(newUser),
         dataType:"JSON",
@@ -258,7 +258,7 @@ function openModal(value) {
 
         $.ajax({
             type: "GET",
-            url: "http://109.255.19.77:81/API/User/user.php",
+            url: "http://109.10.72.8:81/API/User/user.php",
             //url: "http://109.255.19.77:80/FIRE/API/Camera/camera",
             headers: {'Authorization': token},
             data: data,
@@ -293,7 +293,7 @@ function callTable() {
 
     $.ajax({
         type: "GET",
-        url: "http://109.255.19.77:81/API/User/user.php",
+        url: "http://109.10.72.8:81/API/User/user.php",
         headers: {'Authorization': token},
         dataType:"JSON",
         success: function(response) {

@@ -63,12 +63,12 @@ function callSensor() {
   let embeddedId = JSON.parse(GetCookie("EmbeddedId"));
   let token = userTmp['token'];
 
-  console.log("http://109.255.19.77:81/API/Sensor/sensor.php?embedded_id="+embeddedId+"&quantity=last");
+  console.log("http://109.10.72.8:81/API/Sensor/sensor.php?embedded_id="+embeddedId+"&quantity=last");
   console.log(token);
 
   $.ajax({
       type: "GET",
-      url: "http://109.255.19.77:81/API/Sensor/sensor.php?embedded_id="+embeddedId,
+      url: "http://109.10.72.8:81/API/Sensor/sensor.php?embedded_id="+embeddedId,
       headers: {'Authorization': token},
       success: function(response) {
           console.log(response);

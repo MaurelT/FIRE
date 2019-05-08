@@ -36,6 +36,8 @@ function dataManager(data) {
     var dataArray = [];
     var cnt = 0;
     var fastCnt = 0;
+
+    console.log("DATA MANAGER :");
     console.log(data);
 
     while (cnt < nb_val_displayed && fastCnt < data.length) {
@@ -59,14 +61,16 @@ function firstCallApi() {
     let embeddedId = JSON.parse(GetCookie("EmbeddedId"));
     let token = userTmp['token'];
 
-    console.log("http://109.255.19.77:81/API/Sensor/sensor.php?embedded_id="+embeddedId+"&quantity="+ last_nb_called);
+    console.log("http://109.10.72.8:81/API/Sensor/sensor.php?embedded_id="+embeddedId+"&quantity="+ last_nb_called);
     console.log(token);
 
     $.ajax({
         type: "GET",
-        url: "http://109.255.19.77:81/API/Sensor/sensor.php?embedded_id="+embeddedId,
+        url: "http://109.10.72.8:81/API/Sensor/sensor.php?embedded_id="+embeddedId+"&quantity="+ last_nb_called,
         headers: {'Authorization': token},
         success: function(response) {
+            console.log("response =");
+            console.log(response);
             dataManager(response['Sensors']);
         },
         error: function(XMLHttpRequest, textStatus, errorThrown) {
@@ -103,12 +107,12 @@ function callApi() {
         let embeddedId = JSON.parse(GetCookie("EmbeddedId"));
         let token = userTmp['token'];
 
-        console.log("http://109.255.19.77:81/API/Sensor/sensor.php?embedded_id="+embeddedId+"&quantity=last");
+        console.log("http://109.10.72.8:81/API/Sensor/sensor.php?embedded_id="+embeddedId+"&quantity="+ 1);
         console.log(token);
 
         $.ajax({
             type: "GET",
-            url: "http://109.255.19.77:81/API/Sensor/sensor.php?embedded_id="+embeddedId,
+            url: "http://109.10.72.8:81/API/Sensor/sensor.php?embedded_id="+embeddedId+"&quantity=1",
             headers: {'Authorization': token},
             success: function(response) {
                 addNewData(response['Sensors']);
@@ -160,6 +164,19 @@ function fkingtmpFunction() {
     return (tmpArray);
 }
 
+function parseData(dataArray) {
+    var newArray = [];
+    var cnt = 0;
+    var n = dataArray.length - 1;
+
+    while (cnt < dataArray.length) {
+        newArray[cnt] = dataArray[n]['value'];
+        cnt += 1;
+        n -= 1;
+    }
+    return (newArray);
+}
+
 function createLineChart(dataArray) {
     var ctx = document.getElementById("myChart").getContext("2d");
 
@@ -173,9 +190,7 @@ function createLineChart(dataArray) {
     console.log("createLineChart");
     console.log(dataArray);
 
-    /* TODO Changer data: [2, 3, 5, 7, 11] par data: dataArray une fois que le endpoint est fonctionnel */
-
-    var tmpArray = fkingtmpFunction();
+    dataArray = parseData(dataArray);
 
     var data = {
         labels: label,
@@ -187,7 +202,7 @@ function createLineChart(dataArray) {
                 //pointStyle : "cross",
                 pointStyle : dotImage,
                 pointRadius: 10,
-                data: tmpArray
+                data: dataArray
             }
         ]
     };
