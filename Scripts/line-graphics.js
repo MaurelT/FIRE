@@ -152,18 +152,6 @@ function getLabel() {
     return (label);
 }
 
-function fkingtmpFunction() {
-    var tmpArray = [];
-
-    var cnt = 0;
-
-    while (cnt < nb_val_displayed) {
-        tmpArray[cnt] = 0;
-        cnt += 1;
-    }
-    return (tmpArray);
-}
-
 function parseData(dataArray) {
     var newArray = [];
     var cnt = 0;
