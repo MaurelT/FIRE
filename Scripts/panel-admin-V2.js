@@ -63,7 +63,8 @@ $(document).ready(function(){
         });
     });
 
-
+    //Récupération all users
+    getAllUsers();
 
 });
 
@@ -304,4 +305,81 @@ function initMap() {
     minZoom: 1,
     maxZoom: 20
   }).addTo(macarte);
+}
+
+var userList = null;
+var userCnt = 0;
+
+function getAllUsers() {
+    let userTmp = JSON.parse(GetCookie("UserTmp"));
+    let token = userTmp['token'];
+
+    $.ajax({
+        type: "GET",
+        url: "http://109.10.72.8:81/API/User/user.php",
+        headers: {'Authorization': token},
+        dataType:"JSON",
+        success: function(response) {
+            userList = response['Users'];
+            fillTable(response['Users']);
+        },
+        error: function(XMLHttpRequest, textStatus, errorThrown) {
+            console.log("textStatus : " + textStatus + ", errorThrown : " + errorThrown);
+            alert("An error happened");
+        }
+    });
+}
+
+function fillTable(users) {
+    console.log("users =");
+    console.log(users);
+
+    var cnt = 0;
+    var test = "";
+    while (cnt < users.length) {
+    test += '<li class="facet"><img class="rprofil m-2" src="Images/Icons/pompier.png" id="profil_photo">'
+        + users[cnt].first_name + ' ' + users[cnt].name +
+        '<img class="on_off_icon m-2" src="Images/Icons/on.png"><img id="' + cnt + '" class="userBut iconeslist m-2" src="Images/Icons/pencil.png"></li>';
+    cnt += 1;
+    }
+    $("#usersList").append(test);
+
+    $(".userBut").click(function () {
+        var i = $(this).attr('id');
+        fillUser(i);
+    });
+
+    initEditProfileManager();
+}
+
+function fillUser(i) {
+    var user = userList[i];
+
+    userCnt = i;
+    console.log("user nb" + i + "=");
+    console.log(user);
+
+    $('#profil-name').text(user.name + ' ' + user.first_name);
+    $('#user-name').text(user.name + ' ' + user.first_name);
+    //$('#user-birthday').text();
+    //$('#user-password').text();
+    $('#user-email').text(user.email);
+    //$('#user-caserne');
+    $('#user-rank').text(user.rank);
+}
+
+function initEditProfileManager() {
+    console.log("test");
+
+    $("#edit_profil").click(function () {
+
+        var user = userList[userCnt];
+
+        $('#myModal').modal();
+        $("#modal-userName").val(user.user_name);
+        $("#modal-prenom").val(user.first_name);
+        $("#modal-nom").val(user.name);
+        $("#modal-email").val(user.email);
+    });
+
 }

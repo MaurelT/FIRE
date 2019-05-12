@@ -1,4 +1,5 @@
 $(document).ready(function(){
+
    $("#edit_profil").click(function () {
        $('#myModal').modal();
    });
