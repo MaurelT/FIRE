@@ -28,7 +28,7 @@ function goToMap() {
 window.onload = function start() {
   callSensor();
 
-  second = 1000;
+  let second = 1000;
   callEmbedded = setInterval(callSensor, second * 5);
   initMap();
   addMarker(lat, lon);
