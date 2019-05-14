@@ -31,6 +31,9 @@ window.onload = function start() {
   second = 1000;
   callEmbedded = setInterval(callSensor, second * 5);
   initMap();
+  addMarker(lat, lon);
+  addCircle(3, lat, lon);
+  //testCircle();
 };
 
 function stopCallingEmbedded()
@@ -162,6 +165,38 @@ function addMarker(lat, lon) {
       popupAnchor: [-3, -76],
     });
   var marker = L.marker([lat, lon], { icon : myIcon}).addTo(macarte);
+}
+
+let  earthRadii = {
+    // The radius of the earth in various units
+    mi: 3963.1676,
+    km: 6378.1,
+    ft: 20925524.9,
+    mt: 6378100,
+    in: 251106299,
+    yd: 6975174.98,
+    fa: 3487587.49,
+    na: 3443.89849,
+    ch: 317053.408,
+    rd: 1268213.63,
+    fr: 31705.3408
+};
+
+function addCircle(radiusInput, lat, lng) {
+
+    var latlng = { lat: lat, lng: lng };
+    var radius = (radiusInput / earthRadii['km']) * earthRadii['mt'];
+    var circle = L.circle(latlng, {
+        color: '#82353b',
+        fillColor: '#82353b',
+        fillOpacity: 0.5,
+        radius: radius
+    }).addTo(macarte);
+    /*
+    circle.addEventListener('contextmenu', function() {
+        macarte.removeLayer(this);
+    });
+    */
 }
 
 function eraseCookie(name) {
