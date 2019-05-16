@@ -65,6 +65,7 @@ $(document).ready(function(){
 
     //Récupération all users
     getAllUsers();
+    initModifUser();
 
 });
 
@@ -368,12 +369,17 @@ function fillUser(i) {
     $('#user-rank').text(user.rank);
 }
 
+var userId = -1;
+
 function initEditProfileManager() {
     console.log("test");
 
     $("#edit_profil").click(function () {
 
         var user = userList[userCnt];
+
+        userId = user.id;
+        console.log("userId = " + userId);
 
         $('#myModal').modal();
         $("#modal-userName").val(user.user_name);
@@ -382,4 +388,38 @@ function initEditProfileManager() {
         $("#modal-email").val(user.email);
     });
 
+}
+
+function initModifUser() {
+
+    $('#modal-save').click( function () {
+        let userTmp = JSON.parse(GetCookie("UserTmp"));
+        let token = userTmp['token'];
+
+        let email = $('#modal-email').val();
+        let nom = $('#modal-nom').val();
+        let prenom = $('#modal-prenom');
+        let userName = $('#modal-userName');
+
+        console.log("userId = " + userId);
+
+        let newUser = { id:userId, name:nom, first_name: prenom, user_name:userName, email:email };
+
+
+
+        $.ajax({
+            type: "PUT",
+            url: "http://109.10.72.8:81/API/User/update",
+            headers: {'Authorization': token},
+            data: JSON.stringify(newUser),
+            dataType:"JSON",
+            success: function(response) {
+                console.log(response);
+                alert("user created");
+                },
+            error: function(XMLHttpRequest, textStatus, errorThrown) {
+                alert("some error");
+            }
+        });
+    });
 }
