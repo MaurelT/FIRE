@@ -18,7 +18,7 @@ $(document).ready(function() {
         e.preventDefault();
 
         window.location.href = 'dashboard.html';
-        /*
+
         $.ajax({
             type: "POST",
             url: "http://109.10.72.8:81/API/connect.php",
@@ -29,7 +29,7 @@ $(document).ready(function() {
                 document.cookie = "UserTmp" + "=" + JSON.stringify(response) +  deadTime + ";path=/";
                 window.location.href = 'dashboard.html';
             },
-        }); */
+        });
     });
 });
 
