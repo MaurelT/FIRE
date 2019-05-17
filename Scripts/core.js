@@ -19,7 +19,7 @@ $(document).ready(function() {
 
         $.ajax({
             type: "POST",
-            url: "http://109.10.72.8:81/API/connect.php",
+            url: "https://www.theia-project-api.fr/connect.php",
             data: JSON.stringify({user_name: $("#username").val(), password: $("#password").val()}),
             dataType: "JSON",
             success: function (response) {

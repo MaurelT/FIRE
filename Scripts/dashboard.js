@@ -42,7 +42,7 @@ function callEmbedded() {
 
     $.ajax({
         type: "GET",
-        url: "http://109.10.72.8:81/API/Embedded/embedded.php",
+        url: "https://www.theia-project-api.fr/Embedded/embedded.php",
         //url: "http://109.255.19.77:80/FIRE/API/Camera/camera",
         headers: {'Authorization': token},
         dataType:"JSON",
