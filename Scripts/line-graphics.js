@@ -29,7 +29,6 @@ $(document).ready(function() {
     });
 
     firstCallApi();
-
 });
 
 function dataManager(data) {
