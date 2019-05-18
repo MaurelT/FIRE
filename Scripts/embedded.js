@@ -27,6 +27,8 @@ function goToMap() {
     window.location.href = '/embedded-map'
 }
 
+
+
 window.onload = function start() {
   callSensor();
 
@@ -36,6 +38,11 @@ window.onload = function start() {
   addMarker(lat, lon);
   addCircle(3, lat, lon);
   //testCircle();
+
+  $('goToGraphics').click(function() {
+    window.location.href = '/graphics'
+  });
+  
 };
 
 function stopCallingEmbedded()
