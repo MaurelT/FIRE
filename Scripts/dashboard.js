@@ -11,6 +11,8 @@ var lon = 5.520354;
 var nbEmbedded = 0;
 var mapList = new Array();
 
+var ApiUrl = "https://www.theia-project-api.fr/";
+
 window.onload = function start() {
     //initMap();
     callEmbedded();
@@ -42,7 +44,7 @@ function callEmbedded() {
 
     $.ajax({
         type: "GET",
-        url: "https://www.theia-project-api.fr/Embedded/embedded.php",
+        url: ApiUrl + "Embedded/embedded.php",
         //url: "http://109.255.19.77:80/FIRE/API/Camera/camera",
         headers: {'Authorization': token},
         dataType:"JSON",

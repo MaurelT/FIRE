@@ -10,6 +10,8 @@ var lineChart = null;
 
 var type = "Altitude";
 
+var ApiUrl = "https://www.theia-project-api.fr/";
+
 $(document).ready(function() {
 
     var second = 1000;
@@ -60,12 +62,12 @@ function firstCallApi() {
     let embeddedId = JSON.parse(GetCookie("EmbeddedId"));
     let token = userTmp['token'];
 
-    console.log("http://109.10.72.8:81/API/Sensor/sensor.php?embedded_id="+embeddedId+"&quantity="+ last_nb_called);
+    console.log(ApiUrl + "Sensor/sensor.php?embedded_id="+embeddedId+"&quantity="+ last_nb_called);
     console.log(token);
 
     $.ajax({
         type: "GET",
-        url: "http://109.10.72.8:81/API/Sensor/sensor.php?embedded_id="+embeddedId+"&quantity="+ last_nb_called,
+        url: ApiUrl + "Sensor/sensor.php?embedded_id="+embeddedId+"&quantity="+ last_nb_called,
         headers: {'Authorization': token},
         success: function(response) {
             console.log("response =");
@@ -106,12 +108,12 @@ function callApi() {
         let embeddedId = JSON.parse(GetCookie("EmbeddedId"));
         let token = userTmp['token'];
 
-        console.log("http://109.10.72.8:81/API/Sensor/sensor.php?embedded_id="+embeddedId+"&quantity="+ 1);
+        console.log(ApiUrl + "Sensor/sensor.php?embedded_id="+embeddedId+"&quantity="+ 1);
         console.log(token);
 
         $.ajax({
             type: "GET",
-            url: "http://109.10.72.8:81/API/Sensor/sensor.php?embedded_id="+embeddedId+"&quantity=1",
+            url: ApiUrl + "Sensor/sensor.php?embedded_id="+embeddedId+"&quantity=1",
             headers: {'Authorization': token},
             success: function(response) {
                 addNewData(response['Sensors']);

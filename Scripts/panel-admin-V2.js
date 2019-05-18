@@ -1,3 +1,5 @@
+var ApiUrl = "https://www.theia-project-api.fr/";
+
 $(document).ready(function(){
 
     //CONTROLER DESKTOP
@@ -194,7 +196,7 @@ function initcreateuser() {
 
             $.post({
                 type: "POST",
-                url: "http://109.10.72.8:81/API/User/create.php",
+                url: ApiUrl + "User/create.php",
                 headers: {'Authorization': token},
                 data: JSON.stringify(newUser),
                 dataType:"JSON",
@@ -317,7 +319,7 @@ function getAllUsers() {
 
     $.ajax({
         type: "GET",
-        url: "http://109.10.72.8:81/API/User/user.php",
+        url: ApiUrl + "User/user.php",
         headers: {'Authorization': token},
         dataType:"JSON",
         success: function(response) {
@@ -398,8 +400,8 @@ function initModifUser() {
 
         let email = $('#modal-email').val();
         let nom = $('#modal-nom').val();
-        let prenom = $('#modal-prenom');
-        let userName = $('#modal-userName');
+        let prenom = $('#modal-prenom').val();
+        let userName = $('#modal-userName').val();
 
         console.log("userId = " + userId);
 
@@ -409,16 +411,17 @@ function initModifUser() {
 
         $.ajax({
             type: "PUT",
-            url: "http://109.10.72.8:81/API/User/update",
+            url: ApiUrl + "User/update",
             headers: {'Authorization': token},
             data: JSON.stringify(newUser),
             dataType:"JSON",
             success: function(response) {
                 console.log(response);
-                alert("user created");
+                $('#usersList').empty();
+                getAllUsers();
                 },
             error: function(XMLHttpRequest, textStatus, errorThrown) {
-                alert("some error");
+                alert("Failed to update user: " + errorThrown);
             }
         });
     });
