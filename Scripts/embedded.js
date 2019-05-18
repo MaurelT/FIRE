@@ -15,14 +15,16 @@ var isMapInit = false;
 
 var id = -1;
 
+var ApiUrl = "https://www.theia-project-api.fr/";
+
 var callEmbedded = null;
 
 function goToEmbedded() {
-  window.location.href = '/embedded.html'
+  window.location.href = '/embedded'
 }
 
 function goToMap() {
-    window.location.href = '/embedded-map.html'
+    window.location.href = '/embedded-map'
 }
 
 window.onload = function start() {
@@ -66,12 +68,12 @@ function callSensor() {
   let embeddedId = JSON.parse(GetCookie("EmbeddedId"));
   let token = userTmp['token'];
 
-  console.log("http://109.10.72.8:81/API/Sensor/sensor.php?embedded_id="+embeddedId+"&quantity=last");
+  console.log(ApiUrl + "Sensor/sensor.php?embedded_id="+embeddedId+"&quantity=last");
   console.log(token);
 
   $.ajax({
       type: "GET",
-      url: "http://109.10.72.8:81/API/Sensor/sensor.php?embedded_id="+embeddedId,
+      url: ApiUrl + "Sensor/sensor.php?embedded_id="+embeddedId,
       headers: {'Authorization': token},
       success: function(response) {
           console.log(response);
