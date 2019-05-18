@@ -14,6 +14,11 @@ var ApiUrl = "https://www.theia-project-api.fr/";
 
 $(document).ready(function() {
 
+    var canvas = document.querySelector('canvas');
+
+    fitToContainer(canvas);
+
+
     var second = 1000;
     updateCaptors = setInterval(callApi, second * 5);
 
@@ -31,8 +36,15 @@ $(document).ready(function() {
     });
 
     firstCallApi();
-
 });
+
+
+function fitToContainer(canvas){
+  canvas.style.width='100%';
+  canvas.style.height='100%';
+  canvas.width  = canvas.offsetWidth;
+  canvas.height = canvas.offsetHeight;
+}
 
 function dataManager(data) {
     var dataArray = [];
