@@ -29,7 +29,7 @@ function goToMap() {
 
 
 $(document).ready(function() {
-  $('goToGraphics').click(function() {
+  $('#goToGraphics').click(function() {
     window.location.href = '/graphics'
   });
 });
