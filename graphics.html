@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="styles/inline.css">
+    <link rel="stylesheet" type="text/css" href="styles/navabar.css">
+    <link rel="stylesheet" type="text/css" href"styles/graphics.css">
+</head>
+<body>
+
+  <div class="form-group">
+      <label for="select_nb_displayed">Select number of value</label>
+      <select class="form-control" id="select_nb_displayed">
+          <option>5</option>
+          <option>10</option>
+          <option>15</option>
+          <option>20</option>
+          <option>25</option>
+      </select>
+  </div>
+
+  <div class="form-group">
+      <label for="type_displayed">Select number of value</label>
+      <select class="form-control" id="type_displayed">
+          <option>Altitude</option>
+          <option>Humidity</option>
+          <option>Pression</option>
+          <option>Temperature</option>
+          <option>Wind</option>
+      </select>
+  </div>
+
+<div class="graphics">
+    <canvas id="myChart" width="400" height="400" class="graphics-size"></canvas>
+</div>
+
+
+</body>
+
+
+<script src="scripts/jquery-3.3.1.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.7.2/dist/Chart.bundle.min.js"></script>
+<script src="Scripts/line-graphics.js"></script>
+
+</html>
