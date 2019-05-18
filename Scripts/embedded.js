@@ -27,6 +27,10 @@ function goToMap() {
     window.location.href = '/embedded-map'
 }
 
+$('goToGraphics').click(function() {
+  window.location.href = '/graphics'
+}
+
 window.onload = function start() {
   callSensor();
 
