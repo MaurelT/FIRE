@@ -66,6 +66,11 @@ $(document).ready(function(){
     });
 
     //Récupération all users
+
+    $('#manageuser').click( function () {
+        getAllUsers();
+    });
+
     getAllUsers();
     initModifUser();
 
@@ -341,7 +346,7 @@ function fillTable(users) {
     var test = "";
     while (cnt < users.length) {
     test += '<li class="facet"><img class="rprofil m-2" src="Images/Icons/pompier.png" id="profil_photo">'
-        + users[cnt].first_name + ' ' + users[cnt].name +
+        + users[cnt].user_name +
         '<img class="on_off_icon m-2" src="Images/Icons/on.png"><img id="' + cnt + '" class="userBut iconeslist m-2" src="Images/Icons/pencil.png"></li>';
     cnt += 1;
     }
@@ -359,13 +364,13 @@ function fillUser(i) {
     var user = userList[i];
 
     userCnt = i;
-    console.log("user nb" + i + "=");
+    console.log("user nb=" + i);
     console.log(user);
 
-    $('#profil-name').text(user.name + ' ' + user.first_name);
-    $('#user-name').text(user.name + ' ' + user.first_name);
+    $('#profil-name').text(user.user_name);
+    $('#user-name').text(user.name);
     //$('#user-birthday').text();
-    //$('#user-password').text();
+    $('#user-first-name').text(user.first_name)
     $('#user-email').text(user.email);
     //$('#user-caserne');
     $('#user-rank').text(user.rank);
@@ -374,8 +379,6 @@ function fillUser(i) {
 var userId = -1;
 
 function initEditProfileManager() {
-    console.log("test");
-
     $("#edit_profil").click(function () {
 
         var user = userList[userCnt];
