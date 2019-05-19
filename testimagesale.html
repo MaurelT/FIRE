@@ -6,7 +6,19 @@
 </head>
 <body>
 
-<img src="fire_serv/Camera.png">
+<img id="test" src="fire_serv/Camera.png">
 
 </body>
 </html>
+
+<script src="scripts/jquery-3.3.1.min.js"></script>
+<script>
+    $(document).ready(function() {
+        let second = 1000;
+        callEmbedded = setInterval(updateImage, second);
+    });
+
+    function updateImage() {
+        $('#test').attr({ "src": "fire_serv/Camera.png" });
+    }
+</script>

@@ -21,33 +21,48 @@ $(document).ready(function() {
 
         var error = 0;
 
-        let userName = $('#username').val();
-        let password = $('#password').val();
+        var usernameInput = $('#username');
+        var passwordInput = $('#password');
 
-        if (userName == '') {
-            $('#username').css('border', '1px solid red');
-            $('#username').removeClass('border-bottom');
+        let userName = usernameInput.val();
+        let password = passwordInput.val();
+
+        if (userName === '') {
+            usernameInput.css('border', '1px solid red');
+            usernameInput.removeClass('border-bottom');
             $('#username-error').css('display', 'inline-block');
             error += 1
         }
-        if (password == '') {
-            $('#password').css('border', '1px solid red');
-            $('#password').removeClass('border-bottom');
+        if (password === '') {
+            passwordInput.css('border', '1px solid red');
+            passwordInput.removeClass('border-bottom');
             $('#password-error').css('display', 'inline-block');
             error += 1
         }
 
-        if (error == 0) {
+        if (error === 0) {
             $.ajax({
                 type: "POST",
                 url: "https://www.theia-project-api.fr/connect.php",
-                data: JSON.stringify({user_name: $("#username").val(), password: $("#password").val()}),
+                data: JSON.stringify({user_name: usernameInput.val(), password: passwordInput.val()}),
                 dataType: "JSON",
                 success: function (response) {
-                    deadTime = setExpTime();
-                    document.cookie = "UserTmp" + "=" + JSON.stringify(response) +  deadTime + ";path=/";
-                    window.location.href = 'dashboard.html';
+
+                    if (response['error'] == null) {
+                        deadTime = setExpTime();
+                        document.cookie = "UserTmp" + "=" + JSON.stringify(response) +  deadTime + ";path=/";
+                        window.location.href = 'dashboard.html';
+                    }
+                    else {
+                        usernameInput.css('border', '1px solid red');
+                        usernameInput.removeClass('border-bottom');
+                        passwordInput.css('border', '1px solid red');
+                        passwordInput.removeClass('border-bottom');
+                    }
                 },
+                error: function(XMLHttpRequest, textStatus, errorThrown) {
+                    alert("Failed to update user: " + errorThrown);
+                }
             });
 
         }
