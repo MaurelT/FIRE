@@ -43,10 +43,16 @@ Date : 15/10/2018
       <div class="text-center">
         <input type="text" placeholder="Nom d'utilisateur" class="inputForm border-bottom m-3" id="username">
       </div>
+      <div id="username-error" class="form-group" style="display: none;">
+        <p style="color:red">Vous devez écrire votre nom d'utilisateur.</p>
+      </div>
     </div>
     <div class="form-group">
       <div class="text-center">
         <input type="password" placeholder="Mot de passe" value="" class="inputForm border-bottom m-3" id="password">
+      </div>
+      <div id="password-error" class="text-center form-group" style="display: none;">
+        <p style="color:red">Vous devez écrire votre mot de passe.</p>
       </div>
     </div>
   </form>

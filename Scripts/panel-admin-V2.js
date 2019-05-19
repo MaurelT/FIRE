@@ -391,6 +391,7 @@ function initEditProfileManager() {
         $("#modal-prenom").val(user.first_name);
         $("#modal-nom").val(user.name);
         $("#modal-email").val(user.email);
+        $('#error').css('display', 'none');
     });
 
 }
@@ -408,24 +409,30 @@ function initModifUser() {
 
         console.log("userId = " + userId);
 
-        let newUser = { id:userId, name:nom, first_name: prenom, user_name:userName, email:email };
+        console.log(email + "+" + nom + "+" + prenom + "+" + userName + "FIN");
 
-
-
-        $.ajax({
-            type: "PUT",
-            url: ApiUrl + "User/update",
-            headers: {'Authorization': token},
-            data: JSON.stringify(newUser),
-            dataType:"JSON",
-            success: function(response) {
-                console.log(response);
-                $('#usersList').empty();
-                getAllUsers();
+        if (email != "" && nom != "" && prenom != "" && userName != "") {
+            let newUser = { id:userId, name:nom, first_name: prenom, user_name:userName, email:email };
+            $.ajax({
+                type: "PUT",
+                url: ApiUrl + "User/update",
+                headers: {'Authorization': token},
+                data: JSON.stringify(newUser),
+                dataType:"JSON",
+                success: function(response) {
+                    console.log(response);
+                    $('#myModal').modal('toggle');
+                    $('#usersList').empty();
+                    getAllUsers();
                 },
-            error: function(XMLHttpRequest, textStatus, errorThrown) {
-                alert("Failed to update user: " + errorThrown);
-            }
-        });
+                error: function(XMLHttpRequest, textStatus, errorThrown) {
+                    alert("Failed to update user: " + errorThrown);
+                }
+            });
+        }
+        else {
+            $('#error').css('display', 'inline-block');
+        }
+
     });
 }
