@@ -41,7 +41,7 @@ window.onload = function start() {
   callEmbedded = setInterval(callSensor, second * 5);
   initMap();
   addMarker(lat, lon);
-  addCircle(3, lat, lon);
+  addCircle(5, lat, lon);
   //testCircle();
 
 };
