@@ -28,6 +28,11 @@ function goToMap() {
 }
 
 
+$(document).ready(function() {
+  $('#goToGraphics').click(function() {
+    window.location.href = '/graphics'
+  });
+});
 
 window.onload = function start() {
   callSensor();
@@ -39,10 +44,6 @@ window.onload = function start() {
   addCircle(3, lat, lon);
   //testCircle();
 
-  $('goToGraphics').click(function() {
-    window.location.href = '/graphics'
-  });
-  
 };
 
 function stopCallingEmbedded()
