@@ -19,8 +19,10 @@ var ApiUrl = "https://www.theia-project-api.fr/";
 window.onload = function start() {
     //initMap();
 
+    tutoSwitch = GetCookie('fire-tuto');
+
     if (tutoSwitch == null) {
-        tutoSwitch = true;
+        tutoSwitch = "true";
     }
 
     callEmbedded();
@@ -76,7 +78,7 @@ function createEmbeddedView(embeddedList) {
         htmlText += '<div class="m-4">';
 
         htmlText += '<div class="row">';
-        if (tutoSwitch == true) {
+        if (tutoSwitch == "true") {
             console.log("affichées");
             htmlText += '<a class="infobulle" style="float:right;display: flex;">';
         } else {
