@@ -33,26 +33,27 @@ self.addEventListener('activate', function(event) {
 });
 
 self.addEventListener('fetch', function(event) {
-    console.log('Fetch event for ', event.request.url);
-    event.respondWith(
-      caches.match(event.request).then(function(response) {
+  event.respondWith(
+    caches.match(event.request)
+      .then(function(response) {
         if (response) {
-          console.log('Found ', event.request.url, ' in cache');
-          return response;
+          return response;     // if valid response is found in cache return it
+        } else {
+          return fetch(event.request)     //fetch from internet
+            .then(function(res) {
+              return caches.open(CACHE_DYNAMIC_NAME)
+                .then(function(cache) {
+                  cache.put(event.request.url, res.clone());    //save the response for future
+                  return res;   // return the fetched data
+                })
+            })
+            .catch(function(err) {       // fallback mechanism
+              return caches.open(CACHE_CONTAINING_ERROR_MESSAGES)
+                .then(function(cache) {
+                  return cache.match('/offline.html');
+                });
+            });
         }
-        console.log('Network request for ', event.request.url);
-        return fetch(event.request).then(function(response) {
-          if (response.status === 404) {
-            return caches.match('index.html');
-          }
-          return caches.open(cached_urls).then(function(cache) {
-           cache.put(event.request.url, response.clone());
-            return response;
-          });
-        });
-      }).catch(function(error) {
-        console.log('Error, ', error);
-        return caches.match('index.html');
       })
-    );
-  });
+  );
+});
