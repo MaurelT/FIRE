@@ -9,6 +9,12 @@ $(document).ready(function(){
 
     updateCookie();
     checkCookie = setInterval(updateCookie, second * 5);
+
+    $('#menu-deconnexion').click(function () {
+       eraseCookie('UserTmp');
+       eraseCookie('EmbeddedId');
+       window.location.href = "index";
+    });
 });
 
 function updateCookie() {
