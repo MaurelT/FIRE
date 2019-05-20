@@ -54,11 +54,12 @@ Date : 26/10/2018
   padding: 25px 25px 50px;
   position: absolute;
   top:9%;
-  left: 35%;
-  width: 630px;
+  margin-left: 5%;
+  margin-right: 5%;
   background-color: #2A2A36;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
+
 
 .button-img-2 {
   position: fixed;
@@ -87,16 +88,17 @@ Date : 26/10/2018
   .video-stream {
     height: 560px;
   }
-
+  
   .box-camera {
     padding: 25px 25px 50px;
     position: absolute;
     top:9%;
-    margin-left: 5%;
-    margin-right: 5%;
+    left: 35%;
+    width: 630px;
     background-color: #2A2A36;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   }
+
 }
 
 
