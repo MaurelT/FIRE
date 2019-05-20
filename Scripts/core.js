@@ -51,7 +51,7 @@ $(document).ready(function() {
                     if (response['error'] == null) {
                         deadTime = setExpTime();
                         document.cookie = "UserTmp" + "=" + JSON.stringify(response) +  deadTime + ";path=/";
-                        window.location.href = 'dashboard.html';
+                        window.location.href = 'dashboard';
                     }
                     else {
                         usernameInput.css('border', '1px solid red');

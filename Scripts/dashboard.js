@@ -113,7 +113,7 @@ function createEmbeddedView(embeddedList) {
 
 function goToEmbeddedView(id) {
     document.cookie = "EmbeddedId" + "=" + id + ";path=/";
-    window.location.href = 'embedded.html';
+    window.location.href = 'embedded';
 }
 
 function initMap() {

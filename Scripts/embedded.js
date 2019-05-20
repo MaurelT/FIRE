@@ -20,29 +20,46 @@ var ApiUrl = "https://www.theia-project-api.fr/";
 var callEmbedded = null;
 
 function goToEmbedded() {
-  window.location.href = '/embedded'
+  window.location.href = 'embedded'
 }
 
 function goToMap() {
-    window.location.href = '/embedded-map'
+    window.location.href = 'embedded-map'
 }
 
 
 $(document).ready(function() {
   $('#goToGraphics').click(function() {
-    window.location.href = '/graphics'
+    window.location.href = 'graphics'
   });
 });
 
 window.onload = function start() {
-  callSensor();
 
+    /* Appelez fonction liées aux 2 fichiers ici. */
+  callSensor();
   let second = 1000;
   callEmbedded = setInterval(callSensor, second * 5);
-  initMap();
-  addMarker(lat, lon);
-  addCircle(5, lat, lon);
-  //testCircle();
+
+
+  let pathname = window.location.pathname;
+  if (pathname.includes('embedded-map')) {
+
+      /* Appelez fonction pour le fichier embedded-map.html ici */
+
+      initMap();
+      addMarker(lat, lon);
+      addCircle(5, lat, lon);
+      //testCircle();
+
+  } else {
+
+      /* Appelez fonction pour le fichier embedded.html ici */
+
+      console.log("embedded");
+
+  }
+
 
 };
 
