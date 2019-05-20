@@ -1,3 +1,7 @@
+.infobulle {
+  display: block;
+}
+
 a {
   color:#ccc;
   text-shadow:0 -1px 0 black;
@@ -7,7 +11,7 @@ a span {
   position:absolute;
   margin-top:23px;
   margin-left:-35px;
-  color: #82363B;
+  color: #fff;
   background:rgba(0,0,0,.9);
   padding:15px;
   border-radius:3px;
