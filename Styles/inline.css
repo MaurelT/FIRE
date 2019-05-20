@@ -24,6 +24,11 @@ Date : 15/10/2018
   border: 0;
 }
 
+.button-menu {
+  background: 0;
+  border: 0;
+}
+
 
 .map-view-image {
   border: 1px solid #82363B;
