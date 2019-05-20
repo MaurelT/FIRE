@@ -3,6 +3,7 @@
 }
 
 a {
+  position: absolute;
   color:#ccc;
   text-shadow:0 -1px 0 black;
 }
@@ -23,7 +24,8 @@ a span {
 
 a:hover, a:focus {
   background:rgba(0,0,0,.4);
-  box-shadow:0 1px 0 rgba(255,255,255,.4);
+  box-shadow:0 5px 0 rgb(32, 32, 41);
+  border-radius:32px;
 }
 
 
