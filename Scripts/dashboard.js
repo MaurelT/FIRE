@@ -78,7 +78,6 @@ function createEmbeddedView(embeddedList) {
         htmlText += '<div class="m-4">';
 
         htmlText += '<div class="row">';
-        htmlText += '<div class="col-md-12">';
         if (tutoSwitch == true) {
             console.log("affichées");
             htmlText += '<a class="infobulle" style="float:right;display: flex;">';
@@ -91,7 +90,6 @@ function createEmbeddedView(embeddedList) {
         htmlText += 'Vous pouvez voir sa position sur la carte, c\'est coordonées GPS \n';
         htmlText += 'ainsi que l\'activité des capteurs et de la caméra.</span></a>';
 
-        htmlText += '</div>';
         htmlText += '</div>';
 
         htmlText += '<div id="map' + i + '" class="map-view-image mt-4"></div>';
