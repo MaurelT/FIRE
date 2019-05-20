@@ -88,7 +88,7 @@ Form .btn-secondary {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #2a2a36;
+  background-color: #82363B;
   -webkit-transition: .4s;
   transition: .4s;
 }
@@ -100,17 +100,17 @@ Form .btn-secondary {
   width: 26px;
   left: 4px;
   bottom: 4px;
-  background-color: #32BA7C;
+  background-color: #2a2a36;
   -webkit-transition: .4s;
   transition: .4s;
 }
 
 input:checked + .slider {
-  background-color: #82363B;
+  background-color: #32BA7C;
 }
 
 input:focus + .slider {
-  box-shadow: 0 0 1px #82363B;
+  box-shadow: 0 0 1px #32BA7C;
 }
 
 input:checked + .slider:before {
