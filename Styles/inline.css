@@ -112,7 +112,7 @@ input:checked + .slider {
 }
 
 input:focus + .slider {
-  box-shadow: 0 0 1px #2a2a36;
+  box-shadow: 0 0 1px #32BA7C;
 }
 
 input:checked + .slider:before {
