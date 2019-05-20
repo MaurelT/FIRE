@@ -88,7 +88,10 @@ Date : 26/10/2018
   .video-stream {
     height: 560px;
   }
-  
+}
+
+@media (min-width: 980px) {
+
   .box-camera {
     padding: 25px 25px 50px;
     position: absolute;
@@ -100,6 +103,8 @@ Date : 26/10/2018
   }
 
 }
+
+
 
 
 .green-icone {
