@@ -19,10 +19,8 @@ var ApiUrl = "https://www.theia-project-api.fr/";
 window.onload = function start() {
     //initMap();
 
-    if (tutoSwitch == null || tutoSwitch == 'true') {
+    if (tutoSwitch == null) {
         tutoSwitch = true;
-    } else {
-        tutoSwitch = false;
     }
 
     callEmbedded();
