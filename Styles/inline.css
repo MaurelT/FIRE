@@ -91,6 +91,7 @@ Form .btn-secondary {
   background-color: #82363B;
   -webkit-transition: .4s;
   transition: .4s;
+  box-shadow: 0 0 1px #2a2a36;
 }
 
 .slider:before {
@@ -103,6 +104,7 @@ Form .btn-secondary {
   background-color: #2a2a36;
   -webkit-transition: .4s;
   transition: .4s;
+  box-shadow: 0 0 1px #2a2a36;
 }
 
 input:checked + .slider {
@@ -110,7 +112,7 @@ input:checked + .slider {
 }
 
 input:focus + .slider {
-  box-shadow: 0 0 1px #32BA7C;
+  box-shadow: 0 0 1px #2a2a36;
 }
 
 input:checked + .slider:before {
