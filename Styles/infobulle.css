@@ -5,7 +5,7 @@
   bottom: 25%;
 }
 
-a {
+a .infobulle{
   position: absolute;
   color:#ccc;
   text-shadow:0 -1px 0 black;
@@ -26,7 +26,7 @@ a span {
   width: 250px;
 }
 
-a:hover, a:focus {
+a:hover .infobulle, a:focus .infobulle {
   background:rgba(0,0,0,.4);
   box-shadow:0 2px 0 rgb(32, 32, 41);
   border-radius: 32px;
