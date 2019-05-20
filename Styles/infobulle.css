@@ -1,6 +1,6 @@
 .infobulle {
   display: block;
-  position: absolute;
+  /*position: absolute;*/
   right: 15%;
   bottom: 25%;
 }
@@ -24,6 +24,7 @@ a span {
   transition:all .25s;
   opacity:0;
   width: 250px;
+  z-index: 100000;
 }
 
 a:hover .infobulle, a:focus .infobulle {

@@ -12,10 +12,19 @@ var nbEmbedded = 0;
 var mapList = new Array();
 var marketList = new Array();
 
+var tutoSwitch = "";
+
 var ApiUrl = "https://www.theia-project-api.fr/";
 
 window.onload = function start() {
     //initMap();
+
+    if (tutoSwitch == null || tutoSwitch == 'true') {
+        tutoSwitch = true;
+    } else {
+        tutoSwitch = false;
+    }
+
     callEmbedded();
 };
 
@@ -67,6 +76,24 @@ function createEmbeddedView(embeddedList) {
     while (i < embeddedList.length) {
         var htmlText = '<div class="m-3 box-embedded">';
         htmlText += '<div class="m-4">';
+
+        htmlText += '<div class="row">';
+        htmlText += '<div class="col-md-12">';
+        if (tutoSwitch == true) {
+            console.log("affichées");
+            htmlText += '<a class="infobulle" style="float:right;display: flex;">';
+        } else {
+            console.log("cachées");
+            htmlText += '<a class="infobulle" style="float:right;display: none;">';
+        }
+        htmlText += '<img src="Images/Icons/question-mark.png">';
+        htmlText += '<span>Ceci représente un système embarqué qui est disponible et actif.<br>';
+        htmlText += 'Vous pouvez voir sa position sur la carte, c\'est coordonées GPS \n';
+        htmlText += 'ainsi que l\'activité des capteurs et de la caméra.</span></a>';
+
+        htmlText += '</div>';
+        htmlText += '</div>';
+
         htmlText += '<div id="map' + i + '" class="map-view-image mt-4"></div>';
         htmlText += '</div>';
         htmlText += '<div class="row p-3 mr-2 ml-2">';
@@ -103,6 +130,17 @@ function createEmbeddedView(embeddedList) {
         htmlText += '</div>';
         htmlText += '</div>';
         htmlText += '<div class="text-center mb-3 mt-3">';
+        if (tutoSwitch) {
+            console.log("affichées");
+            htmlText += '<a class="infobulle">';
+        } else {
+            console.log("cachées");
+            htmlText += '<a class="infobulle" style="display: none;">';
+        }
+        htmlText += '<img src="Images/Icons/question-mark.png">';
+        htmlText += '<span>Ce bouton permet d\'accéder à la page Caméra/Carte de l\'Embedded.<br>';
+        htmlText += 'Cela vous permet d\'avoir un accès au flux direct de l\'IA s\'executant sur les images ';
+        htmlText += 'et données du système embarqué mais aussi aux détails des capteurs.</span></a>';
         htmlText += '<button id="details" onClick="goToEmbeddedView('+ embeddedList[i].id +')" type="submit" class="btn btn-secondary float-center">Details</button>';
         htmlText += '</div>';
         htmlText += '</div>';

@@ -10,12 +10,63 @@ $(document).ready(function(){
     updateCookie();
     checkCookie = setInterval(updateCookie, second * 5);
 
+    initTutorialManager();
+
     $('#menu-deconnexion').click(function () {
        eraseCookie('UserTmp');
        eraseCookie('EmbeddedId');
        window.location.href = "index";
     });
 });
+
+function initTutorialManager() {
+
+    let tutoSwitch = GetCookie("fire-tuto");
+
+    if (tutoSwitch == null) {
+        tutoSwitch = 'true';
+    }
+
+    if (tutoSwitch === 'true') {
+        tutoSwitch = true;
+    } else {
+        tutoSwitch = false;
+    }
+
+    console.log("tutoSwitch = " +tutoSwitch);
+
+    checkTuto(tutoSwitch);
+
+    if (tutoSwitch) {
+        $('#tutorial-switch').prop('checked', true);
+    } else {
+        $('#tutorial-switch').prop('checked', false);
+    }
+
+    $('#tutorial-switch').change(function() {
+
+        if ($(this).is(':checked'))
+        {
+            setCookie("fire-tuto", true, "59", "365");
+            checkTuto(true);
+        } else {
+            setCookie("fire-tuto", false, "59", "365");
+            checkTuto(false);
+        }
+
+    });
+}
+
+function checkTuto(tutoSwitch) {
+    let infobulle = $(".infobulle");
+
+    if (tutoSwitch) {
+        $('.infobulle').css('display', 'block');
+    } else {
+        console.log("infobulles cachées");
+        infobulle.attr('style', 'display:none;');
+    }
+}
 
 function updateCookie() {
     let newCookie = GetCookie("UserTmp");
