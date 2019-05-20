@@ -47,9 +47,11 @@ function initTutorialManager() {
 
         if ($(this).is(':checked'))
         {
+            eraseCookie('fire-tuto');
             setCookie("fire-tuto", true, "59", "365");
             checkTuto(true);
         } else {
+            eraseCookie('fire-tuto');
             setCookie("fire-tuto", false, "59", "365");
             checkTuto(false);
         }

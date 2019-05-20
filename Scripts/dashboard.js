@@ -81,7 +81,7 @@ function createEmbeddedView(embeddedList) {
             console.log("affichées");
             htmlText += '<a class="infobulle" style="float:right;display: flex;">';
         } else {
-            console.log("cachées");
+            console.log("haut cachées");
             htmlText += '<a class="infobulle" style="float:right;display: none;">';
         }
         htmlText += '<img src="Images/Icons/question-mark.png">';
@@ -128,11 +128,11 @@ function createEmbeddedView(embeddedList) {
         htmlText += '</div>';
         htmlText += '</div>';
         htmlText += '<div class="text-center mb-3 mt-3">';
-        if (tutoSwitch) {
-            console.log("affichées");
+        if (tutoSwitch == "true") {
+            console.log("bas affichées");
             htmlText += '<a class="infobulle">';
         } else {
-            console.log("cachées");
+            console.log("bas cachées");
             htmlText += '<a class="infobulle" style="display: none;">';
         }
         htmlText += '<img src="Images/Icons/question-mark.png">';
