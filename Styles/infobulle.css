@@ -1,5 +1,8 @@
 .infobulle {
   display: block;
+  position: absolute;
+  right: 15%;
+  bottom: 15%;
 }
 
 a {
@@ -24,7 +27,7 @@ a span {
 
 a:hover, a:focus {
   background:rgba(0,0,0,.4);
-  box-shadow:0 5px 0 rgb(32, 32, 41);
+  box-shadow:0 2px 0 rgb(32, 32, 41);
   border-radius:32px;
 }
 
