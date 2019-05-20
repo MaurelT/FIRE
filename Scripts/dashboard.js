@@ -10,6 +10,7 @@ var lon = 5.520354;
 
 var nbEmbedded = 0;
 var mapList = new Array();
+var marketList = new Array();
 
 var ApiUrl = "https://www.theia-project-api.fr/";
 
@@ -128,9 +129,25 @@ function initMap() {
             minZoom: 1,
             maxZoom: 20
         }).addTo(mapList[mapList.length - 1]);
-        cnt += 1
+        cnt += 1;
+        addMarker(lat, lon, mapList.length - 1);
     }
 }
+
+var iconFolder = "images/map-icons/";
+
+function addMarker(lat, lon, cnt) {
+    if (lat != null && lon != null)
+        var myIcon = L.icon({
+            iconUrl: iconFolder + "hot-air-balloon.png",
+            iconSize: [50, 50],
+            iconAnchor: [25, 50],
+            popupAnchor: [-3, -76],
+        });
+    var marker = L.marker([lat, lon], { icon : myIcon}).addTo(mapList[cnt]);
+
+}
+
 
 /*
 htmlText +=
