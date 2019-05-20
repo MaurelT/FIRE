@@ -1,11 +1,3 @@
-/* Copyright 2018 F.I.R.E
-
-Author : Thomas Maurel
-Version : 0.1
-Date : 15/10/2018
-
-*/
-
 var dataCacheName = "FireData-v0.1";
 var cacheName = "FirePWA-v0.1";
 var filesToCache =  [
