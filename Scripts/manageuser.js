@@ -3,7 +3,26 @@ $(document).ready(function(){
    $("#edit_profil").click(function () {
        $('#myModal').modal();
    });
+
+    let tutoSwitch = GetCookie("fire-tuto");
+
+    if (tutoSwitch == null) {
+        tutoSwitch = 'true';
+    }
+    checkTutoUser(tutoSwitch);
+
 });
+
+function checkTutoUser(tutoSwitch) {
+    let infobulle = $(".infobulle");
+
+    if (tutoSwitch === 'true') {
+        $('.infobulle').css('display', 'block');
+    } else {
+        console.log("infobulles cachées");
+        infobulle.attr('style', 'display:none;');
+    }
+}
 
 var ApiUrl = "https://www.theia-project-api.fr/";
 

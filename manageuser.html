@@ -5,6 +5,10 @@
       <p id="profil-name" class="m-3 pt-1 nameprofil"></p>
       <img class="on_off_icon mt-4" src="Images/Icons/on.png" id="connected_icone">
       <img class="pencil" src="Images/Icons/pencil.png" id="edit_profil">
+      <a class="infobulle">
+        <img src="Images/Icons/question-mark.png">
+        <span>Vous pouvez depuis ce panneau regarder les informations de l'utilisateur ciblé et les éditer</span>
+      </a>
     </div>
     <div class="row mt-5 text-center pl-5 pr-5 mr-5 ml-5">
       <p class="col bold-edition">Nom :</p>
@@ -44,7 +48,13 @@
           </ul>
       </div>
       <div data-simplebar id="manageuserslist" class="blockmanageuser mt-4 col-lg">
-        <label class="p-2 bold-edition"><img class="ml-1 mr-1"src="Images/Icons/search.png">Recherché un utilisateur</label>
+        <label class="p-2 bold-edition">
+          <a class="infobulle">
+            <img class="ml-1 mr-1"src="Images/Icons/search.png">Recherché un utilisateur
+            <img src="Images/Icons/question-mark.png">
+            <span>Depuis ce panneau, vous pouvez rechercher un utilisateur ainsi qu'afficher ses afformations dans le bloc profile en cliquant sur le stylo.</span>
+          </a>
+        </label>
         <ul id="usersList" class="facet-list">
         </ul>
       </div>
