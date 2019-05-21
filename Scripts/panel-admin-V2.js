@@ -206,7 +206,7 @@ function initcreateuser() {
                 data: JSON.stringify(newUser),
                 dataType:"JSON",
                 success: function(response) {
-                    alert("user created");
+                    $('#manageuser').trigger('click');
                 },
                 error: function(XMLHttpRequest, textStatus, errorThrown) {
                     alert("some error");
