@@ -5,8 +5,9 @@ Version : 0.1
 Date : 12/11/2018
 */
 
-var lat = 43.219839;
-var lon = 5.520354;
+
+var lat = 53.337183;
+var lon = -6.276808
 
 var nbEmbedded = 0;
 var mapList = new Array();
@@ -99,10 +100,10 @@ function createEmbeddedView(embeddedList) {
         htmlText += '<img class="pin-size" src="Images/pin-pos.png">';
         htmlText += '</div>';
         htmlText += '<div class="col-4 text-center">';
-        htmlText += '<p id="longitude" class="mt-2">43.2281,</p>';
+        htmlText += '<p id="longitude" class="mt-2">-6.276808</p>';
         htmlText += '</div>';
         htmlText += '<div class="col-4 text-center">';
-        htmlText += '<p id="latitude" class="mt-2">5.4300</p>';
+        htmlText += '<p id="latitude" class="mt-2">53.337183</p>';
         htmlText += '</div>';
         htmlText += '</div>';
         htmlText += '<div class="row p-3 mr-2 ml-2">';

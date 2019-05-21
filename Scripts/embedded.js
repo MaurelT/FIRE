@@ -4,8 +4,8 @@ Version : 0.1
 Date : 05/11/2018
 */
 
-var lat = 43.219839;
-var lon = 5.520354;
+var lat = 53.337183;
+var lon = -6.276808
 
 var macarte = null;
 
