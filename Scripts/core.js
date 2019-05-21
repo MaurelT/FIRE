@@ -24,6 +24,18 @@ $(document).ready(function() {
         var usernameInput = $('#username');
         var passwordInput = $('#password');
 
+
+
+        $('#password-email-error').css('display', 'none');
+        $('#username-error').css('display', 'none');
+        $('#password-error').css('display', 'none');
+        usernameInput.css('border', '0px');
+        usernameInput.addClass('border-bottom');
+        passwordInput.css('border', '0px');
+        passwordInput.addClass('border-bottom');
+
+
+
         let userName = usernameInput.val();
         let password = passwordInput.val();
 
@@ -54,6 +66,7 @@ $(document).ready(function() {
                         window.location.href = 'dashboard';
                     }
                     else {
+                        $('#password-email-error').css('display', 'block');
                         usernameInput.css('border', '1px solid red');
                         usernameInput.removeClass('border-bottom');
                         passwordInput.css('border', '1px solid red');
