@@ -151,22 +151,22 @@ function parseResponse(response) {
 
 function setCaptors(wind, humidity, pression, temperature, altitude) {
   if (wind != null) {
-    document.getElementById("wind-captor").innerHTML = wind['value'];
+    document.getElementById("wind-captor").innerHTML = Math.round(wind['value']) + " " + wind['unit'];
   }
   if (humidity != null) {
-    document.getElementById("humidity-captor").innerHTML = humidity['value'];
+    document.getElementById("humidity-captor").innerHTML = Math.round(humidity['value']) + " " + humidity['unit'];
   }
   if (pression != null)
   {
-    document.getElementById("pression-captor").innerHTML = pression['value'];
+    document.getElementById("pression-captor").innerHTML = Math.round(pression['value']) + " " + pression['unit'];
   }
   if (temperature != null)
   {
-    document.getElementById("temperature-captor").innerHTML = temperature['value'];
+    document.getElementById("temperature-captor").innerHTML = Math.round(temperature['value']) + " " + temperature['unit'];
   }
   if (altitude != null)
   {
-    document.getElementById("altitude-captor").innerHTML = altitude['value'];
+    document.getElementById("altitude-captor").innerHTML = Math.round(altitude['value']) + " " + altitude['unit'];
   }
 }
 
