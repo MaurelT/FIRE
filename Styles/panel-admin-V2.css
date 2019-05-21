@@ -170,6 +170,13 @@ p {
     z-index: 50;
 }
 
+.bold-edition {
+  font-weight: bold;
+}
+
+.underline-edition {
+  text-decoration: underline;
+}
 /*****************************/
 @media screen and (max-width: 992px) {
   .blocklistcontent  {

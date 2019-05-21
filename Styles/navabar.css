@@ -28,7 +28,7 @@
 }
 
 .modal.left .modal-body {
-	padding: 15px 15px 80px;
+/*	padding: 15px 15px 80px; */
 }
 
 .modal.left.fade .modal-dialog {
@@ -67,7 +67,7 @@
 }
 
 .navbar-icon {
-  position: fixed;
+  position: absolute;
   margin-left: 15px;
 }
 
