@@ -38,7 +38,6 @@ function initTutorialManager() {
     }
 
     $('#tutorial-switch').change(function() {
-
         if ($(this).is(':checked'))
         {
             eraseCookie('fire-tuto');
@@ -67,9 +66,6 @@ function checkTuto(tutoSwitch) {
 
 /* FCT MIS A JOUR COOKIE */
 function updateCookie() {
-
-    console.log(pathname);
-    return ;
 
     let newCookie = GetCookie("UserTmp");
 
