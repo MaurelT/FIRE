@@ -4,14 +4,6 @@ window.onload = function heightWindow() {
   $("#core").css("height", $(window).height() + "px" );
 };*/
 
-function setExpTime() {
-    var date = new Date();
-    var time = date.getTime();
-    var expTime = 15;
-    date.setTime(time + 1000 * 60 * expTime);
-    var expires = ";expires="+ date.toUTCString();
-    return (expires);
-}
 
 $(document).ready(function() {
 
@@ -23,7 +15,6 @@ $(document).ready(function() {
 
         var usernameInput = $('#username');
         var passwordInput = $('#password');
-
 
 
         $('#password-email-error').css('display', 'none');
@@ -61,7 +52,7 @@ $(document).ready(function() {
                 success: function (response) {
 
                     if (response['error'] == null) {
-                        deadTime = setExpTime();
+                        deadTime = setExpTime(15, 0);
                         document.cookie = "UserTmp" + "=" + JSON.stringify(response) +  deadTime + ";path=/";
                         window.location.href = 'dashboard';
                     }
@@ -82,9 +73,20 @@ $(document).ready(function() {
     });
 });
 
+/* FCT Set temps d'expiration sur cookie
+/!\ Cette fonction est en double car on ne peut pas include le fichier cookie.js dans la page de connexion (-> Entraine un bug de refresh de page infini) */
+function setExpTime(minuts, day) {
+    var date = new Date();
+    var time = date.getTime();
+    date.setTime(time + 1000 * 60 * minuts + 1000 * 60 * 60 * 24 * day);
+    var expires = ";expires="+ date.toUTCString();
+    return (expires);
+}
+
+/*
 if ('serviceWorker' in navigator) {
     navigator.serviceWorker
         .register('../service-worker.js')
         .then(function() { console.log('Service Worker Registered');
         })
-}
+}*/

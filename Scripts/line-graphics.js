@@ -38,7 +38,7 @@ $(document).ready(function() {
     firstCallApi();
 });
 
-
+/* Fonction qui permet au Graphique d'être responsive par rapport aux dimensions de son conteneur */
 function fitToContainer(canvas){
   canvas.style.width='100%';
   canvas.style.height='100%';
@@ -46,6 +46,7 @@ function fitToContainer(canvas){
   canvas.height = canvas.offsetHeight;
 }
 
+/* Fct qui permet de récupérer que les valeur d'un capteur spécifique (Vent, tempéture, ...) */
 function dataManager(data) {
     var dataArray = [];
     var cnt = 0;
@@ -68,6 +69,7 @@ function dataManager(data) {
     createLineChart(dataArray);
 }
 
+/* Fct call API Pour récupérer les infos des capteurs /!\ Permet de récupérer les N dernières valeurs d'un capteur*/
 function firstCallApi() {
     last_nb_called = nb_val_displayed;
 
@@ -94,25 +96,7 @@ function firstCallApi() {
     });
 }
 
-function getCookieVal(offset) {
-    var endstr=document.cookie.indexOf (";", offset);
-    if (endstr==-1) endstr=document.cookie.length;
-    return unescape(document.cookie.substring(offset, endstr));
-}
-function GetCookie (name) {
-    var arg=name+"=";
-    var alen=arg.length;
-    var clen=document.cookie.length;
-    var i=0;
-    while (i<clen) {
-        var j=i+alen;
-        if (document.cookie.substring(i, j)==arg) return getCookieVal (j);
-        i=document.cookie.indexOf(" ",i)+1;
-        if (i==0) break;
-    }
-    return null;
-}
-
+/* Fct call API Pour récupérer la dernière valeur des capteurs d'un embedded */
 function callApi() {
 
     if (last_nb_called === nb_val_displayed) {
@@ -142,6 +126,7 @@ function callApi() {
     }
 }
 
+/* Fct qui supprime la première valeur du graphique et rajoute la dernière valeur (permet de rendre le graphique dynamique */
 function addNewData(sensors) {
     console.log(sensors);
     var cnt = 0;
@@ -155,6 +140,7 @@ function addNewData(sensors) {
     }
 }
 
+/* Fct qui permet d'ajouter du texte dans l'axe des abscisses (dans le cas présent 1,2,3 ...) */
 function getLabel() {
     var label = [];
     var cnt = 0;
@@ -166,6 +152,7 @@ function getLabel() {
     return (label);
 }
 
+/* Fct qui récupère les valeurs de l'api et qui créé un nouveau tableau dans le bon format pour créer le graphique */
 function parseData(dataArray) {
     var newArray = [];
     var cnt = 0;
@@ -179,6 +166,7 @@ function parseData(dataArray) {
     return (newArray);
 }
 
+/* Fct de création du graphique */
 function createLineChart(dataArray) {
     var ctx = document.getElementById("myChart").getContext("2d");
 
@@ -255,6 +243,7 @@ function createLineChart(dataArray) {
 }
 
 
+/* Fonction pour ajouter une donnée dans le graphique  */
 function addData(chart, label, data) {
     //chart.data.labels.push(label);
     chart.data.datasets.forEach((dataset) => {
@@ -263,6 +252,7 @@ function addData(chart, label, data) {
     chart.update();
 }
 
+/* Fonction pour supprimer la dernière valeur dans le graphique */
 function removeData(chart) {
     chart.data.labels.pop();
     chart.data.datasets.forEach((dataset) => {
@@ -271,7 +261,7 @@ function removeData(chart) {
     chart.update();
 }
 
-
+/* Fonction pour supprimer la première valeur dans le graphique */
 function removeFirstData(chart) {
     chart.data.datasets.forEach((dataset) => {
        dataset.data.shift();

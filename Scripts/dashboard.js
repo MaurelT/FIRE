@@ -7,7 +7,7 @@ Date : 12/11/2018
 
 
 var lat = 53.337183;
-var lon = -6.276808
+var lon = -6.276808;
 
 var nbEmbedded = 0;
 var mapList = new Array();
@@ -29,25 +29,7 @@ window.onload = function start() {
     callEmbedded();
 };
 
-function getCookieVal(offset) {
-    var endstr=document.cookie.indexOf (";", offset);
-    if (endstr==-1) endstr=document.cookie.length;
-    return unescape(document.cookie.substring(offset, endstr));
-}
-function GetCookie (name) {
-    var arg=name+"=";
-    var alen=arg.length;
-    var clen=document.cookie.length;
-    var i=0;
-    while (i<clen) {
-        var j=i+alen;
-        if (document.cookie.substring(i, j)==arg) return getCookieVal (j);
-        i=document.cookie.indexOf(" ",i)+1;
-        if (i==0) break;
-    }
-    return null;
-}
-
+/* FCT Call API pour récupérer toutes les infos des embedded */
 function callEmbedded() {
 
     let userTmp = JSON.parse(GetCookie("UserTmp"));
@@ -68,6 +50,7 @@ function callEmbedded() {
     });
 }
 
+/* FCT pour créer les éléments 'Embedded' sur le dashboard */
 function createEmbeddedView(embeddedList) {
     var i = 0;
 
@@ -149,11 +132,13 @@ function createEmbeddedView(embeddedList) {
     initMap();
 }
 
+/* Fct création cookie pour stocker l'id de l'embedded pour afin de pouvoir récupérer les infos des capteurs sur la page embedded */
 function goToEmbeddedView(id) {
     document.cookie = "EmbeddedId" + "=" + id + ";path=/";
     window.location.href = 'embedded';
 }
 
+/* Fct initialisation des cartes dans les éléments 'Embedded' sur le dashboard */
 function initMap() {
 
     var cnt = 0;
@@ -173,6 +158,7 @@ function initMap() {
 
 var iconFolder = "images/map-icons/";
 
+/* Fct pour ajouter un marqueur de position sur une map (Ne doit pas être appelé avant d'avoir appelé la fct initMap() )*/
 function addMarker(lat, lon, cnt) {
     if (lat != null && lon != null)
         var myIcon = L.icon({
@@ -184,93 +170,3 @@ function addMarker(lat, lon, cnt) {
     var marker = L.marker([lat, lon], { icon : myIcon}).addTo(mapList[cnt]);
 
 }
-
-
-/*
-htmlText +=
-htmlText +=
-htmlText +=
-htmlText +=
-htmlText +=
-htmlText +=
-htmlText +=
-htmlText +=
-htmlText +=
-htmlText +=
-htmlText +=
-htmlText +=
-htmlText +=
-htmlText +=
-htmlText +=
-htmlText +=
-htmlText +=
-htmlText +=
-htmlText +=
-htmlText +=
-htmlText +=
-htmlText +=
-htmlText +=
-htmlText +=
-htmlText +=
-htmlText +=
-htmlText +=
-htmlText +=
-htmlText +=
-htmlText +=
-htmlText +=
-htmlText +=
-htmlText +=
-htmlText +=
-htmlText +=
-htmlText +=
-htmlText +=
-htmlText +=
-htmlText +=
-htmlText +=
-htmlText +=
-htmlText +=
-htmlText +=
-'<div class="row">';
-'<div class="mr-auto ml-auto w-75">';
-'<div id="map' + i + '" class="map-view-image mt-5"></div>';
-'</div>';
-'</div>';
-'<div class="mt-3 mb-5 box-embedded">';
-'<div class="row pl-3 pr-3 mt-3">';
-'<div class="col-2 text-center">';
-'<img class="pin-size" src="Images/pin-pos.png">';
-'</div>';
-'<div class="col-5 text-center">';
-'<p id="longitude" class="mt-2">43.228160,</p>';
-'</div>';
-'<div class="col-5 text-center">';
-'<p id="latitude" class="mt-2">5.430091</p>';
-'</div>';
-'</div>';
-'<div class="row pl-3 pr-3 mt-3 mb-3">';
-'<div class="col-2 text-center">';
-'<img class="pin-size" src="Images/signal-tower.png">';
-'</div>';
-'<div class="col-5 text-center">';
-'<img class="pin-size" src="Images/checked.png">';
-'</div>';
-'<div class="col-5 text-center">';
-'<img class="pin-size" src="Images/cancel.png" style="opacity:0.2;">';
-'</div>';
-'</div>';
-'<div class="row pl-3 pr-3 mt-3 mb-3">';
-'<div class="col-2 text-center">';
-'<img class="pin-size" src="Images/photo-camera.png">';
-'</div>';
-'<div class="col-5 text-center">';
-'<img class="pin-size" src="Images/checked.png">';
-'</div>';
-'<div class="col-5 text-center">';
-'<img class="pin-size" src="Images/cancel.png" style="opacity:0.2;">';
-'</div>';
-'</div>';
-'<div class="text-center mb-3">';
-'<button id="details" onClick="goToEmbeddedView('+ embeddedList[i].id +')" type="submit" class="btn btn-secondary float-center">Details</button>';
-'</div>';
-'</div>';
-*/

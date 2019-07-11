@@ -13,6 +13,8 @@ $(document).ready(function(){
 
 });
 
+/* On doit garder cette fonction en double suite à une correction de bug
+--> La partie manageuser est appelée une fois que la page est lancée ce qui faisait buggué certains affichage de tutoriels */
 function checkTutoUser(tutoSwitch) {
     let infobulle = $(".infobulle");
 
@@ -26,6 +28,7 @@ function checkTutoUser(tutoSwitch) {
 
 var ApiUrl = "https://www.theia-project-api.fr/";
 
+/* Fonction pour récupérer les infos d'un utilisateur et ouvrir le modal permettant de modifier ses informations */
 function openModal(value) {
 
     if (value == -1) {
@@ -53,6 +56,7 @@ function openModal(value) {
     }
 }
 
+/* Fonction pour préremplir un modal permettant de modifier un utilisateur */
 function fillModal(parsedTab, id) {
 
     $('#myModal').modal();

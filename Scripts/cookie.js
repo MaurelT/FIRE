@@ -23,17 +23,11 @@ function initTutorialManager() {
 
     let tutoSwitch = GetCookie("fire-tuto");
 
-    if (tutoSwitch == null) {
-        tutoSwitch = 'true';
-    }
-
-    if (tutoSwitch === 'true') {
+    if (tutoSwitch == null || tutoSwitch === 'true') {
         tutoSwitch = true;
     } else {
         tutoSwitch = false;
     }
-
-    console.log("tutoSwitch = " +tutoSwitch);
 
     checkTuto(tutoSwitch);
 
@@ -70,7 +64,13 @@ function checkTuto(tutoSwitch) {
     }
 }
 
+
+/* FCT MIS A JOUR COOKIE */
 function updateCookie() {
+
+    console.log(pathname);
+    return ;
+
     let newCookie = GetCookie("UserTmp");
 
     if (newCookie != null && cookie == null) {
@@ -85,6 +85,8 @@ function updateCookie() {
     }
 }
 
+
+/* FCT Set temps d'expiration sur cookie */
 function setExpTime(minuts, day) {
     var date = new Date();
     var time = date.getTime();
@@ -93,17 +95,20 @@ function setExpTime(minuts, day) {
     return (expires);
 }
 
+/* FCT Ajouter cookie */
 function setCookie(name, data, minuts, day) {
     var deadTime = setExpTime(minuts, day);
     document.cookie = name + "=" + data +  deadTime + ";path=/" + path;
 }
 
-
+/* FCT récupérer la valeur d'un cookie */
 function getCookieVal(offset) {
     var endstr=document.cookie.indexOf (";", offset);
     if (endstr==-1) endstr=document.cookie.length;
     return unescape(document.cookie.substring(offset, endstr));
 }
+
+/* FCT Récupérer un cookie (objet) */
 function GetCookie (name) {
     var arg=name+"=";
     var alen=arg.length;
@@ -118,13 +123,14 @@ function GetCookie (name) {
     return null;
 }
 
+/* FCT Supprimer cookie */
 function eraseCookie(name) {
     var date = new Date();
     var time = date.getTime();
     date.setTime(time - 1000 * 60);
     var expires = ";expires="+ date.toUTCString();
 
-    var data = ""
+    var data = "";
 
     document.cookie = name + "=" + data +  expires + ";path=/" + path;
     console.log("cookie erased");

@@ -27,35 +27,28 @@ function goToMap() {
     window.location.href = 'embedded-map'
 }
 
-
-$(document).ready(function() {
-  $('#goToGraphics').click(function() {
-    window.location.href = 'graphics'
-  });
-});
-
 window.onload = function start() {
 
-    /* Appelez fonction liées aux 2 fichiers ici. */
-  callSensor();
-  let second = 1000;
-  callEmbedded = setInterval(callSensor, second * 5);
+    $('#goToGraphics').click(function() {
+        window.location.href = 'graphics'
+    });
+
+    callSensor();
+    let second = 1000;
+    callEmbedded = setInterval(callSensor, second * 5);
 
 
-  let pathname = window.location.pathname;
-  if (pathname.includes('embedded-map')) {
+    let pathname = window.location.pathname;
 
-      /* Appelez fonction pour le fichier embedded-map.html ici */
 
-      initMap();
-      addMarker(lat, lon);
-      addCircle(5, lat, lon);
-      //testCircle();
-
+    if (pathname.includes('embedded-map')) {
+        /* Appelez fonction pour la partie embedded-map ici */
+        initMap();
+        addMarker(lat, lon);
+        addCircle(5, lat, lon);
+        //testCircle();
   } else {
-
-      /* Appelez fonction pour le fichier embedded.html ici */
-
+      /* Appelez fonction pour la embedded ici */
       console.log("embedded");
 
   }
@@ -63,31 +56,13 @@ window.onload = function start() {
 
 };
 
+/* Permet d'arrêter le call api qui s'effectue toutes les 5 secondes pour raffraichir la valeur des capteurs */
 function stopCallingEmbedded()
 {
     clearInterval(callEmbedded);
 }
 
-function getCookieVal(offset) {
-    var endstr=document.cookie.indexOf (";", offset);
-    if (endstr==-1) endstr=document.cookie.length;
-    return unescape(document.cookie.substring(offset, endstr));
-}
-function GetCookie (name) {
-    var arg=name+"=";
-    var alen=arg.length;
-    var clen=document.cookie.length;
-    var i=0;
-    while (i<clen) {
-        var j=i+alen;
-        if (document.cookie.substring(i, j)==arg) return getCookieVal (j);
-        i=document.cookie.indexOf(" ",i)+1;
-        if (i==0) break;
-    }
-    return null;
-}
-
-
+/* Fct pour récupérer les valeur des capteurs d'un ballon grâce à son ID */
 function callSensor() {
   let userTmp = JSON.parse(GetCookie("UserTmp"));
   let embeddedId = JSON.parse(GetCookie("EmbeddedId"));
@@ -111,6 +86,7 @@ function callSensor() {
   });
 }
 
+/* Fct qui parse la réponse de l'api pour le call des capteurs */
 function parseResponse(response) {
     var cnt = 0;
     var wind = null;
@@ -148,7 +124,7 @@ function parseResponse(response) {
     setCaptors(wind, humi, pression, temp, altitude);
 }
 
-
+/* Fct qui écrit les valeurs des capteurs */
 function setCaptors(wind, humidity, pression, temperature, altitude) {
   if (wind != null) {
     document.getElementById("wind-captor").innerHTML = Math.round(wind['value']) + " " + wind['unit'];
@@ -170,19 +146,17 @@ function setCaptors(wind, humidity, pression, temperature, altitude) {
   }
 }
 
-// Fonction d'initialisation de la carte
+/* Fonction d'initialisation de la carte   /!\ Ce n'est pas la meme fct que dans dashboard.  */
 function initMap() {
-  // Créer l'objet "macarte" et l'insèrer dans l'élément HTML qui a l'ID "map"
   macarte = L.map('map').setView([lat, lon], 11);
-  // Leaflet ne récupère pas les cartes (tiles) sur un serveur par défaut. Nous devons lui préciser où nous souhaitons les récupérer. Ici, openstreetmap.fr
   L.tileLayer('https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png', {
-    // Il est toujours bien de laisser le lien vers la source des données
     attribution: 'données © <a href="//osm.org/copyright">OpenStreetMap</a>/ODbL - rendu <a href="//openstreetmap.fr">OSM France</a>',
     minZoom: 1,
     maxZoom: 20
   }).addTo(macarte);
 }
 
+/* Fonction d'ajout d'un marqueur de position sur la carte /!\ Ce n'est pas la meme fct que dans dashboard. */
 function addMarker(lat, lon) {
   if (lat != null && lon != null && macarte != null)
     var myIcon = L.icon({
@@ -194,8 +168,8 @@ function addMarker(lat, lon) {
   var marker = L.marker([lat, lon], { icon : myIcon}).addTo(macarte);
 }
 
+/* Variable stockant le rayon de la terre en KM dans plusieurs unités */
 let  earthRadii = {
-    // The radius of the earth in various units
     mi: 3963.1676,
     km: 6378.1,
     ft: 20925524.9,
@@ -209,6 +183,7 @@ let  earthRadii = {
     fr: 31705.3408
 };
 
+/* Fct d'ajout d'un cercle sur la carte /!\ La carte doit être initialisée avant d'appeler cette fonction*/
 function addCircle(radiusInput, lat, lng) {
 
     var latlng = { lat: lat, lng: lng };
@@ -219,13 +194,10 @@ function addCircle(radiusInput, lat, lng) {
         fillOpacity: 0.5,
         radius: radius
     }).addTo(macarte);
-    /*
+
+    /* Permet d'ajouter un Eventlistener lorsqu'uon clique sur le cercle
     circle.addEventListener('contextmenu', function() {
         macarte.removeLayer(this);
     });
     */
-}
-
-function eraseCookie(name) {
-  document.cookie = name+'=; Max-Age=-99999999;';
 }

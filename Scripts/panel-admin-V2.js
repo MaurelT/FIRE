@@ -97,6 +97,7 @@ function uniqueSwitchManager(switchable) {
 
 }
 
+/* Fonction pour gérer les drag and drop pour assigner et désassigner un utilisateur à un Embedded */
 function initEmbeddedSwitchManager() {
     var manageuserembedded = $("#allFacets, #userFacets");
 
@@ -144,13 +145,11 @@ function initEmbeddedSwitchManager() {
     });
 }
 
+/* Fonction qui permet de supprimer une classe CSS d'une div */
 function removeClass(divSelected, removeElement) {
   for(var i=0; i < divSelected.length; i++){
     var parentElement = divSelected[i];
-    // do something to each parent as needed
-    // access children of parent element
     var childClassList= parentElement.getElementsByClassName(removeElement);
-    // do something with `childClassList`
     for (var j= 0; j < childClassList.length; j++){
       var child = childClassList[j];
       child.classList.remove("selected");
@@ -158,27 +157,6 @@ function removeClass(divSelected, removeElement) {
   }
 }
 
-//REQUEST INFORMATION
-var userTableListPage = 0;
-
-function getCookieVal(offset) {
-    var endstr=document.cookie.indexOf (";", offset);
-    if (endstr==-1) endstr=document.cookie.length;
-    return unescape(document.cookie.substring(offset, endstr));
-}
-function GetCookie (name) {
-    var arg=name+"=";
-    var alen=arg.length;
-    var clen=document.cookie.length;
-    var i=0;
-    while (i<clen) {
-        var j=i+alen;
-        if (document.cookie.substring(i, j)==arg) return getCookieVal (j);
-        i=document.cookie.indexOf(" ",i)+1;
-        if (i==0) break;
-    }
-    return null;
-}
 
 /* INIT CREATE USER FUNCTIONS */
 function initcreateuser() {
@@ -217,7 +195,7 @@ function initcreateuser() {
 }
 
 
-//FUNCTIONS FOR initcreateuser
+//Fct pour vérifier que le password soit assez sécure et qu'il match avec le confirmPassword
 function checkPassword() {
 
     var password = $('#password').val();
@@ -252,6 +230,7 @@ function checkPassword() {
     return (false);
 }
 
+/* Fct qui vérifie qu'aucun champs n'est vide pour la création d'un user sur le modal */
 function  noEmptyInput() {
     var name = $('#name').val()
     var firstName = $('#firstName').val()
@@ -298,26 +277,10 @@ function  noEmptyInput() {
     return (bool);
 }
 
-
-  var lat = 43.219839;
-  var lon = 5.520354;
-// Fonction d'initialisation de la carte
-function initMap() {
-
-  // Créer l'objet "macarte" et l'insèrer dans l'élément HTML qui a l'ID "map"
-  macarte = L.map('map').setView([lat, lon], 11);
-  // Leaflet ne récupère pas les cartes (tiles) sur un serveur par défaut. Nous devons lui préciser où nous souhaitons les récupérer. Ici, openstreetmap.fr
-  L.tileLayer('https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png', {
-    // Il est toujours bien de laisser le lien vers la source des données
-    attribution: 'données © <a href="//osm.org/copyright">OpenStreetMap</a>/ODbL - rendu <a href="//openstreetmap.fr">OSM France</a>',
-    minZoom: 1,
-    maxZoom: 20
-  }).addTo(macarte);
-}
-
 var userList = null;
 var userCnt = 0;
 
+/* Fct Call API Pour récupérer la liste de tous les utilisateurs */
 function getAllUsers() {
     let userTmp = JSON.parse(GetCookie("UserTmp"));
     let token = userTmp['token'];
@@ -338,6 +301,7 @@ function getAllUsers() {
     });
 }
 
+/* Fonction pour remplir la liste des utilisateurs */
 function fillTable(users) {
     console.log("users =");
     console.log(users);
@@ -360,6 +324,7 @@ function fillTable(users) {
     initEditProfileManager();
 }
 
+/* Fonction pour remplir les infos d'un utilisateur lorsqu'on clique dessus */
 function fillUser(i) {
     var user = userList[i];
 
@@ -378,6 +343,8 @@ function fillUser(i) {
 
 var userId = -1;
 
+
+/* Fonction qui prérempli les informations d'un utilisateur sur le modal pour modifier ses infos */
 function initEditProfileManager() {
     $("#edit_profil").click(function () {
 
@@ -396,6 +363,7 @@ function initEditProfileManager() {
 
 }
 
+/* Fct pour récupérer les infos d'un utilisateur et les modifier en faisant un Call API */
 function initModifUser() {
 
     $('#modal-save').click( function () {
