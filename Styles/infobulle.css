@@ -1,10 +1,12 @@
-.infobulle {
-  display: block;
-  /*position: absolute;*/
-  right: 15%;
-  bottom: 25%;
-}
+/* Copyright 2018 F.I.R.E
 
+Author : Thomas Maurel
+Version : 0.1
+Date : 07/07/2019
+Description: CSS for TutoLive with .infobulle
+*/
+
+/* a modifier */
 a .infobulle{
   position: absolute;
   color:#ccc;
@@ -37,4 +39,11 @@ a:hover .infobulle, a:focus .infobulle {
 a:hover span, a:focus span {
   transform:scale(1) rotate(0);
   opacity:1;
+}
+/*End of a modifier */
+
+.infobulle {
+  display: block;
+  right: 15%;
+  bottom: 25%;
 }
