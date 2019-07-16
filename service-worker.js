@@ -1,3 +1,4 @@
+/*
 var dataCacheName = "FireData-v0.1";
 var cacheName = "FirePWA-v0.1";
 var filesToCache =  [
@@ -52,4 +53,4 @@ self.addEventListener('fetch', function(event) {
         }
       })
   );
-});
+}); */
