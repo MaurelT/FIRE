@@ -185,7 +185,8 @@ p {
 .underline-edition {
   text-decoration: underline;
 }
-/*****************************/
+
+/* Media Queries for Panel Admin */
 @media screen and (max-width: 992px) {
   .blocklistcontent  {
     width: 100%;
