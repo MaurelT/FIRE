@@ -12,12 +12,25 @@ $(document).ready(function(){
 
     initTutorialManager();
 
+    checkUserPrivileges();
+
     $('#menu-deconnexion').click(function () {
        eraseCookie('UserTmp');
        eraseCookie('EmbeddedId');
        window.location.href = "index";
     });
 });
+
+function checkUserPrivileges() {
+    let user = JSON.parse(GetCookie("UserTmp"));
+
+    if (user['rank'] != 'admin') {
+        console.log("hidden panel admin");
+        $('#navbar-panel-admin').remove();
+    } else {
+        console.log("not hidden panel admin");
+    }
+}
 
 function initTutorialManager() {
 

@@ -53,6 +53,7 @@ $(document).ready(function() {
 
                     if (response['error'] == null) {
                         deadTime = setExpTime(15, 0);
+                        console.log(response);
                         document.cookie = "UserTmp" + "=" + JSON.stringify(response) +  deadTime + ";path=/";
                         window.location.href = 'dashboard';
                     }
