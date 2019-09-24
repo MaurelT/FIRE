@@ -94,12 +94,14 @@ function parseResponse(response) {
     var pression = null;
     var temp = null;
     var altitude = null;
+    var direction = null;
 
 
     response['Sensors'] = response['Sensors'].reverse();
 
     console.log(response['Sensors']);
 
+    console.log(response['Sensors'][0]);
 
     while (cnt < response['Sensors'].length) {
         if (altitude == null && response['Sensors'][cnt]['name'] == 'Altitude')
@@ -112,8 +114,11 @@ function parseResponse(response) {
             temp = response['Sensors'][cnt];
         else if (wind == null && response['Sensors'][cnt]['name'] == 'Wind')
             wind = response['Sensors'][cnt];
+        else if (direction == null && response['Sensors'][cnt]['name'] == "WindDirection") {
+            direction = response['Sensors'][cnt];
+        }
 
-        if (altitude != null && humi != null && pression != null && temp != null && wind != null) {
+        if (altitude != null && humi != null && pression != null && temp != null && wind != null && direction != null) {
             cnt = response['Sensors'].length;
         }
         cnt += 1;
@@ -121,11 +126,11 @@ function parseResponse(response) {
 
     console.log(wind, humi, pression, temp, altitude);
 
-    setCaptors(wind, humi, pression, temp, altitude);
+    setCaptors(wind, humi, pression, temp, altitude, direction);
 }
 
 /* Fct qui écrit les valeurs des capteurs */
-function setCaptors(wind, humidity, pression, temperature, altitude) {
+function setCaptors(wind, humidity, pression, temperature, altitude, direction) {
   if (wind != null) {
     document.getElementById("wind-captor").innerHTML = Math.round(wind['value']) + " " + wind['unit'];
   }
@@ -142,8 +147,39 @@ function setCaptors(wind, humidity, pression, temperature, altitude) {
   }
   if (altitude != null)
   {
-    document.getElementById("altitude-captor").innerHTML = Math.round(altitude['value']) + " " + altitude['unit'];
+      document.getElementById("altitude-captor").innerHTML = Math.round(altitude['value']) + " " + altitude['unit'];
   }
+  if (direction != null && direction >= 0 && direction <= 360) {
+      $('#wind-direction-img').css('transform', 'rotate('+ direction +'deg)');
+      document.getElementById("wind-direction").innerHTML = getDirection(direction);
+  }
+}
+
+function getDirection(direction) {
+    if (direction >= 0 && direction < 45) {
+        return ("Nord");
+    }
+    if (direction >= 45 && direction < 90) {
+        return ("Nord Est");
+    }
+    if (direction >= 90 && direction < 135) {
+        return ("Est");
+    }
+    if (direction >= 135 && direction < 180) {
+        return ("Sud Est");
+    }
+    if (direction >= 180 && direction < 225) {
+        return ("Sud");
+    }
+    if (direction >= 225 && direction < 270) {
+        return ("Sud Ouest");
+    }
+    if (direction >= 270 && direction < 315) {
+        return ("Ouest");
+    }
+    if (direction >= 315 && direction < 360) {
+        return ("Nord Ouest");
+    }
 }
 
 /* Fonction d'initialisation de la carte   /!\ Ce n'est pas la meme fct que dans dashboard.  */
