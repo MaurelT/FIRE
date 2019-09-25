@@ -4,8 +4,8 @@ Version : 0.1
 Date : 05/11/2018
 */
 
-var lat = 53.337183;
-var lon = -6.276808
+var lat = 48.815144;
+var lon = 2.362931;
 
 var macarte = null;
 
@@ -150,11 +150,8 @@ function setCaptors(wind, humidity, pression, temperature, altitude, direction) 
       document.getElementById("altitude-captor").innerHTML = Math.round(altitude['value']) + " " + altitude['unit'];
   }
   if (direction != null && direction['value'] >= 0 && direction['value'] <= 360) {
-      console.log("test");
       $('#wind-direction-img').css('transform', 'rotate('+ direction['value'] +'deg)');
       document.getElementById("wind-direction").innerHTML = getDirection(direction['value']);
-  } else {
-      console.log("wtf");
   }
 }
 
