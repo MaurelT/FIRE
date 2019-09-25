@@ -124,7 +124,7 @@ function parseResponse(response) {
         cnt += 1;
     }
 
-    console.log(wind, humi, pression, temp, altitude);
+    console.log(wind, humi, pression, temp, altitude, direction);
 
     setCaptors(wind, humi, pression, temp, altitude, direction);
 }
@@ -149,9 +149,12 @@ function setCaptors(wind, humidity, pression, temperature, altitude, direction) 
   {
       document.getElementById("altitude-captor").innerHTML = Math.round(altitude['value']) + " " + altitude['unit'];
   }
-  if (direction != null && direction >= 0 && direction <= 360) {
-      $('#wind-direction-img').css('transform', 'rotate('+ direction +'deg)');
-      document.getElementById("wind-direction").innerHTML = getDirection(direction);
+  if (direction != null && direction['value'] >= 0 && direction['value'] <= 360) {
+      console.log("test");
+      $('#wind-direction-img').css('transform', 'rotate('+ direction['value'] +'deg)');
+      document.getElementById("wind-direction").innerHTML = getDirection(direction['value']);
+  } else {
+      console.log("wtf");
   }
 }
 
