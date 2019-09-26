@@ -5,3 +5,20 @@ Version : 0.1
 Date : 09/07/2019
 Description: CSS for dashboard graphics view
 */
+
+.blockbutton {
+    background-color: #2A2A36;
+    position: fixed;
+    bottom: 0;
+    height: 50px;
+}
+
+.btn-img {
+    background-color : #2A2A36;
+    border:0;
+}
+
+.btn-img-down {
+    background-color: #1C1C22;
+    border:0;
+}

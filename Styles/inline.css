@@ -20,7 +20,7 @@ Description: Css For the core of project
 
 .button-img {
   position: fixed;
-  z-index: 150;
+  z-index: 10000;
   background: 0;
   border: 0;
 }

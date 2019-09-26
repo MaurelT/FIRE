@@ -18,25 +18,81 @@ $(document).ready(function() {
 
     fitToContainer(canvas);
 
+    initButtonHandler();
 
     var second = 1000;
     updateCaptors = setInterval(callApi, second * 5);
 
     $(document).on('change','#select_nb_displayed',function(){
-        var newVal = $('#select_nb_displayed').val();
-        nb_val_displayed = newVal;
-        alert(newVal);
+        nb_val_displayed = $('#select_nb_displayed').val();
         firstCallApi();
 
-    });
-
-    $(document).on('change','#type_displayed',function(){
-        type = $('#type_displayed').val();
-        firstCallApi();
     });
 
     firstCallApi();
 });
+
+function resetAllClasses() {
+    $("#humidity").removeClass("btn-img-down");
+    $("#humidity").addClass("btn-img");
+
+    $("#wind").removeClass("btn-img-down");
+    $("#wind").addClass("btn-img");
+
+    $("#barometer").removeClass("btn-img-down");
+    $("#barometer").addClass("btn-img");
+
+    $("#temperature").removeClass("btn-img-down");
+    $("#temperature").addClass("btn-img");
+
+    $("#height").removeClass("btn-img-down");
+    $("#height").addClass("btn-img");
+}
+
+function setClasseClicked(e) {
+    $(e).removeClass("btn-img");
+    $(e).addClass("btn-img-down");
+}
+
+function initButtonHandler() {
+
+    setClasseClicked($("#height"));
+
+    $("#wind").click(function() {
+        resetAllClasses();
+        setClasseClicked(this);
+        type = "Wind";
+        firstCallApi();
+    });
+
+    $("#humidity").click(function () {
+        resetAllClasses();
+        setClasseClicked(this);
+        type = "Humidity";
+        firstCallApi();
+    });
+
+    $("#barometer").click(function () {
+        resetAllClasses();
+        setClasseClicked(this);
+        type = "Pression";
+        firstCallApi();
+    });
+
+    $("#temperature").click(function () {
+        resetAllClasses();
+        setClasseClicked(this);
+        type = "Temperature";
+        firstCallApi();
+    });
+
+    $("#height").click(function () {
+        resetAllClasses();
+        setClasseClicked(this);
+        type = "Altitude";
+        firstCallApi();
+    });
+}
 
 /* Fonction qui permet au Graphique d'être responsive par rapport aux dimensions de son conteneur */
 function fitToContainer(canvas){
