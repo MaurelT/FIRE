@@ -309,7 +309,7 @@ function fillTable(users) {
     var cnt = 0;
     var test = "";
     while (cnt < users.length) {
-    test += '<li class="facet"><img class="rprofil m-2" src="Images/Icons/pompier.png" id="profil_photo">'
+    test += '<li class="facet"><img class="rprofil m-2" src="Images/Icons/marc.jpg" width="50" height="50" id="profil_photo">'
         + users[cnt].user_name +
         '<img class="on_off_icon m-2" src="Images/Icons/on.png"><img id="' + cnt + '" class="userBut iconeslist m-2" src="Images/Icons/pencil.png"></li>';
     cnt += 1;
