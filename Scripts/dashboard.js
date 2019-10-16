@@ -33,7 +33,7 @@ window.onload = function start() {
 };
 
 function TrickdeOuf() {
-    $('#tricks').css('border-color', 'red');
+    $('#tricks').css('border', '2px red solid');
     $('#trickText').css('display', 'block');
 }
 
@@ -86,7 +86,7 @@ function createEmbeddedView(embeddedList) {
 
         htmlText += '<div id="map' + i + '" class="map-view-image mt-4"></div>';
         htmlText += '</div>';
-        htmlText += '<p class="text-center" id="trickText" style="color:red; display: none;">Alerte Incendie</p>';
+        htmlText += '<p class="text-center" id="trickText" style="color:white; background-color: red; font-size: 1.5rem; display: none;">Alerte Incendie</p>';
         htmlText += '<div class="row p-3 mr-2 ml-2">';
         htmlText += '<div class="col-4 text-center">';
         htmlText += '<img class="pin-size" src="Images/pin-pos.png">';
