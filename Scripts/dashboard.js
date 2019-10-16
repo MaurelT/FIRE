@@ -6,8 +6,8 @@ Date : 12/11/2018
 */
 
 
-var lat = 53.337183;
-var lon = -6.276808;
+var lat = 43.310213;
+var lon = 5.369871;
 
 var nbEmbedded = 0;
 var mapList = new Array();
