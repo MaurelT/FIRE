@@ -22,12 +22,20 @@ window.onload = function start() {
 
     tutoSwitch = GetCookie('fire-tuto');
 
+    let second = 1000;
+    var Trickers = setInterval(TrickdeOuf, second * 5);
+
     if (tutoSwitch == null) {
         tutoSwitch = "true";
     }
 
     callEmbedded();
 };
+
+function TrickdeOuf() {
+    $('#tricks').css('border-color', 'red');
+    $('#trickText').css('display', 'block');
+}
 
 /* FCT Call API pour récupérer toutes les infos des embedded */
 function callEmbedded() {
@@ -58,7 +66,7 @@ function createEmbeddedView(embeddedList) {
 
     nbEmbedded = embeddedList.length;
     while (i < embeddedList.length) {
-        var htmlText = '<div class="m-3 box-embedded">';
+        var htmlText = '<div id="tricks" class="m-3 box-embedded">';
         htmlText += '<div class="m-4">';
 
         htmlText += '<div class="row">';
@@ -78,6 +86,7 @@ function createEmbeddedView(embeddedList) {
 
         htmlText += '<div id="map' + i + '" class="map-view-image mt-4"></div>';
         htmlText += '</div>';
+        htmlText += '<p class="text-center" id="trickText" style="color:red; display: none;">Alerte Incendie</p>';
         htmlText += '<div class="row p-3 mr-2 ml-2">';
         htmlText += '<div class="col-4 text-center">';
         htmlText += '<img class="pin-size" src="Images/pin-pos.png">';
