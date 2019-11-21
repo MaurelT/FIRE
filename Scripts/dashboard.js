@@ -23,7 +23,7 @@ window.onload = function start() {
     tutoSwitch = GetCookie('fire-tuto');
 
     let second = 1000;
-    var Trickers = setInterval(TrickdeOuf, second * 5);
+    //var Trickers = setInterval(TrickdeOuf, second * 5);
 
     if (tutoSwitch == null) {
         tutoSwitch = "true";
@@ -42,10 +42,11 @@ function callEmbedded() {
 
     let userTmp = JSON.parse(GetCookie("UserTmp"));
     let token = userTmp['token'];
+    let userId = userTmp['user_id'];
 
     $.ajax({
         type: "GET",
-        url: ApiUrl + "Embedded/embedded.php",
+        url: ApiUrl + "/Embedded/embedded.php?user_id="+ userId,
         //url: "http://109.255.19.77:80/FIRE/API/Camera/camera",
         headers: {'Authorization': token},
         dataType:"JSON",

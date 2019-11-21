@@ -1,4 +1,5 @@
 var ApiUrl = "https://www.theia-project-api.fr/";
+var focusedUser = 0;
 
 $(document).ready(function(){
 
@@ -74,7 +75,119 @@ $(document).ready(function(){
     getAllUsers();
     initModifUser();
 
+    getAllEmbedded();
+
 });
+
+function getAllEmbedded(userEmbedded = null) {
+
+    let userTmp = JSON.parse(GetCookie("UserTmp"));
+    let token = userTmp['token'];
+
+    $.ajax({
+        type: "GET",
+        url: ApiUrl + "Embedded/embedded.php",
+        headers: {'Authorization': token},
+        dataType:"JSON",
+        success: function(response) {
+            console.log("response ==");
+            console.log(response);
+            createEmbeddedList(response['Embedded'], userEmbedded);
+        },
+        error: function(XMLHttpRequest, textStatus, errorThrown) {
+            alert("An error happened dans getAllEmbeddedr");
+        }
+    });
+}
+
+function createEmbeddedList(embeddedList, userEmbedded) {
+
+    var i = 0;
+    var embed = "";
+    var n = 0;
+    var isDel = false;
+
+
+
+    if (userEmbedded != null) {
+        while (i < embeddedList.length) {
+            n = 0;
+            while (n < userEmbedded.length) {
+                if (embeddedList[i].id === userEmbedded[n].id) {
+                    console.log(embeddedList[i].id + " " + userEmbedded[n].id);
+                    embeddedList.splice(i, 1);
+                    isDel = true;
+                }
+                n += 1;
+            }
+            if (!isDel) {
+                console.log("del false");
+                i += 1;
+            } else {
+                console.log("del true");
+                isDel = false;
+            }
+        }
+    }
+
+    i = 0;
+    console.log("Embeddedlist = ");
+    console.log(embeddedList);
+    while (i < embeddedList.length) {
+        embed += '<li class="facet" value="'+ embeddedList[i].id +'">';
+        embed += '<img class="iconeslist m-2" src="Images/Icons/embedded-icon.png">';
+        embed += 'Système Embarqué ' + embeddedList[i].id;
+        embed += '<img class="on_off_icon m-2" src="Images/Icons/on.png" id="connected_icone"></li>';
+        i += 1;
+    }
+    $('#userFacets').empty();
+    $('#userFacets').append(embed);
+
+    createEmbeddedUserList(userEmbedded);
+}
+
+function createEmbeddedUserList(userEmbedded) {
+
+    var i = 0;
+    var embed = "";
+
+    if (userEmbedded) {
+        while (i < userEmbedded.length) {
+            embed += '<li class="facet" value="'+ userEmbedded[i].id +'">';
+            embed += '<img class="iconeslist m-2" src="Images/Icons/embedded-icon.png">';
+            embed += 'Système Embarqué ' + userEmbedded[i].id;
+            embed += '<img class="on_off_icon m-2" src="Images/Icons/on.png" id="connected_icone"></li>';
+            i += 1;
+        }
+        $('#allFacets').empty();
+        $('#allFacets').append(embed);
+
+    }
+
+    initEmbeddedSwitchManager();
+}
+
+function fillEmbeddedUser(i) {
+    var userId = userList[i].id;
+
+    let userTmp = JSON.parse(GetCookie("UserTmp"));
+    let token = userTmp['token'];
+
+    $.ajax({
+        type: "GET",
+        url: ApiUrl + "/Embedded/embedded.php?user_id="+ userId,
+        headers: {'Authorization': token},
+        dataType:"JSON",
+        success: function(response) {
+            console.log(response['Embedded']);
+            getAllEmbedded(response['Embedded']);
+        },
+        error: function(XMLHttpRequest, textStatus, errorThrown) {
+            getAllEmbedded(null);
+            alert("An error happened dans le call 'Rien'");
+        }
+    });
+}
 
 //FUCNTION FOR CONTROLER M & D
 function uniqueSwitchManager(switchable) {
@@ -97,6 +210,45 @@ function uniqueSwitchManager(switchable) {
 
 }
 
+function unassignUserFromEmbedded(embeddedId) {
+
+
+    let userTmp = JSON.parse(GetCookie("UserTmp"));
+    let token = userTmp['token'];
+
+
+    $.ajax({
+        type: "PUT",
+        url: ApiUrl + "/embedded/update.php?id="+ embeddedId +"&remove_user="+ focusedUser,
+        headers: {'Authorization': token},
+        dataType:"JSON",
+        success: function(response) {
+            console.log("UserId " + focusedUser + " unsigned from embeddedId " + embeddedId);
+        },
+        error: function(XMLHttpRequest, textStatus, errorThrown) {
+            alert("An error happened");
+        }
+    });
+}
+
+function assignUserToEmbedded(embeddedId) {
+    let userTmp = JSON.parse(GetCookie("UserTmp"));
+    let token = userTmp['token'];
+
+    $.ajax({
+        type: "PUT",
+        url: ApiUrl + "/embedded/update.php?id="+ embeddedId +"&insert_user="+ focusedUser,
+        headers: {'Authorization': token},
+        dataType:"JSON",
+        success: function(response) {
+            console.log("UserId " + focusedUser + " assigned from embeddedId " + embeddedId);
+        },
+        error: function(XMLHttpRequest, textStatus, errorThrown) {
+            alert("An error happened");
+        }
+    });
+}
+
 /* Fonction pour gérer les drag and drop pour assigner et désassigner un utilisateur à un Embedded */
 function initEmbeddedSwitchManager() {
     var manageuserembedded = $("#allFacets, #userFacets");
@@ -114,12 +266,16 @@ function initEmbeddedSwitchManager() {
                     //move from all to user
                     $(item).fadeOut('fast', function() {
                         console.log("Enlever embedded d'un utilisateur DB click");
+                        console.log($(item)[0].value);
+                        unassignUserFromEmbedded($(item)[0].value);
                         $(item).appendTo($('#userFacets')).fadeIn('slow');
                     });
                 } else if (e.currentTarget.id === 'userFacets' ) {
                     //move from user to all
                     $(item).fadeOut('fast', function() {
                         console.log("assigner embedded à un utilisateur DB click");
+                        console.log($(item)[0].value);
+                        assignUserToEmbedded($(item)[0].value);
                         $(item).appendTo($('#allFacets')).fadeIn('slow');
                     });
                 }
@@ -127,14 +283,22 @@ function initEmbeddedSwitchManager() {
             .droppable({
             drop: function(e) {
 
+                /* NOT WORKING ATM */
+
                 var target = e.target;
                 //var item = $(this).data().uiSortable.currentItem[0].id;
 
+                console.log(target);
 
-                //var test = $(this).data().uiSortable.currentItem;
-                //console.log(test);
+                console.log("e");
+                console.log(e.currentTarget);
+
+                var test = $(this).data().uiSortable.currentItem;
+                console.log("test =");
+                console.log(test);
 
                 if (target.id === 'allFacets') {
+                    console.log(e);
                     console.log("Assigner à utilisateur drop");
                 }
                 else if (target.id === 'userFacets') {
@@ -318,7 +482,9 @@ function fillTable(users) {
 
     $(".userBut").click(function () {
         var i = $(this).attr('id');
+        focusedUser = userList[i].id;
         fillUser(i);
+        fillEmbeddedUser(i);
     });
 
     initEditProfileManager();
