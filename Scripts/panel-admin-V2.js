@@ -159,10 +159,10 @@ function createEmbeddedUserList(userEmbedded) {
             embed += '<img class="on_off_icon m-2" src="Images/Icons/on.png" id="connected_icone"></li>';
             i += 1;
         }
-        $('#allFacets').empty();
-        $('#allFacets').append(embed);
-
     }
+
+    $('#allFacets').empty();
+    $('#allFacets').append(embed);
 
     initEmbeddedSwitchManager();
 }
