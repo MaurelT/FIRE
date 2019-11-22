@@ -1,40 +1,45 @@
 <!DOCTYPE html>
 <html lang="fr" dir="ltr">
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Embedded</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Embedded</title>
 
-  <!-- TODO add manifest here -->
-  <link rel="manifest" href="manifest.json">
-  <!-- Add to home screen for Safari on iOS -->
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="apple-mobile-web-app-title" content="Fire">
-  <link rel="apple-touch-icon" href="images/icons/icon-152x152.png">
-  <link rel="icon" type="image/png" href="Images/Icons/iconeFire.png">
-  <meta name="msapplication-TileImage" content="images/icons/icon-144x144.png">
-  <meta name="msapplication-TileColor" content="#2F3BA2">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css" integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ==" crossorigin="" />
-  <link rel="stylesheet" type="text/css" href="styles/inline.css">
-  <link rel="stylesheet" type="text/css" href="styles/camera.css">
-  <link rel="stylesheet" type="text/css" href="styles/navabar.css">
-  <link rel="stylesheet" type="text/css" href="styles/infobulle.css">
+    <!-- TODO add manifest here -->
+    <link rel="manifest" href="manifest.json">
+    <!-- Add to home screen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Fire">
+    <link rel="apple-touch-icon" href="images/icons/icon-152x152.png">
+    <link rel="icon" type="image/png" href="Images/Icons/iconeFire.png">
+    <meta name="msapplication-TileImage" content="images/icons/icon-144x144.png">
+    <meta name="msapplication-TileColor" content="#2F3BA2">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css"
+          integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ=="
+          crossorigin=""/>
+    <link rel="stylesheet" type="text/css" href="styles/inline.css">
+    <link rel="stylesheet" type="text/css" href="styles/camera.css">
+    <link rel="stylesheet" type="text/css" href="styles/navabar.css">
+    <link rel="stylesheet" type="text/css" href="styles/infobulle.css">
 </head>
 
 <body id="core">
-  <button type="button" class="button-img mt-2 ml-2" data-toggle="modal" data-target="#exampleModal"><img src="Images/Icons/menu.png"></button>
-  <div class="container">
-      <div class="modal left fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog" role="document">
-              <div class="modal-content">
+<button type="button" class="button-img mt-2 ml-2" data-toggle="modal" data-target="#exampleModal"><img
+        src="Images/Icons/menu.png"></button>
+<div class="container">
+    <div class="modal left fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
                 <div class="modal-header">
-                  <img class="mt-5 mb-3 logo-sidebar ml-auto mr-auto" src="Images/Icons/logo-menu.png">
+                    <img class="mt-5 mb-3 logo-sidebar ml-auto mr-auto" src="Images/Icons/logo-menu.png">
                 </div>
-                  <div class="modal-body">
-                      <div class="nav flex-sm-column flex-row">
+                <div class="modal-body">
+                    <div class="nav flex-sm-column flex-row">
                         <div class="row menu-link mt-4 mb-4 mr-3">
                             <img class="navbar-icon" src="Images/Icons/Icone-Map.png">
                             <a href="embedded-map" class="nav-item nav-link">Vue Carte</a>
@@ -55,137 +60,215 @@
                             <img class="navbar-icon" src="Images/Icons/Icone-Gear.png">
                             <a href="panel-admin-V2" class="nav-item nav-link">Panneau d'Administration</a>
                         </div>
-                      </div>
-                  </div>
+                    </div>
+                </div>
 
-                  <p class="ml-auto mr-auto mb-1" style="color:#fff">Bulles Informatives</p>
-                  <label class="switch mr-auto ml-auto mb-3">
+                <p class="ml-auto mr-auto mb-1" style="color:#fff">Bulles Informatives</p>
+                <label class="switch mr-auto ml-auto mb-3">
                     <input id="tutorial-switch" type="checkbox">
                     <span class="slider"></span>
-                  </label>
-                  <div class="modal-footer">
-                      <button id="menu-deconnexion" type="submit" class="button-disconnect ml-auto mr-auto" data-dismiss=""><img class="disconnect-img w-25" src="Images/Icons/power-button-off.png"></button>
-                  </div>
-              </div>
-          </div>
-      </div>
-  </div>
-  <!-- container -->
+                </label>
+                <div class="modal-footer">
+                    <button id="menu-deconnexion" type="submit" class="button-disconnect ml-auto mr-auto"
+                            data-dismiss=""><img class="disconnect-img w-25" src="Images/Icons/power-button-off.png">
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- container -->
 
 
-    <div class="blockleft d-none d-lg-block">
-      <div class="text-center" id="createuser">
-      </div>
-      <div class="itemPosition ">
-      </div>
+<div class="blockleft d-none d-lg-block">
+    <div class="text-center" id="createuser">
     </div>
-  <div class="text-center">
-    <a href="embedded-map" class="button-img  -2 mt-3 mb-3"><img src="Images/Icons/map-embedded-icon.png"></a>
-  </div>
-  <div class="box-camera">
-  <div class="text-center mb-4">
-    <iframe src="https://player.twitch.tv/?channel=fireembedded" frameborder="0" allowfullscreen="true" scrolling="no" height="378" width="100%"></iframe>
-  </div>
-  <div class="container sensor-box-camera">
-    <div class="row p-4">
-      <div class="col text-center">
-        <img class="green-icone" src="Images/Icons/Icone-Wind.png">
-        <p id="wind-captor"> </p>
-      </div>
-      <div class="col text-center">
-        <img id="wind-direction-img" width="41" height="41" class="green-icone" src="Images/up-arrow.png">
-        <p id="wind-direction"> </p>
-      </div>
-      <div class="col text-center">
-        <img class="green-icone" src="Images/Icons/Icone-Water.png">
-        <p id="humidity-captor"> </p>
-      </div>
-      <div class="col text-center">
-        <img class="green-icone" src="Images/Icons/Icone-Barometre.png">
-        <p id="pression-captor"> </p>
-      </div>
-      <div class="col text-center">
-        <img class="green-icone" src="Images/Icons/Icone-Temperature.png">
-        <p id="temperature-captor"> </p>
-      </div>
-      <div class="col text-center">
-        <img class="green-icone" src="Images/Icons/Icone-Height.png">
-        <p id="altitude-captor"> </p>
-      </div>
+    <div class="itemPosition ">
     </div>
-  <div class="text-center pb-3">
-    <a class="infobulle">
-      <img src="Images/Icons/question-mark.png">
-      <span>Ce bouton permet d'accéder à la page Caméra/Carte de l'Embedded
+</div>
+
+
+<div class="container w-75 mr-5 d-none d-lg-block">
+  <div class="row text-center">
+    <a href="embedded-map" class=" mt-3 ml-auto mr-auto"><img src="Images/Icons/map-embedded-icon.png"></a>
+  </div>
+    <div class="row">
+        <div class="col-4 camera-view mw-75">
+            <div class="legende-box mt-5">
+                <div class="row mt-1">
+                    <div class="col justify-content-right">
+                        <div class="white w-50 h-100"></div>
+                    </div>
+                    <div class="col text-center">
+                        <p>Hot ??</p>
+                    </div>
+                </div>
+                <div class="row mt-1">
+                    <div class="col">
+                        <div class="yellow w-50 h-100"></div>
+                    </div>
+                    <div class="col text-center">
+                        <p>hot ??</p>
+                    </div>
+                </div>
+                <div class="row mt-1">
+                    <div class="col text-center">
+                        <div class="red w-50 h-100"></div>
+                    </div>
+                    <div class="col text-center">
+                        <p>hot ??</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="camera-view col-8">
+            <div class="box-camera mt-5">
+                <div class="text-center">
+                    <iframe src="https://player.twitch.tv/?channel=fireembedded" frameborder="0" allowfullscreen="true"
+                            scrolling="no" height="378" width="100%"></iframe>
+                </div>
+                <div class="sensor-box-camera">
+                    <div class="row p-4">
+                        <div class="col text-center">
+                            <img class="green-icone" src="Images/Icons/Icone-Wind.png">
+                            <p id="wind-captor"></p>
+                        </div>
+                        <div class="col text-center">
+                            <img id="wind-direction-img" width="41" height="41" class="green-icone"
+                                 src="Images/up-arrow.png">
+                            <p id="wind-direction"></p>
+                        </div>
+                        <div class="col text-center">
+                            <img class="green-icone" src="Images/Icons/Icone-Water.png">
+                            <p id="humidity-captor"></p>
+                        </div>
+                        <div class="col text-center">
+                            <img class="green-icone" src="Images/Icons/Icone-Barometre.png">
+                            <p id="pression-captor"></p>
+                        </div>
+                        <div class="col text-center">
+                            <img class="green-icone" src="Images/Icons/Icone-Temperature.png">
+                            <p id="temperature-captor"></p>
+                        </div>
+                        <div class="col text-center">
+                            <img class="green-icone" src="Images/Icons/Icone-Height.png">
+                            <p id="altitude-captor"></p>
+                        </div>
+                    </div>
+                    <div class="text-center pb-3">
+                        <a class="infobulle">
+                            <img src="Images/Icons/question-mark.png">
+                            <span>Ce bouton permet d'accéder à la page Caméra/Carte de l'Embedded
             Cela vous permet d'avoir un accès au flux direct de l'IA s'executant sur les images
             et données du système embarqué mais aussi aux détails des capteurs.</span></a>
-    <button id="goToGraphics" type="submit" class="btn btn-secondary">Détails des Capteurs</button>
+                        <button id="goToGraphics" type="submit" class="btn btn-secondary">Détails des Capteurs</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container d-block d-lg-none">
+  <div class="row text-center">
+    <a href="embedded-map" class=" mt-3 ml-auto mr-auto"><img src="Images/Icons/map-embedded-icon.png"></a>
   </div>
+    <div class="camera-view mw-75">
+        <div class="legende-box mt-5">
+            <div class="row mt-1">
+                <div class="col justify-content-right">
+                    <div class="white w-50 h-100"></div>
+                </div>
+                <div class="col text-center">
+                    <p>Hot ??</p>
+                </div>
+            </div>
+            <div class="row mt-1">
+                <div class="col">
+                    <div class="yellow w-50 h-100"></div>
+                </div>
+                <div class="col text-center">
+                    <p>hot ??</p>
+                </div>
+            </div>
+            <div class="row mt-1">
+                <div class="col text-center">
+                    <div class="red w-50 h-100"></div>
+                </div>
+                <div class="col text-center">
+                    <p>hot ??</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="camera-view mw-75">
+        <div class="box-camera mt-5">
+            <div class="text-center">
+                <iframe src="https://player.twitch.tv/?channel=fireembedded" frameborder="0" allowfullscreen="true"
+                        scrolling="no" height="378" width="100%"></iframe>
+            </div>
+            <div class="sensor-box-camera">
+                <div class="row p-4">
+                    <div class="col text-center">
+                        <img class="green-icone" src="Images/Icons/Icone-Wind.png">
+                        <p id="wind-captor"></p>
+                    </div>
+                    <div class="col text-center">
+                        <img id="wind-direction-img" width="41" height="41" class="green-icone"
+                             src="Images/up-arrow.png">
+                        <p id="wind-direction"></p>
+                    </div>
+                    <div class="col text-center">
+                        <img class="green-icone" src="Images/Icons/Icone-Water.png">
+                        <p id="humidity-captor"></p>
+                    </div>
+                    <div class="col text-center">
+                        <img class="green-icone" src="Images/Icons/Icone-Barometre.png">
+                        <p id="pression-captor"></p>
+                    </div>
+                    <div class="col text-center">
+                        <img class="green-icone" src="Images/Icons/Icone-Temperature.png">
+                        <p id="temperature-captor"></p>
+                    </div>
+                    <div class="col text-center">
+                        <img class="green-icone" src="Images/Icons/Icone-Height.png">
+                        <p id="altitude-captor"></p>
+                    </div>
+                </div>
+                <div class="text-center pb-3">
+                    <a class="infobulle">
+                        <img src="Images/Icons/question-mark.png">
+                        <span>Ce bouton permet d'accéder à la page Caméra/Carte de l'Embedded
+            Cela vous permet d'avoir un accès au flux direct de l'IA s'executant sur les images
+            et données du système embarqué mais aussi aux détails des capteurs.</span></a>
+                    <button id="goToGraphics" type="submit" class="btn btn-secondary">Détails des Capteurs</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 </body>
-
 
 
 <script src="scripts/jquery-3.3.1.min.js"></script>
 <script src="scripts/cookie.js"></script>
 <script src="scripts/embedded.js"></script>
-<script src="https://unpkg.com/leaflet@1.3.1/dist/leaflet.js" integrity="sha512-/Nsx9X4HebavoBvEBuyp3I7od5tA0UzAxs+j83KgC8PU0kgB4XiK4Lfe4y4cgBtaRJQEIFCW+oC506aPT2L1zw==" crossorigin=""></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/leaflet@1.3.1/dist/leaflet.js"
+        integrity="sha512-/Nsx9X4HebavoBvEBuyp3I7od5tA0UzAxs+j83KgC8PU0kgB4XiK4Lfe4y4cgBtaRJQEIFCW+oC506aPT2L1zw=="
+        crossorigin=""></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
 <!-- Font Awesome JS -->
-<script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
-<script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
+<script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js"
+        integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ"
+        crossorigin="anonymous"></script>
+<script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js"
+        integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY"
+        crossorigin="anonymous"></script>
 
 
 </html>
-
-<!-- <body id="body" style="background-color:#DDDBD5;background: url('images/forest_1080.png'); background-repeat : no-repeat;">
-<div class="wrapper">
-  <div id="content">
-
-    <div id="captor_body">
-
-
-      <div class="w-100 text-center">
-
-        <img id="switch_to_map" class="m-3" src="images/Icons/map-embedded-icon.png" alt="">
-      </div>
-
-      <div class="float-right mr-3">
-        <div class="mt-5 d-inline-block">
-          <div class="">
-            <img src="images/Icons/Icone-Wind.png" alt="" class="icone-size d-inline-block">
-            <p id="wind-captor" class="captors d-inline-block">No informations.</p>
-          </div>
-          <div class="">
-            <img src="images/Icons/Icone-Water.png" alt="" class="icone-size d-inline-block">
-            <p id="humidity-captor" class="captors d-inline-block">No informations.</p>
-          </div>
-          <div class="">
-            <img src="images/Icons/Icone-Barometre.png" alt="" class="icone-size d-inline-block">
-            <p id="pression-captor" class="captors d-inline-block">No informations.</p>
-          </div>
-          <div class="">
-            <img src="images/Icons/Icone-Temperature.png" alt="" class="icone-size d-inline-block">
-            <p id="temperature-captor" class="captors d-inline-block">No informations.</p>
-          </div>
-          <div class="">
-            <img src="images/Icons/Icone-Height.png" alt="" class="icone-size d-inline-block">
-            <p id="altitude-captor" class="captors d-inline-block">No informations.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-
-    <div id="map_body" align="center" style="visibility:hidden; flex-grow : 1;">
-
-      <div align="center">
-        <img id="switch_to_camera" src="images/Icons/camera-embedded-icon.png" alt="" style="z-index: 100">
-      </div>
-
-      <div id="map" class="w-100"  style="height: 720px; z-index: 90" align="center">
-      </div>
-    </div>
-  </div>
-</div> -->

@@ -78,10 +78,15 @@ p.captors {
 
 .box-camera {
   padding: 25px 25px 50px;
-  position: absolute;
-  top:9%;
-  margin-left: 5%;
-  margin-right: 5%;
+  background-color: #2A2A36;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.camera-view {
+}
+
+.legende-box {
+  padding: 25px 25px;
   background-color: #2A2A36;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
@@ -144,6 +149,23 @@ p.captors {
   height:32px;
 }
 
+.yellow {
+  width: 64px;
+  height: 32px;
+  background-color: #FFF000;
+}
+
+.red {
+  width: 64px;
+  height: 32px;
+  background-color: #FF0000;
+}
+
+.white {
+  width: 64px;
+  height: 32px;
+  background-color: #FFFFFF;
+}
 
 /* Media Queries for Camera View */
 @media (min-width: 768px) {
@@ -154,11 +176,16 @@ p.captors {
 
 @media (min-width: 980px) {
   .box-camera {
-    padding: 25px 25px 50px;
-    position: absolute;
-    top:9%;
-    left: 35%;
+    padding: 25px 25px;
     background-color: #2A2A36;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+
+  .legende-box {
+    padding: 25px 25px;
+    background-color: #2A2A36;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+  .camera-view {
   }
 }
