@@ -19,6 +19,8 @@ var ApiUrl = "https://www.theia-project-api.fr/";
 
 var callEmbedded = null;
 
+var Angle = 50;
+
 function goToEmbedded() {
   window.location.href = 'embedded'
 }
@@ -45,7 +47,9 @@ window.onload = function start() {
         /* Appelez fonction pour la partie embedded-map ici */
         initMap();
         addMarker(lat, lon);
-        addCircle(5, lat, lon);
+        //addCircle(5, lat, lon);
+        //drawCircle(5, lat, lon);
+        //drawTriangle(lat, lon, Angle);
         //testCircle();
   } else {
       /* Appelez fonction pour la embedded ici */
@@ -127,6 +131,19 @@ function parseResponse(response) {
     console.log(wind, humi, pression, temp, altitude, direction);
 
     setCaptors(wind, humi, pression, temp, altitude, direction);
+
+    let pathname = window.location.pathname;
+    if (pathname.includes('embedded-map')) {
+        /* Appelez fonction pour la partie embedded-map ici */
+        deleteTriangle();
+
+        var directionVal = direction['value'];
+
+        if (directionVal < 0 || directionVal > 360)
+            directionVal = 0;
+        drawTriangle(lat, lon, directionVal);
+    }
+
 }
 
 /* Fct qui écrit les valeurs des capteurs */
@@ -151,6 +168,7 @@ function setCaptors(wind, humidity, pression, temperature, altitude, direction) 
   }
   if (direction != null && direction['value'] >= 0 && direction['value'] <= 360) {
       $('#wind-direction-img').css('transform', 'rotate('+ direction['value'] +'deg)');
+      Angle = direction['value'];
       document.getElementById("wind-direction").innerHTML = getDirection(direction['value']);
   }
 }
@@ -236,4 +254,65 @@ function addCircle(radiusInput, lat, lng) {
         macarte.removeLayer(this);
     });
     */
+}
+
+function drawCircle(speedWind, lat, lng) {
+
+    var speedWind = 0.050000;
+
+    var bounds = [[lat + speedWind, lng + speedWind], [lat - speedWind, lng - speedWind]];
+
+    var rect = L.rectangle(bounds, {
+        color: '#82353b',
+        fillColor: '#82353b',
+        fillOpacity : 0.5,
+        weight: 1}).on('click', function (e) {
+        // There event is event object
+        // there e.type === 'click'
+        // there e.lanlng === L.LatLng on map
+        // there e.target.getLatLngs() - your rectangle coordinates
+        // but e.target !== rect
+        console.info(e);
+
+    }).addTo(macarte);
+}
+
+var polygon = null;
+
+function drawTriangle(lat, lon, angle) {
+
+    //var latlngs = [[lat + 0.2, lon - 0.2], [lat - 0.2, lon - 0.2], [lat, lon]];
+
+    let firstPoint = translatePoint(lat, lon, angle - 10, 0.2);
+    let secondPoint = translatePoint(lat, lon, angle + 10, 0.2);
+    let thirdPoint = [lat, lon];
+
+
+    let latlngs = [firstPoint, secondPoint, thirdPoint];
+
+    polygon = L.polygon(latlngs, {color:'red'});
+    polygon.addTo(macarte);
+}
+
+function deleteTriangle() {
+    if (polygon != null) {
+        macarte.removeLayer(polygon);
+    }
+}
+
+//X = lat , Y = lon
+function translatePoint(x, y, angle, unit) {
+
+    var rad = degToRad(angle % 360);
+
+
+    x += unit * Math.cos(rad);
+    y += unit * Math.sin(rad);
+
+    return [x, y];
+}
+
+function degToRad(degree) {
+    var pi = Math.PI;
+    return (pi * (degree / 180))
 }
