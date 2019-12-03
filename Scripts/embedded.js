@@ -281,10 +281,12 @@ var polygon = null;
 
 function drawTriangle(lat, lon, angle) {
 
+    let unit = 0.04;
+
     //var latlngs = [[lat + 0.2, lon - 0.2], [lat - 0.2, lon - 0.2], [lat, lon]];
 
-    let firstPoint = translatePoint(lat, lon, angle - 10, 0.2);
-    let secondPoint = translatePoint(lat, lon, angle + 10, 0.2);
+    let firstPoint = translatePoint(lat, lon, angle - 10, unit);
+    let secondPoint = translatePoint(lat, lon, angle + 10, unit);
     let thirdPoint = [lat, lon];
 
 
