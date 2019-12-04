@@ -1,74 +1,60 @@
-<div id="manageusercontent" class="m-3">
-    <div id="infoProfil" class="blockcolor p-3">
-        <div class="row w-50">
-            <img class="pprofil ml-3" src="Images/Icons/pompier.png" id="profil_photo">
-            <p id="profil-name" class="ml-3 mt-auto mb-auto nameprofil">Enzo Scaduto</p>
-            <img class="on_off_icon ml-3 mt-auto mb-auto" src="Images/Icons/on.png" id="connected_icone">
-            <img class="pencil ml-3 mt-auto mb-auto" src="Images/Icons/pencil.png" id="edit_profil">
-            <a class="infobulle">
-                <img src="Images/Icons/question-mark.png">
-                <span>Vous pouvez depuis ce panneau regarder les informations de l'utilisateur ciblé et les éditer</span>
-            </a>
-        </div>
-        <div class="row mt-5 text-center pl-5 pr-5 mr-5 ml-5">
-            <p class="col bold-edition">Nom :</p>
-            <p id="user-name" class="col">Scaduto</p>
-            <p class="col bold-edition">Date de naissance :</p>
-            <p id="user-birthday" class="col">25/12/96
-            <p>
-        </div>
-        <div class="row mt-4 text-center pl-5 pr-5 mr-5 ml-5">
-            <p class="col bold-edition">Prénom :</p>
-            <p id="user-first-name" class="col">Enzo</p>
-            <p class="col bold-edition">Email :</p>
-            <p id="user-email" class="col underline-edition">enzo.scaduto@parc-auto.fr
-            <p>
-        </div>
-        <div class="row mt-4 text-center pl-5 pr-5 mr-5 ml-5">
-            <p class="col bold-edition">Caserne :</p>
-            <p id="user-caserne" class="col">/</p>
-            <p class="col bold-edition">Grade :</p>
-            <p id="user-rank" class="col">Sécurité
-            <p>
-        </div>
-        <div class="row mt-4 text-center pl-5 pr-5 mr-5 ml-5">
-            <p class="col bold-edition">Rôle :</p>
-            <p class="col">Surveillant</p>
-            <p class="col bold-edition">Service :</p>
-            <p class="col">Equipe de nuit
-            <p>
-        </div>
-    </div>
-    <div class="row m-0">
-        <div id="manageembeddedsuser" class="col-xl p-0 mt-3">
-            <div class="blockcolor">
-                <label class="p-2 bold-edition">Système embarqué de l'utilisateur</label>
-                <ul id="allFacets" class="facet-list">
-                    <!--<li class="facet"><img class="iconeslist m-2" src="Images/Icons/embedded-icon.png">Système Embarqué 1<img class="on_off_icon m-2" src="Images/Icons/on.png" id="connected_icone"></li>-->
-                </ul>
+<div id="interventioncontent" class="m-3">
+    <div id="intervention" class="row blockcolor m-0">
+        <div class="col-xl-6">
+            <div class="row p-3">
+                <img class="panel-icon ml-3 mt-auto mb-auto" src="Images/alarm.png">
+                <p class="ml-3 mt-auto mb-auto">Type d'intervention :</p>
+                <p id="type" class="ml-3 mt-auto mb-auto">Accident de Voiture</p>
             </div>
+            <div id="mapBarrack" class="ml-3 mr-3 mh-100 map-box-inprogress"></div>
         </div>
-        <div id="manageembeddedlist" class="col-xl p-0 mt-3">
-            <div class="blockcolor">
-                <label class="p-2 bold-edition">Système embarqué disponible</label>
-                <ul id="userFacets" class="facet-list">
-                </ul>
+        <div class="col-xl-6">
+            <div class="row mt-5 m-0 pt-2 pb-3 border-bot">
+                <img class="panel-icon mt-auto mb-auto" src="Images/pin-pos.png">
+                <p class="ml-3 mt-auto mb-auto">Adresse :</p>
+                <p id="interventionAdress" class="ml-3 mt-auto mb-auto">4-10 Avenue d'Outre Mer, 13008 Marseille</p>
             </div>
-        </div>
-        <div data-simple id="manageuserslist" class="col-xl p-0 mt-3">
-            <div class="blockcolor">
-                <label class="p-2 bold-edition">
-                    <img class="ml-1 mr-1" src="Images/Icons/search.png">Recherché un utilisateur
-                </label>
-                <ul id="usersList" class="facet-list">
-                </ul>
+            <div class="mt-3 m-0 pt-2 pb-3 border-bot">
+                <p>Informations sur l'intervention :</p>
+                <input type="text" class="form-control" id="infosup">
+                <button type="button" class="btn btn-success w-100 mt-2">
+                    <img class="panel-icon mr-2" src="Images/call-answer.png">Appeler le Signaleur
+                </button>
+            </div>
+            <div class="mt-3 m-0 pt-2 pb-3 border-bot">
+                <p>Commentaire :</p>
+                <input type="text" class="form-control" id="comment">
+                <div class="row mt-2">
+                    <div class="col-6">
+                        <button type="button" class="btn btn-success w-100">
+                            Transport Hôpital
+                        </button>
+                    </div>
+                    <div class="col-6 align-self-center h-100">
+                        <div class="row m-0">
+                            <div class="divBox mt-auto mb-auto">
+                                <input type="checkbox" value="1" id="checkboxFourInput" name=""/>
+                                <label class="m-0" for="checkboxFourInput"></label>
+                            </div>
+                            <p class="mt-auto mb-auto ml-2 m-0">Transport Effectué</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-3 m-0 pt-2 pb-3">
+                <button type="button" class="btn btn-danger w-100 mt-2">
+                    Terminer l'intervention
+                </button>
             </div>
         </div>
     </div>
 </div>
 
-<script src="scripts/manageuser.js"></script>
-<!--
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simplebar@latest/dist/simplebar.css">
-<script src="https://cdn.jsdelivr.net/npm/simplebar@latest/dist/simplebar.min.js"></script>
--->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css"
+      integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ=="
+      crossorigin=""/>
+<script src="https://unpkg.com/leaflet@1.3.1/dist/leaflet.js"
+        integrity="sha512-/Nsx9X4HebavoBvEBuyp3I7od5tA0UzAxs+j83KgC8PU0kgB4XiK4Lfe4y4cgBtaRJQEIFCW+oC506aPT2L1zw=="
+        crossorigin=""></script>
+<script src="scripts/inprogress.js"></script>
+

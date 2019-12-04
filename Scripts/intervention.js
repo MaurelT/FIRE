@@ -1,6 +1,7 @@
 var ApiUrl = "https://www.theia-project-api.fr/";
+var focusedUser = 0;
 
-$(document).ready(function () {
+$(document).ready(function(){
 
     var bc = $('#bc');
     var divSelected = document.getElementsByClassName('itemPosition');
@@ -10,6 +11,7 @@ $(document).ready(function () {
 
     inprogress.classList.add('selected');
     bc.load('inprogress.html', function () {
+        initMap();
     });
 
 
@@ -38,6 +40,17 @@ $(document).ready(function () {
 
 });
 
+/* Fonction qui permet de supprimer une classe CSS d'une div */
+function removeClass(divSelected, removeElement) {
+    for(var i=0; i < divSelected.length; i++){
+        var parentElement = divSelected[i];
+        var childClassList= parentElement.getElementsByClassName(removeElement);
+        for (var j= 0; j < childClassList.length; j++){
+            var child = childClassList[j];
+            child.classList.remove("selected");
+        }
+    }
+}
 
 /* INIT CREATE USER FUNCTIONS */
 function initIntervention() {

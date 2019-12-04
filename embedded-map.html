@@ -35,7 +35,9 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css"
           integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ=="
           crossorigin=""/>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.1.1/css/ol.css" type="text/css">
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.1.1/css/ol.css"
+          type="text/css">
     <link rel="stylesheet" type="text/css" href="styles/inline.css">
     <link rel="stylesheet" type="text/css" href="styles/camera.css">
     <link rel="stylesheet" type="text/css" href="styles/navabar.css">
@@ -94,49 +96,50 @@
 </div>
 <!-- container -->
 
-<div class="p-0 h-100 m-0">
-    <a href="embedded" class="button-img-2 mt-2 mb-2"><img src="Images/Icons/camera-embedded-icon.png"></a>
-    <div class="mr-auto ml-auto map-box w-100">
+<a href="embedded" class="button-img-2 mt-2 mb-2"><img src="Images/Icons/camera-embedded-icon.png"></a>
+<div class="row m-0" style="position: relative; z-index: 10;">
+    <div class="col-1 d-none d-lg-block" style="background-color: #2a2a36">
+        <div style="position: relative; top: 30vh;">
+            <div class="row m-0 mt-3">
+                <div class="col align-self-center p-0">
+                    <img class="green-icone" src="Images/Icons/Icone-Wind.png">
+                </div>
+                <p class="col p-0" id="wind-captor"></p>
+            </div>
+            <div class="row m-0 mt-3">
+                <div class="col align-self-center p-0">
+                    <img id="wind-direction-img" width="41" height="41" class="green-icone" src="Images/up-arrow.png">
+                </div>
+                <p class="col p-0" id="wind-direction"></p>
+            </div>
+            <div class="row m-0 mt-3">
+                <div class="col align-self-center p-0">
+                    <img class="green-icone" src="Images/Icons/Icone-Water.png">
+                </div>
+                <p class="col p-0" id="humidity-captor"></p>
+            </div>
+            <div class="row m-0 mt-3">
+                <div class="col align-self-center p-0">
+                    <img class="green-icone" src="Images/Icons/Icone-Barometre.png">
+                </div>
+                <p class="col p-0" id="pression-captor"></p>
+            </div>
+            <div class="row m-0 mt-3">
+                <div class="col align-self-center p-0">
+                    <img class="green-icone" src="Images/Icons/Icone-Temperature.png">
+                </div>
+                <p class="col p-0" id="temperature-captor"></p>
+            </div>
+            <div class="row m-0 mt-3">
+                <div class="col align-self-center p-0">
+                    <img class="green-icone" src="Images/Icons/Icone-Height.png">
+                </div>
+                <p class="col p-0" id="altitude-captor"></p>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-11 p-0 m-0">
         <div id="map" class="map-view-image"></div>
-    </div>
-</div>
-
-<div class="sensor-box-embedded">
-    <div class="row m-3">
-        <p class="col" id="wind-captor"></p>
-        <div class="text-center">
-            <img class="green-icone" src="Images/Icons/Icone-Wind.png">
-        </div>
-    </div>
-    <div class="row m-3">
-        <p class="col" id="wind-direction"></p>
-        <div class="text-center">
-            <img id="wind-direction-img" width="41" height="41" class="green-icone" src="Images/up-arrow.png">
-        </div>
-    </div>
-    <div class="row m-3">
-        <p class="col" id="humidity-captor"></p>
-        <div class="text-center">
-            <img class="green-icone" src="Images/Icons/Icone-Water.png">
-        </div>
-    </div>
-    <div class="row m-3">
-        <p class="col" id="pression-captor"></p>
-        <div class="text-center">
-            <img class="green-icone" src="Images/Icons/Icone-Barometre.png">
-        </div>
-    </div>
-    <div class="row m-3">
-        <p class="col" id="temperature-captor"></p>
-        <div class="text-center">
-            <img class="green-icone" src="Images/Icons/Icone-Temperature.png">
-        </div>
-    </div>
-    <div class="row m-3">
-        <p class="col" id="altitude-captor"></p>
-        <div class="text-center">
-            <img class="green-icone" src="Images/Icons/Icone-Height.png">
-        </div>
     </div>
 </div>
 

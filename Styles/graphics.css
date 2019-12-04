@@ -6,6 +6,24 @@ Date : 09/07/2019
 Description: CSS for dashboard graphics view
 */
 
+
+select option :hover {
+    background-color: #1C1C22 !important;
+    border: 1px solid #9C9C9C!important;
+}
+
+.form-control :focus {
+    border: 1px solid #9C9C9C!important;
+}
+
+.form-control {
+    height: 15vh;
+    background-color: #1C1C22 !important;
+    border: 1px solid #202029 !important;
+    border-radius: 0!important;
+    color: white !important;
+}
+
 .blockbutton {
     background-color: #2A2A36;
     position: fixed;

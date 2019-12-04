@@ -1,67 +1,53 @@
-<div id="managebarrackcontent" class="m-3">
-    <div class="row">
-        <div class="col-xl-8">
-            <div class="blockcolor">
-                <div class="row p-3">
-                    <img class="panel-icon ml-3 mt-auto mb-auto" src="Images/fire-station.png">
-                    <p id="barrackName" class="ml-3 mt-auto mb-auto">Caserne de la Pointe de Rouge</p>
-                    <img id="editBarrack" class="pencil ml-3 mt-auto mb-auto" src="Images/Icons/pencil.png">
-                </div>
-                <div id="mapBarrack" class="ml-3 mr-3 mh-100 map-box-barrack"></div>
-                <div class="row p-3">
-                    <img class="panel-icon ml-3 mt-auto mb-auto" src="Images/pin-pos.png">
-                    <p id="barrackAdress" class="ml-3 mt-auto mb-auto">4-10 Avenue d'Outre Mer, 13008 Marseille</p>
-                </div>
-                <div class="p-3">
-                    <p>Camions :</p>
-                    <div class="row m-0 box-barrack align-items-center">
-                        <div class="col-1 p-0 text-center h-100">
-                            <button type="button" class="btn btn-secondary no-shadow w-100 h-100"><img class="panel-icon"
-                                                                                 src="Images/Icons/add.png"></button>
-                        </div>
-                        <div class="col-11">
-                            <div class="row align-items-center">
-                                <div classs="col">
-                                    l'item que tu veux fréro
-                                </div>
+<div id="historiccontent" class="m-3">
+    <div id="historic" class="row blockcolor m-0">
+        <div class="col-xl-6">
+            <div class="row p-3">
+                <img class="panel-icon ml-3 mt-auto mb-auto" src="Images/alarm.png">
+                <p class="ml-3 mt-auto mb-auto">Type d'intervention :</p>
+                <p id="type" class="ml-3 mt-auto mb-auto">Accident de Voiture</p>
+            </div>
+            <div id="mapBarrack" class="ml-3 mr-3 mh-100 map-box-inprogress"></div>
+        </div>
+        <div class="col-xl-6">
+            <div class="row mt-5 m-0 pt-2 pb-3 border-bot">
+                <img class="panel-icon mt-auto mb-auto" src="Images/pin-pos.png">
+                <p class="ml-3 mt-auto mb-auto">Adresse :</p>
+                <p id="interventionAdress" class="ml-3 mt-auto mb-auto">4-10 Avenue d'Outre Mer, 13008 Marseille</p>
+            </div>
+            <div class="mt-3 m-0 pt-2 pb-3 border-bot">
+                <p>Informations sur l'intervention :</p>
+                <input disabled type="text" class="form-control" id="infosup">
+                <button disabled type="button" class="btn btn-success w-100 mt-2">
+                    <img class="panel-icon mr-2" src="Images/call-answer.png">Appeler le Signaleur
+                </button>
+            </div>
+            <div class="mt-3 m-0 pt-2 pb-3 border-bot">
+                <p>Commentaire :</p>
+                <input disabled type="text" class="form-control" id="comment">
+                <div class="row mt-2">
+                    <div class="col-6">
+                        <button disabled type="button" class="btn btn-success w-100">
+                            Transport Hôpital
+                        </button>
+                    </div>
+                    <div class="col-6 align-self-center h-100">
+                        <div class="row m-0">
+                            <div class="divBox mt-auto mb-auto">
+                                <input disabled type="checkbox" value="1" id="checkboxFourInput" name=""/>
+                                <label class="m-0" for="checkboxFourInput"></label>
                             </div>
+                            <p class="mt-auto mb-auto ml-2 m-0">Transport Effectué</p>
                         </div>
                     </div>
                 </div>
-                <div class="p-3">
-                    <p>Equipes :</p>
-                    <div class="row m-0 box-barrack align-items-center">
-                        <div class="col-1 p-0 text-center h-100">
-                            <button type="button" class="btn btn-secondary no-shadow w-100 h-100"><img class="panel-icon"
-                                                                                                       src="Images/Icons/add.png"></button>
-                        </div>
-                        <div class="col-11">
-
-                        </div>
-                    </div>
-                </div>
-                <div class="p-3">
-                    <p>Gérer votre Equipe :</p>
-                    <div class="row m-0">
-
-                    </div>
-                </div>
+            </div>
+            <div class="mt-3 m-0 pt-2 pb-3">
+                <button disabled type="button" class="btn btn-danger w-100 mt-2">
+                    Terminer l'intervention
+                </button>
             </div>
         </div>
-        <div class="col-xl-4 margin-top-mobile">
-            <div class="blockcolor w-100">
-                <label class="p-2 bold-edition">Utilisateurs de la caserne</label>
-                <ul id="userBarrack" class="facet-list">
-                </ul>
-            </div>
-            <div class="blockcolor mt-3 w-100">
-                <label class="p-2 bold-edition">
-                    <img class="ml-1 mr-1" src="Images/Icons/search.png">Recherché un utilisateur
-                </label>
-                <ul id="usersList" class="facet-list">
-                </ul>
-            </div>
-        </div>
+        <div class="greybox"></div>
     </div>
 </div>
 
@@ -71,5 +57,5 @@
 <script src="https://unpkg.com/leaflet@1.3.1/dist/leaflet.js"
         integrity="sha512-/Nsx9X4HebavoBvEBuyp3I7od5tA0UzAxs+j83KgC8PU0kgB4XiK4Lfe4y4cgBtaRJQEIFCW+oC506aPT2L1zw=="
         crossorigin=""></script>
+<script src="scripts/inprogress.js"></script>
 
-<script src="scripts/manageembedded.js"></script>
