@@ -5,7 +5,11 @@
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-153136528-1"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
         gtag('js', new Date());
 
         gtag('config', 'UA-153136528-1');
@@ -100,12 +104,12 @@
 </div>
 <!-- container -->
 
-<div class="container d-none d-lg-block">
-  <div class="row text-center">
-    <a href="embedded-map" class=" mt-3 ml-auto mr-auto"><img src="Images/Icons/map-embedded-icon.png"></a>
-  </div>
+<div class="container">
+    <div class="row text-center">
+        <a href="embedded-map" class=" mt-3 ml-auto mr-auto"><img src="Images/Icons/map-embedded-icon.png"></a>
+    </div>
     <div class="row">
-        <div class="col-4 camera-view mw-75">
+        <div class="col-lg-4 camera-view mw-75">
             <div class="legende-box mt-5">
                 <div class="row mt-1">
                     <div class="col justify-content-right">
@@ -133,7 +137,7 @@
                 </div>
             </div>
         </div>
-        <div class="camera-view col-8">
+        <div class="camera-view col-lg-8">
             <div class="box-camera mt-5">
                 <div class="text-center">
                     <iframe src="https://player.twitch.tv/?channel=fireembedded" frameborder="0" allowfullscreen="true"
@@ -175,85 +179,6 @@
             et données du système embarqué mais aussi aux détails des capteurs.</span></a>
                         <button id="goToGraphics" type="submit" class="btn btn-secondary">Détails des Capteurs</button>
                     </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="container d-block d-lg-none">
-  <div class="row text-center">
-    <a href="embedded-map" class=" mt-3 ml-auto mr-auto"><img src="Images/Icons/map-embedded-icon.png"></a>
-  </div>
-    <div class="camera-view mw-75">
-        <div class="legende-box mt-5">
-            <div class="row mt-1">
-                <div class="col justify-content-right">
-                    <div class="white w-50 h-100"></div>
-                </div>
-                <div class="col text-center">
-                    <p>Hot ??</p>
-                </div>
-            </div>
-            <div class="row mt-1">
-                <div class="col">
-                    <div class="yellow w-50 h-100"></div>
-                </div>
-                <div class="col text-center">
-                    <p>hot ??</p>
-                </div>
-            </div>
-            <div class="row mt-1">
-                <div class="col text-center">
-                    <div class="red w-50 h-100"></div>
-                </div>
-                <div class="col text-center">
-                    <p>hot ??</p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="camera-view mw-75">
-        <div class="box-camera mt-5">
-            <div class="text-center">
-                <iframe src="https://player.twitch.tv/?channel=fireembedded" frameborder="0" allowfullscreen="true"
-                        scrolling="no" height="378" width="100%"></iframe>
-            </div>
-            <div class="sensor-box-camera">
-                <div class="row p-4">
-                    <div class="col text-center">
-                        <img class="green-icone" src="Images/Icons/Icone-Wind.png">
-                        <p id="wind-captor"></p>
-                    </div>
-                    <div class="col text-center">
-                        <img id="wind-direction-img" width="41" height="41" class="green-icone"
-                             src="Images/up-arrow.png">
-                        <p id="wind-direction"></p>
-                    </div>
-                    <div class="col text-center">
-                        <img class="green-icone" src="Images/Icons/Icone-Water.png">
-                        <p id="humidity-captor"></p>
-                    </div>
-                    <div class="col text-center">
-                        <img class="green-icone" src="Images/Icons/Icone-Barometre.png">
-                        <p id="pression-captor"></p>
-                    </div>
-                    <div class="col text-center">
-                        <img class="green-icone" src="Images/Icons/Icone-Temperature.png">
-                        <p id="temperature-captor"></p>
-                    </div>
-                    <div class="col text-center">
-                        <img class="green-icone" src="Images/Icons/Icone-Height.png">
-                        <p id="altitude-captor"></p>
-                    </div>
-                </div>
-                <div class="text-center pb-3">
-                    <a class="infobulle">
-                        <img src="Images/Icons/question-mark.png">
-                        <span>Ce bouton permet d'accéder à la page Caméra/Carte de l'Embedded
-            Cela vous permet d'avoir un accès au flux direct de l'IA s'executant sur les images
-            et données du système embarqué mais aussi aux détails des capteurs.</span></a>
-                    <button id="goToGraphics" type="submit" class="btn btn-secondary">Détails des Capteurs</button>
                 </div>
             </div>
         </div>
