@@ -40,52 +40,67 @@ Date : 15/10/2018
 </head>
 
 <body id="core">
-  <button type="button" class="button-img mt-2 ml-2" data-toggle="modal" data-target="#exampleModal"><img src="Images/Icons/menu.png"></button>
-  <div class="container">
-      <div class="modal left fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog" role="document">
-              <div class="modal-content">
+<button type="button" class="button-img mt-2 ml-2" data-toggle="modal" data-target="#exampleModal"><img
+        src="Images/Icons/menu.png"></button>
+<div class="container p-0">
+    <div class="modal left fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
                 <div class="modal-header">
-                  <img class="mt-5 mb-3 logo-sidebar ml-auto mr-auto" src="Images/Icons/logo-menu.png">
+                    <img class="mt-5 mb-3 logo-sidebar ml-auto mr-auto" src="Images/Icons/logo-menu.png">
                 </div>
-                  <div class="modal-body">
-                      <div class="nav flex-sm-column flex-row">
-                        <div class="row menu-link mt-4 mb-4 mr-3">
-                            <img class="navbar-icon" src="Images/Icons/Icone-Map.png">
-                            <a href="http://109.255.19.77:80/embedded-map.html" class="nav-item nav-link">Vue Carte</a>
+                <div class="modal-body">
+                    <div class="mt-auto mb-auto">
+                        <div class="nav flex-sm-column flex-row">
+                            <div class="row menu-link mr-3 m-0">
+                                <img class="navbar-icon mt-auto mb-auto" src="Images/Icons/Icone-Map.png">
+                                <a href="embedded-map" class="nav-item nav-link">Vue Carte</a>
+                            </div>
+                            <div class="row menu-link mt-5 mr-3 m-0">
+                                <img class="navbar-icon mt-auto mb-auto" src="Images/Icons/Icone-camera.png">
+                                <a href="embedded" class="nav-item nav-link">Vue Caméra</a>
+                            </div>
+                            <div class="row menu-link mt-5 mr-3 m-0">
+                                <img class="navbar-icon mt-auto mb-auto" src="Images/Icons/Icone-Dashboard.png">
+                                <a href="dashboard" class="nav-item nav-link">Tableau de bord</a>
+                            </div>
+                            <div class="row menu-link mt-5 mr-3 m-0">
+                                <img class="navbar-icon mt-auto mb-auto" src="Images/Icons/alarmMenu.png">
+                                <a href="intervention" class="nav-item nav-link">Intervention</a>
+                            </div>
+                            <div class="row menu-link mt-5 mr-3 m-0">
+                                <img class="navbar-icon mt-auto mb-auto" src="Images/Icons/Icone-Statistique.png">
+                                <a href="graphics" class="nav-item nav-link">Détails Capteurs</a>
+                            </div>
+                            <div id="navbar-panel-admin" class="row menu-link mt-5 mr-3 m-0">
+                                <img class="navbar-icon mt-auto mb-auto" src="Images/Icons/Icone-Gear.png">
+                                <a href="panel-admin-V2" class="nav-item nav-link">Panneau d'Administration</a>
+                            </div>
                         </div>
-                        <div class="row menu-link mt-4 mb-4 mr-3">
-                            <img class="navbar-icon" src="Images/Icons/Icone-camera.png">
-                            <a href="http://109.255.19.77:80/embedded.html" class="nav-item nav-link">Vue Caméra</a>
+                    </div>
+                </div>
+                <div class="modal-footer d-block">
+                    <div class="m-0">
+                        <p class="text-center mb-1" style="color:#fff">Bulles Informatives</p>
+                        <div class="text-center">
+                            <label class="switch text-center mb-3">
+                                <input id="tutorial-switch" type="checkbox">
+                                <span class="slider"></span>
+                            </label>
                         </div>
-                        <div class="row menu-link mt-4 mb-4 mr-3">
-                            <a href="http://109.255.19.77:80/dashboard.html" class="nav-item nav-link">Tableau de bord</a>
-                            <img class="navbar-icon" src="Images/Icons/Icone-Dashboard.png">
-                        </div>
-                        <div class="row menu-link mt-4 mb-4 mr-3">
-                            <img class="navbar-icon" src="Images/Icons/Icone-Statistique.png">
-                            <a href="http://109.255.19.77:80/" class="nav-item nav-link">Détails Capteurs</a>
-                        </div>
-                        <div class="row menu-link mt-4 mb-4 mr-3">
-                            <img class="navbar-icon" src="Images/Icons/Icone-User.png">
-                            <a href="http://109.255.19.77:80/panel-user.html" class="nav-item nav-link">Mon profil</a>
-                        </div>
-                        <div class="row menu-link mt-4 mb-4 mr-3">
-                            <img class="navbar-icon" src="Images/Icons/Icone-Gear.png">
-                            <a href="http://109.255.19.77:80/panel-admin.html" class="nav-item nav-link">Admin panel</a>
-                        </div>
-                      </div>
-                  </div>
-                  <div class="modal-footer">
-                      <button type="submit" class="button-img ml-auto mr-auto" data-dismiss=""><img class="disconnect-img w-25" src="Images/Icons/power-button-off.png"></button>
-                  </div>
-              </div>
-          </div>
-      </div>
-  </div>
-  <div id="blockHome">
-  <div>  
-  <!-- container -->
+                    </div>
+                    <div class="text-center">
+                        <button id="menu-deconnexion" type="submit" class="button-disconnect"
+                                data-dismiss=""><img class="disconnect-img w-25"
+                                                     src="Images/Icons/power-button-off.png">
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 
 </html>
