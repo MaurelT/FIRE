@@ -5,46 +5,56 @@
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-153136528-1"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
         gtag('js', new Date());
 
         gtag('config', 'UA-153136528-1');
     </script>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Embedded-Map</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Embedded-Map</title>
 
-  <!-- TODO add manifest here -->
-  <link rel="manifest" href="manifest.json">
-  <!-- Add to home screen for Safari on iOS -->
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="apple-mobile-web-app-title" content="Fire">
-  <link rel="apple-touch-icon" href="images/icons/icon-152x152.png">
+    <!-- TODO add manifest here -->
+    <link rel="manifest" href="manifest.json">
+    <!-- Add to home screen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Fire">
+    <link rel="apple-touch-icon" href="images/icons/icon-152x152.png">
 
-  <link rel="icon" type="image/png" href="Images/Icons/iconeFire.png">
-  <meta name="msapplication-TileImage" content="images/icons/icon-144x144.png">
-  <meta name="msapplication-TileColor" content="#2F3BA2">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css" integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ==" crossorigin="" />
-  <link rel="stylesheet" type="text/css" href="styles/inline.css">
-  <link rel="stylesheet" type="text/css" href="styles/camera.css">
-  <link rel="stylesheet" type="text/css" href="styles/navabar.css">
+    <link rel="icon" type="image/png" href="Images/Icons/iconeFire.png">
+    <meta name="msapplication-TileImage" content="images/icons/icon-144x144.png">
+    <meta name="msapplication-TileColor" content="#2F3BA2">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css"
+          integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ=="
+          crossorigin=""/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.1.1/css/ol.css" type="text/css">
+    <link rel="stylesheet" type="text/css" href="styles/inline.css">
+    <link rel="stylesheet" type="text/css" href="styles/camera.css">
+    <link rel="stylesheet" type="text/css" href="styles/navabar.css">
 </head>
 
 <body id="core">
 
-  <button type="button" class="button-img mt-2 ml-2" data-toggle="modal" data-target="#exampleModal"><img src="Images/Icons/menu.png"></button>
-  <div class="container">
-      <div class="modal left fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog" role="document">
-              <div class="modal-content">
+<button type="button" class="button-img mt-2 ml-2" data-toggle="modal" data-target="#exampleModal"><img
+        src="Images/Icons/menu.png"></button>
+<div class="container">
+    <div class="modal left fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
                 <div class="modal-header">
-                  <img class="mt-5 mb-3 logo-sidebar ml-auto mr-auto" src="Images/Icons/logo-menu.png">
+                    <img class="mt-5 mb-3 logo-sidebar ml-auto mr-auto" src="Images/Icons/logo-menu.png">
                 </div>
-                  <div class="modal-body">
-                      <div class="nav flex-sm-column flex-row">
+                <div class="modal-body">
+                    <div class="nav flex-sm-column flex-row">
                         <div class="row menu-link mt-4 mb-4 mr-3">
                             <img class="navbar-icon" src="Images/Icons/Icone-Map.png">
                             <a href="embedded-map" class="nav-item nav-link">Vue Carte</a>
@@ -65,104 +75,98 @@
                             <img class="navbar-icon" src="Images/Icons/Icone-Gear.png">
                             <a href="panel-admin-V2" class="nav-item nav-link">Panneau d'Administration</a>
                         </div>
-                      </div>
-                  </div>
+                    </div>
+                </div>
 
-                  <p class="ml-auto mr-auto mb-1" style="color:#fff">Bulles Informatives</p>
-                  <label class="switch mr-auto ml-auto mb-3">
+                <p class="ml-auto mr-auto mb-1" style="color:#fff">Bulles Informatives</p>
+                <label class="switch mr-auto ml-auto mb-3">
                     <input id="tutorial-switch" type="checkbox">
                     <span class="slider"></span>
-                  </label>
-                  <div class="modal-footer">
-                      <button id="menu-deconnexion" type="submit" class="button-disconnect ml-auto mr-auto" data-dismiss=""><img class="disconnect-img w-25" src="Images/Icons/power-button-off.png"></button>
-                  </div>
-              </div>
-          </div>
-      </div>
-  </div>
-  <!-- container -->
-
-    <div class="blockleft d-none d-lg-block">
-      <div class="text-center" id="createuser">
-      </div>
-      <div class="itemPosition ">
-      </div>
+                </label>
+                <div class="modal-footer">
+                    <button id="menu-deconnexion" type="submit" class="button-disconnect ml-auto mr-auto"
+                            data-dismiss=""><img class="disconnect-img w-25" src="Images/Icons/power-button-off.png">
+                    </button>
+                </div>
+            </div>
+        </div>
     </div>
+</div>
+<!-- container -->
 
-  <div class="text-center">
+<div class="p-0 h-100 m-0">
     <a href="embedded" class="button-img-2 mt-2 mb-2"><img src="Images/Icons/camera-embedded-icon.png"></a>
-  </div>
-        <div class="mr-auto ml-auto map-box">
-          <div id="map" class="map-view-image"></div>
-        </div>
+    <div class="mr-auto ml-auto map-box w-100">
+        <div id="map" class="map-view-image"></div>
+    </div>
+</div>
 
-      <div class="sensor-box-embedded">
-        <div class="row m-3">
-          <p class="col" id="wind-captor"> </p>
-          <div class="text-center">
+<div class="sensor-box-embedded">
+    <div class="row m-3">
+        <p class="col" id="wind-captor"></p>
+        <div class="text-center">
             <img class="green-icone" src="Images/Icons/Icone-Wind.png">
-          </div>
         </div>
-
-          <div class="row m-3">
-              <p class="col" id="wind-direction"> </p>
-              <div class="text-center">
-                  <img id="wind-direction-img" width="41" height="41" class="green-icone" src="Images/up-arrow.png">
-              </div>
-          </div>
-
-          <div class="row m-3">
-          <p class="col" id="humidity-captor"> </p>
-          <div class="text-center">
+    </div>
+    <div class="row m-3">
+        <p class="col" id="wind-direction"></p>
+        <div class="text-center">
+            <img id="wind-direction-img" width="41" height="41" class="green-icone" src="Images/up-arrow.png">
+        </div>
+    </div>
+    <div class="row m-3">
+        <p class="col" id="humidity-captor"></p>
+        <div class="text-center">
             <img class="green-icone" src="Images/Icons/Icone-Water.png">
-          </div>
         </div>
-
-        <div class="row m-3">
-          <p class="col" id="pression-captor"> </p>
-          <div class="text-center">
+    </div>
+    <div class="row m-3">
+        <p class="col" id="pression-captor"></p>
+        <div class="text-center">
             <img class="green-icone" src="Images/Icons/Icone-Barometre.png">
-          </div>
         </div>
-
-        <div class="row m-3">
-          <p class="col" id="temperature-captor"> </p>
-          <div class="text-center">
+    </div>
+    <div class="row m-3">
+        <p class="col" id="temperature-captor"></p>
+        <div class="text-center">
             <img class="green-icone" src="Images/Icons/Icone-Temperature.png">
-          </div>
         </div>
-
-        <div class="row m-3">
-          <p class="col" id="altitude-captor"> </p>
-          <div class="text-center">
+    </div>
+    <div class="row m-3">
+        <p class="col" id="altitude-captor"></p>
+        <div class="text-center">
             <img class="green-icone" src="Images/Icons/Icone-Height.png">
-          </div>
         </div>
-
-      </div>
+    </div>
+</div>
 
 </body>
 
 
-
-
 <script src="scripts/jquery-3.3.1.min.js"></script>
 
-<script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js" integrity="sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA==" crossorigin=""></script>
+<script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js"
+        integrity="sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA=="
+        crossorigin=""></script>
 <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
-
+<script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.1.1/build/ol.js"></script>
 <script src="scripts/embedded.js"></script>
 
 <script src="scripts/cookie.js"></script>
 
-<!--
-<script src="https://unpkg.com/leaflet@1.3.1/dist/leaflet.js" integrity="sha512-/Nsx9X4HebavoBvEBuyp3I7od5tA0UzAxs+j83KgC8PU0kgB4XiK4Lfe4y4cgBtaRJQEIFCW+oC506aPT2L1zw==" crossorigin=""></script>
--->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
 <!-- Font Awesome JS -->
-<script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
-<script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
+<script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js"
+        integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ"
+        crossorigin="anonymous"></script>
+<script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js"
+        integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY"
+        crossorigin="anonymous"></script>
 
 
 </html>

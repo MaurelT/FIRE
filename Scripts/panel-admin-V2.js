@@ -7,7 +7,7 @@ $(document).ready(function(){
     var bc = $('#bc');
     var divSelected = document.getElementsByClassName('itemPosition');
     var manageuser = document.getElementById('manageuser');
-    var manageembedded = document.getElementById('manageembedded');
+    var manageBarrack = document.getElementById('manageBarrack');
     var createuser = document.getElementById('createuser');
 
     manageuser.classList.add('selected');
@@ -15,6 +15,7 @@ $(document).ready(function(){
         initEmbeddedSwitchManager();
         uniqueSwitchManager($('#usersList'));
     });
+
 
     $('#createuser').click(function () {
       removeClass(divSelected, 'selected');
@@ -31,43 +32,16 @@ $(document).ready(function(){
         });
     });
 
-    $('#manageembedded').click(function(){
+    $('#manageBarrack').click(function(){
       removeClass(divSelected, 'selected');
-      manageembedded.classList.add('selected');
-      bc.load('manageembedded.html' , function () {
-          initEmbeddedSwitchManager();
+      manageBarrack.classList.add('selected');
+      bc.load('manageBarrack.html' , function () {
           initMap();
-        });
-    });
-
-    //CONTROLER MOBILE
-    var mdivSelected = document.getElementsByClassName('m-itemPosition');
-    var mmanageuser = document.getElementById('m-manageuser');
-    var mmanageembedded = document.getElementById('m-manageembedded');
-
-    mmanageuser.classList.add('selected');
-    bc.load('manageuser.html', function() {
-        initEmbeddedSwitchManager();
-    });
-
-    $('#m-manageuser').click(function(){
-      removeClass(mdivSelected, 'selected');
-      mmanageuser.classList.add('selected');
-        bc.load('manageuser.html', function () {
-            initEmbeddedSwitchManager();
-        });
-    });
-
-    $('#m-manageembedded').click(function(){
-      removeClass(mdivSelected, 'selected');
-      mmanageembedded.classList.add('selected');
-      bc.load('manageembedded.html' , function () {
           initEmbeddedSwitchManager();
         });
     });
 
     //Récupération all users
-
     $('#manageuser').click( function () {
         getAllUsers();
     });

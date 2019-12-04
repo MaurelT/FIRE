@@ -6,19 +6,9 @@ Date : 08/07/2019
 Description: CSS for Camera & Map View
 */
 
-#map {
-  position: relative;
-  height: 940px;
-  outline: none;
-}
-
 .map-box {
-    width: 82%;
-    height: 700px;
-    z-index: 50;
-    position: fixed;
-    top: 0;
-    left: 18%;
+  z-index: 50;
+  position: relative;
 }
 
 div.my-camera-line {

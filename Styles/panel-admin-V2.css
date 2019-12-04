@@ -6,171 +6,134 @@ Date : 05/07/2019
 Description: CSS for Panel-Admin
 */
 
-.blockleft {
-  position: fixed;
-  left: 0;
-  width: 18%;
-  height: 100%;
-  padding: 15px 15px 80px;
-  background-color: #2A2A36;
+.no-shadow {
+    box-shadow: unset!important;
+    border-radius: 0!important;
 }
 
-.blockbot {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  background-color: #82363B;
-  z-index: 100;
-}
-
-
-.blockinfo {
-    margin-top: 1.5rem;
-    position: relative;
-    width: 80%;
-    padding: 15px 15px 80px;
-    background-color: #2A2A36;
-}
-
-.blockembeddedinfo {
-      margin-top: 1.5rem;
-      position: relative;
-      width: 50%;
-      padding: 15px 15px 80px;
-      background-color: #2A2A36;
-}
-
-.blocklistuser {
-    position: absolute;
-    width: 28%;
-    right: 20%;
-    top:0;
-}
-
-.manageuserembeded, .manageuserlist {
-  margin-top: 1.5rem;
-  padding: 0px 0px 80px;
-  background-color: #2A2A36;
-  max-height: 360px;
-}
-
-.blockembeddeduser, .blockmanageuser, .blockembedded {
-    padding: 0px 0px 80px;
-    background-color: #2A2A36;
-    max-height: 360px;
-    overflow-y: overlay;
-    overflow-x: hidden;
-    white-space: nowrap;
-}
-
-.blockname_pprofil {
-  width: 300px;
-}
-
-.on_off_icon {
-  height: 10px;
-  border-radius: 20px;
-}
-
-.nameprofil {
-  font-weight:bold;
-}
-
-.usercreate {
-  background-color: #1C1C22;
-  border-radius: 20px;
-}
-
-.pencil {
-  margin-top: 7%;
-  margin-left: 5%;
-  height: 20px;
-}
-
-.iconeslist {
-  height: 20px;
-}
-
-.blockleft a {
-  color: white!important;
-}
-
-.blockleft a:hover, img:hover {
-  font-size: 1.1rem;
-  text-decoration: none;
-}
-
-
-.blockposition {
-  margin-top: auto;
-  margin-bottom: auto
-}
-
-.blocklistcontent  {
-  width: 80%;
-}
-
-.blockcontent {
-  position: fixed;
-  left: 20%;
-  width: 98%
-}
-
-.pprofil {
-  border-radius: 50px;
-}
-
-.rprofil {
-  height: 30px;
-  border-radius: 20px;
+.box-barrack {
+    height: 7vh;
+    background-color: #202029;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .selected {
-  background-color: #202029;
+    background-color: #202029;
 }
 
-.itemPosition {
-  position: relative;
-  top: 50%;
+.on_off_icon {
+    height: 10px;
+    border-radius: 20px;
 }
 
-#manageuser a, #manageembedded a, #createuser a {
-  margin: 3%;
+.pprofil {
+    border-radius: 50px;
 }
 
+.rprofil {
+    height: 30px;
+    border-radius: 20px;
+}
+
+.iconeslist {
+    height: 20px;
+}
+
+.panel-icon {
+    width: 25px;
+    height: 25px;
+}
+
+.blockcolor {
+    background-color: #2A2A36;
+}
+
+.blockmenu {
+    background-color: #2A2A36;
+}
+
+.nameprofil {
+    font-weight: bold;
+}
+
+.usercreate {
+    background-color: #1C1C22;
+    border-radius: 20px;
+}
+
+.pencil {
+    margin-top: 7%;
+    margin-left: 5%;
+    height: 20px;
+}
+
+.map-box-barrack {
+    border: 1px solid #82363B;
+    height: 150px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+@media screen and (max-width: 1200px) {
+    .col-when-mobile {
+        -ms-flex-preferred-size: 0;
+        flex-basis: 0;
+        -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
+        flex-grow: 1;
+        max-width: 100%;
+        float: center;
+    }
+    .margin-top-mobile {
+        margin-top: 1rem;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .blockmenu {
+        height: 100vh;
+    }
+
+    #manageembeddedlist {
+        margin-left: 1.5rem;
+        margin-right: 1.5rem;
+    }
+
+    .itemPosition {
+        position: relative;
+        top: 45%;
+    }
+}
 
 /*  DRAG & DROP */
-p {
-  clear: both;
-  padding-top: 1em;
+.facet-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    min-height: 1.5em;
+    font-size: 0.85em;
 }
 
-.facet-list {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  min-height: 1.5em;
-  font-size: 0.85em;
-}
 .facet-list li {
-  margin: 2px 0 0 0;
-  padding: 10px;
-  font-size: 1.2em;
+    margin: 2px 0 0 0;
+    padding: 10px;
+    font-size: 1.2em;
 }
+
 .facet-list li.placeholder {
-  height: 2em
+    height: 2em
 }
+
 .facet {
-  background-color: #1C1C22;
-  cursor: move;
+    background-color: #1C1C22;
+    cursor: move;
 }
+
 .facet.ui-sortable-helper {
-  opacity: 0.5;
+    opacity: 0.5;
 }
 
 .placeholder {
-  background-color: #202029;
-
+    background-color: #202029;
 }
 
 .map-box {
@@ -179,77 +142,9 @@ p {
 }
 
 .bold-edition {
-  font-weight: bold;
+    font-weight: bold;
 }
 
 .underline-edition {
-  text-decoration: underline;
-}
-
-/* Media Queries for Panel Admin */
-@media screen and (max-width: 992px) {
-  .blocklistcontent  {
-    width: 100%;
-  }
-
-  .blockcontent {
-    left: 0;
-    position: unset;
-    width: 100%
-  }
-
-  .blockinfo {
-      margin-left: 1%;
-      margin-top: 1.5rem;
-      width: 98%;
-      padding: 15px 15px 80px;
-      background-color: #2A2A36;
-  }
-
-  .itemPosition {
-    position: relative;
-    top: 50%;
-  }
-
-  .input-small {
-      width: 50%;
-  }
-
-  .blocklistuser {
-    margin-left: 1%!important;
-    margin-right: 1%!important;
-    position: absolute;
-    width: 98%;
-    right: 0;
-    top: unset;
-  }
-
-  .manageuserembeded, .manageuserlist {
-    margin-top: 1.5rem;
-    padding: 0px 0px 80px;
-    background-color: #2A2A36;
-    max-height: 360px;
-
-  }
-
-
-  .blockembeddedinfo {
-    margin-left: 1%;
-    margin-top: 1.5rem;
-    position: relative;
-    width: 98%;
-    padding: 15px 15px 80px;
-    background-color: #2A2A36;
-  }
-
-  .blockembeddeduser, .blockmanageuser, .blockembedded {
-    padding: 0px 0px 80px;
-    background-color: #2A2A36;
-    max-height: 360px;
-    overflow-y: overlay;
-    overflow-x: hidden;
-    white-space: nowrap;
-    margin-left: 1%!important;
-    margin-right: 1%!important;
-  }
+    text-decoration: underline;
 }

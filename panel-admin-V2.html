@@ -2,47 +2,55 @@
 
 <html lang="fr" dir="ltr">
 <head>
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-153136528-1"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-153136528-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
 
-    gtag('config', 'UA-153136528-1');
-  </script>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FIRE</title>
-  <!-- TODO add manifest here -->
-  <link rel="manifest" href="manifest.json">
-  <!-- Add to home screen for Safari on iOS -->
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="apple-mobile-web-app-title" content="Fire">
-  <link rel="icon" type="image/png" href="Images/Icons/iconeFire.png">
-  <link rel="apple-touch-icon" href="images/icons/icon-152x152.png">
-  <meta name="msapplication-TileImage" content="images/icons/icon-144x144.png">
-  <meta name="msapplication-TileColor" content="#2F3BA2">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-  <link rel="stylesheet" type="text/css" href="styles/inline.css">
-  <link rel="stylesheet" type="text/css" href="styles/navabar.css">
-  <link rel="stylesheet" type="text/css" href="styles/infobulle.css">
-  <link rel="stylesheet" type="text/css" href="styles/panel-admin-V2.css">
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'UA-153136528-1');
+    </script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FIRE</title>
+    <!-- TODO add manifest here -->
+    <link rel="manifest" href="manifest.json">
+    <!-- Add to home screen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Fire">
+    <link rel="icon" type="image/png" href="Images/Icons/iconeFire.png">
+    <link rel="apple-touch-icon" href="images/icons/icon-152x152.png">
+    <meta name="msapplication-TileImage" content="images/icons/icon-144x144.png">
+    <meta name="msapplication-TileColor" content="#2F3BA2">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="styles/inline.css">
+    <link rel="stylesheet" type="text/css" href="styles/navabar.css">
+    <link rel="stylesheet" type="text/css" href="styles/camera.css">
+    <link rel="stylesheet" type="text/css" href="styles/infobulle.css">
+    <link rel="stylesheet" type="text/css" href="styles/panel-admin-V2.css">
 </head>
 
 <body id="core">
-  <button type="button" class="button-img mt-2 ml-2" data-toggle="modal" data-target="#exampleModal"><img src="Images/Icons/menu.png"></button>
-  <div class="container">
-      <div class="modal left fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog" role="document">
-              <div class="modal-content">
+<button type="button" class="button-img mt-2 ml-2" data-toggle="modal" data-target="#exampleModal"><img
+        src="Images/Icons/menu.png"></button>
+<div class="container">
+    <div class="modal left fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
                 <div class="modal-header">
-                  <img class="mt-5 mb-3 logo-sidebar ml-auto mr-auto" src="Images/Icons/logo-menu.png">
+                    <img class="mt-5 mb-3 logo-sidebar ml-auto mr-auto" src="Images/Icons/logo-menu.png">
                 </div>
-                  <div class="modal-body">
-                      <div class="nav flex-sm-column flex-row">
+                <div class="modal-body">
+                    <div class="nav flex-sm-column flex-row">
                         <div class="row menu-link mt-4 mb-4 mr-3">
                             <img class="navbar-icon" src="Images/Icons/Icone-Map.png">
                             <a href="embedded-map" class="nav-item nav-link">Vue Carte</a>
@@ -63,128 +71,141 @@
                             <img class="navbar-icon" src="Images/Icons/Icone-Gear.png">
                             <a href="panel-admin-V2" class="nav-item nav-link">Panneau d'Administration</a>
                         </div>
-                      </div>
-                  </div>
+                    </div>
+                </div>
 
-                  <p class="ml-auto mr-auto mb-1" style="color:#fff">Bulles Informatives</p>
-                  <label class="switch mr-auto ml-auto mb-3">
+                <p class="ml-auto mr-auto mb-1" style="color:#fff">Bulles Informatives</p>
+                <label class="switch mr-auto ml-auto mb-3">
                     <input id="tutorial-switch" type="checkbox">
                     <span class="slider"></span>
-                  </label>
-                  <div class="modal-footer">
-                      <button id="menu-deconnexion" type="submit" class="button-disconnect ml-auto mr-auto" data-dismiss=""><img class="disconnect-img w-25" src="Images/Icons/power-button-off.png"></button>
-                  </div>
-              </div>
-          </div>
-      </div>
-  </div>
-  <div class="blockleft d-none d-lg-block">
-    <div class="text-center" id="createuser">
-      <a href="#"><img class="mt-2" src="Images/Icons/usercreate.png"></a>
+                </label>
+                <div class="modal-footer">
+                    <button id="menu-deconnexion" type="submit" class="button-disconnect ml-auto mr-auto"
+                            data-dismiss=""><img class="disconnect-img w-25" src="Images/Icons/power-button-off.png">
+                    </button>
+                </div>
+            </div>
+        </div>
     </div>
-    <a class="infobulle" style="left:5%;">
-      <img src="Images/Icons/question-mark.png">
-      <span>Vous pouvez accéder à la page de création d'utilisateur via ce bouton</span></a>
-    <div class="itemPosition ">
-      <div class="row" id="manageuser">
-        <img class="m-2" src="Images/Icons/manuser.png">
-        <a href="#">Gérer un utilisateur</a>
-      </div>
-      <div class="row" id="manageembedded">
-        <img class="m-2" src="Images/Icons/gimbal.png">
-        <a href="#">Gérer un embedded</a>
-      </div>
-    </div>
-  </div>
-  <div class="blockbot d-lg-none">
-    <div class="m-itemPosition row text-center">
-      <div class="col selected" id="m-manageuser">
-        <a href="#"><img class="m-2" src="Images/Icons/manuser.png"></a>
-      </div>
-      <div class="col" id="m-manageembedded">
-        <a href="#"><img class="m-2" src="Images/Icons/gimbal.png"></a>
-      </div>
-    </div>
-  </div>
-  <div class="blockcontent" id="bc">
-  </div>
+</div>
 
 
-  <!-- The Modal -->
-  <div class="modal fade" id="myModal">
+<div class="row w-100 m-0">
+    <div class="col-xl-2 blockmenu p-0">
+        <div class="text-center" id="createuser">
+            <a href="#"><img class="m-3" src="Images/Icons/usercreate.png"></a>
+        </div>
+        <div class="row w-100 m-0 itemPosition">
+            <div class="col-when-mobile p-0 w-100">
+                <div class="row w-100 m-0" id="manageuser">
+                    <img class="panel-icon m-2" src="Images/Icons/manuser.png">
+                    <p class="m-2">Gérer un utilisateur</p>
+                </div>
+            </div>
+            <div class="col-when-mobile p-0 w-100">
+                <div class="row w-100 m-0 text-center" id="manageBarrack">
+                    <img class="panel-icon m-2" src="Images/fire-station-white.png">
+                    <p class="m-2">Gérer un embedded</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="bc" class="col-xl-10 mr-auto ml-auto p-0">
+    </div>
+</div>
+
+
+<!-- The Modal -->
+<div class="modal fade" id="myModal">
     <div class="modal-dialog">
-      <div class="modal-content" style="background-color: #2A2A36; color:#f8f9fa!important">
+        <div class="modal-content" style="background-color: #2A2A36; color:#f8f9fa!important">
 
-        <!-- Modal Header -->
-        <div class="modal-header">
-          <h4 id="modal_title" class="modal-title">Modifier informations</h4>
-          <button type="button" class="close" data-dismiss="modal">×</button>
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 id="modal_title" class="modal-title">Modifier informations</h4>
+                <button type="button" class="close" data-dismiss="modal">×</button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body" align="center">
+                <form>
+                    <div class="form-group input-small">
+                        <label for="modal-email">Email address</label>
+                        <br>
+                        <input id="modal-email" type="email"
+                               class="inputForm border-bottom mt-3 mb-3 w-75 black-text"
+                               aria-describedby="emailHelp" placeholder="Enter email">
+                        <small class="form-text text-muted">We'll never share your email with anyone else.</small>
+                    </div>
+                    <div class="form-group input-small">
+                        <label for="modal-nom">Nom de famille</label>
+                        <br>
+                        <input type="text" class="inputForm border-bottom mt-3 mb-3 w-75" id="modal-nom"
+                               placeholder="Nom">
+                    </div>
+                    <div class="form-group input-small">
+                        <label for="modal-prenom">Prénom</label>
+                        <br>
+                        <input type="text" class="inputForm border-bottom mt-3 mb-3 w-75" id="modal-prenom"
+                               placeholder="Prénom">
+                    </div>
+                    <div class="form-group input-small">
+                        <label for="modal-userName">Nom d'utilisateur</label>
+                        <br>
+                        <input type="text" class="inputForm border-bottom mt-3 mb-3 w-75" id="modal-userName"
+                               placeholder="Nom d'utilisateur">
+                    </div>
+                    <div class="form-group input-small">
+                        <label for="modal-role">Rôle</label>
+                        <select class="inputForm border-bottom " id="modal-role">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                        </select>
+                    </div>
+                    <div id="error" class="form-group" style="display: none;">
+                        <p style="color:red">Vous devez remplir tous les champs.</p>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Fermer</button>
+                <button id="modal-save" type="button" class="btn btn-primary">Enregistrer</button>
+            </div>
+
         </div>
-
-        <!-- Modal body -->
-        <div class="modal-body" align="center">
-          <form>
-            <div class="form-group input-small">
-              <label for="modal-email">Email address</label>
-              <br>
-              <input id="modal-email" type="email" class="inputForm border-bottom mt-3 mb-3 w-75 black-text" aria-describedby="emailHelp" placeholder="Enter email">
-              <small class="form-text text-muted">We'll never share your email with anyone else.</small>
-            </div>
-            <div class="form-group input-small">
-              <label for="modal-nom">Nom de famille</label>
-              <br>
-              <input type="text" class="inputForm border-bottom mt-3 mb-3 w-75" id="modal-nom" placeholder="Nom">
-            </div>
-            <div class="form-group input-small">
-              <label for="modal-prenom">Prénom</label>
-              <br>
-              <input type="text" class="inputForm border-bottom mt-3 mb-3 w-75" id="modal-prenom" placeholder="Prénom">
-            </div>
-            <div class="form-group input-small">
-              <label for="modal-userName">Nom d'utilisateur</label>
-              <br>
-              <input type="text" class="inputForm border-bottom mt-3 mb-3 w-75" id="modal-userName" placeholder="Nom d'utilisateur">
-            </div>
-            <div class="form-group input-small">
-              <label for="modal-role">Rôle</label>
-              <select class="inputForm border-bottom " id="modal-role">
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
-              </select>
-            </div>
-            <div id="error" class="form-group" style="display: none;">
-                <p style="color:red">Vous devez remplir tous les champs.</p>
-            </div>
-          </form>
-        </div>
-
-        <!-- Modal footer -->
-        <div class="modal-footer">
-          <button type="button" class="btn btn-danger" data-dismiss="modal">Fermer</button>
-          <button id="modal-save" type="button" class="btn btn-primary">Enregistrer</button>
-        </div>
-
-      </div>
     </div>
-  </div>
+</div>
 
 </body>
 
 
 <script src="scripts/jquery-3.3.1.min.js"></script>
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+        integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
 
 <script src="scripts/cookie.js"></script>
 
-<script src="https://unpkg.com/leaflet@1.3.1/dist/leaflet.js" integrity="sha512-/Nsx9X4HebavoBvEBuyp3I7od5tA0UzAxs+j83KgC8PU0kgB4XiK4Lfe4y4cgBtaRJQEIFCW+oC506aPT2L1zw==" crossorigin=""></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/leaflet@1.3.1/dist/leaflet.js"
+        integrity="sha512-/Nsx9X4HebavoBvEBuyp3I7od5tA0UzAxs+j83KgC8PU0kgB4XiK4Lfe4y4cgBtaRJQEIFCW+oC506aPT2L1zw=="
+        crossorigin=""></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
 <!-- Font Awesome JS -->
-<script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
-<script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
+<script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js"
+        integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ"
+        crossorigin="anonymous"></script>
+<script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js"
+        integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY"
+        crossorigin="anonymous"></script>
 <script src="scripts/panel-admin-V2.js"></script>
 
 </html>
