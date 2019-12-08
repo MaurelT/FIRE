@@ -9,6 +9,8 @@ $(document).ready(function(){
     var manageuser = document.getElementById('manageuser');
     var manageBarrack = document.getElementById('manageBarrack');
     var createuser = document.getElementById('createuser');
+    var createbarrack = document.getElementById('createbarrack');
+
 
     manageuser.classList.add('selected');
     bc.load('manageuser.html', function() {
@@ -24,20 +26,29 @@ $(document).ready(function(){
       });
     });
 
+    $('#createbarrack').click(function () {
+        removeClass(divSelected, 'selected');
+        bc.load('createbarrack.html', function() {
+            //function creat barrack
+        });
+    });
+
+
     $('#manageuser').click(function(){
       removeClass(divSelected, 'selected');
       manageuser.classList.add('selected');
         bc.load('manageuser.html', function () {
             initEmbeddedSwitchManager();
+
         });
     });
 
     $('#manageBarrack').click(function(){
       removeClass(divSelected, 'selected');
       manageBarrack.classList.add('selected');
-      bc.load('manageBarrack.html' , function () {
+      bc.load('allbarrack.html' , function () {
           initMap();
-          initEmbeddedSwitchManager();
+          accesBarrack(bc, divSelected);
         });
     });
 

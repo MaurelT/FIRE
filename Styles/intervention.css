@@ -6,6 +6,17 @@ Date : 05/07/2019
 Description: CSS for Panel-Admin
 */
 
+
+#intervention {
+    background-color: #202029;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+
+    color: white;
+}
+
 .btn-danger {
 
     border: 1px solid #82363B;
@@ -70,7 +81,7 @@ Description: CSS for Panel-Admin
 }
 
 .blockcolor {
-    background-color: #2A2A36;
+    background-color: #2A2A36 !important;
 }
 
 .blockmenu {
@@ -90,6 +101,12 @@ Description: CSS for Panel-Admin
     margin-top: 7%;
     margin-left: 5%;
     height: 20px;
+}
+
+.map-box-intervention {
+    border: 1px solid #82363B;
+    height: 150px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .map-box-inprogress {

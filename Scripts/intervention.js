@@ -33,8 +33,9 @@ $(document).ready(function(){
     $('#historic').click(function () {
         removeClass(divSelected, 'selected');
         historic.classList.add('selected');
-        bc.load('historic.html', function () {
+        bc.load('allintervention.html', function () {
             initMap();
+            accessIntervention(bc, divSelected);
         });
     });
 
