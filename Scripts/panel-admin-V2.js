@@ -48,8 +48,8 @@ $(document).ready(function(){
       manageBarrack.classList.add('selected');
       bc.load('allbarrack.html' , function () {
           //initMap();
-          getCaserne();
-          accesBarrack(bc, divSelected);
+          getCaserne(bc, divSelected);
+          //accesBarrack(bc, divSelected);
         });
     });
 
@@ -297,6 +297,7 @@ function initEmbeddedSwitchManager() {
 
 /* Fonction qui permet de supprimer une classe CSS d'une div */
 function removeClass(divSelected, removeElement) {
+    console.log(divSelected);
   for(var i=0; i < divSelected.length; i++){
     var parentElement = divSelected[i];
     var childClassList= parentElement.getElementsByClassName(removeElement);

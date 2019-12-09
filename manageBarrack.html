@@ -35,7 +35,7 @@
                             <button type="button" class="btn btn-secondary no-shadow w-100 h-100"><img class="panel-icon"
                                                                                                        src="Images/Icons/add.png"></button>
                         </div>
-                        <div class="col-11">
+                        <div id="team_container" class="col-11">
 
                         </div>
                     </div>
@@ -63,7 +63,43 @@
             </div>
         </div>
     </div>
+
+    <!-- The Modal -->
+    <div class="modal fade" id="editBarrackModal">
+        <div class="modal-dialog">
+            <div class="modal-content" style="background-color: #2A2A36; color:#f8f9fa!important">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 id="modal_title" class="modal-title">Modifier informations</h4>
+                    <button type="button" class="close" data-dismiss="modal">×</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body" align="center">
+                    <form>
+                        <div class="form-group input-small">
+                            <label for="modal-barrack-name">Nom de la caserne</label>
+                            <br>
+                            <input type="text" class="inputForm border-bottom mt-3 mb-3 w-75" id="modal-barrack-name"
+                                   placeholder="Nom">
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Fermer</button>
+                    <button id="modal-barrack-save" type="button" class="btn btn-primary">Enregistrer</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
 </div>
+
 
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css"
       integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ=="

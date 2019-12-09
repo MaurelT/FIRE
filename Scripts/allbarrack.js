@@ -13,7 +13,7 @@ window.onload = function start() {
   addMarker(lat, lon);
 };
 
-function getCaserne() {
+function getCaserne(bc, divSelected) {
   let userTmp = JSON.parse(GetCookie("UserTmp"));
   let token = userTmp['token'];
 
@@ -23,7 +23,7 @@ function getCaserne() {
     headers: {'Authorization': token},
     dataType:"JSON",
     success: function(response) {
-      generateAllBarracks(response['Caserne']);
+      generateAllBarracks(response['Caserne'], bc, divSelected);
     },
     error: function(XMLHttpRequest, textStatus, errorThrown) {
       console.log("textStatus : " + textStatus + ", errorThrown : " + errorThrown);
@@ -32,13 +32,13 @@ function getCaserne() {
   });
 }
 
-function generateAllBarracks(barrackList) {
+function generateAllBarracks(barrackList, bc, divSelected) {
 
   var append = "";
 
   var cnt = 0;
   while (cnt < barrackList.length) {
-    append += '<div class="row blockcolor m-0">';
+    append += '<div class="row blockcolor mt-3 m-0">';
     append += '<div class="col-xl-6">';
     append += '<div class="row p-3">';
     append += '<img class="panel-icon ml-3 mt-auto mb-auto" src="Images/fire-station.png">';
@@ -65,6 +65,7 @@ function generateAllBarracks(barrackList) {
 
   $('#allbarrackcontent').append(append);
   initMap(cnt);
+  accesBarrack(bc, divSelected);
 
 }
 
@@ -86,10 +87,11 @@ function initMap(nbEmbedded) {
 }
 
 function accesBarrack(bc, divSelected) {
-  $("button[name = 'barrack']").click(function () {
+  $("button[name = 'barrack']").click(function (e) {
     removeClass(divSelected, 'selected');
+    console.log(e.currentTarget.id);
     bc.load('managebarrack.html', function () {
-      initMap();
+      initBarrack(e.currentTarget.id);
     });
   });
 }
