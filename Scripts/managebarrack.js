@@ -146,31 +146,28 @@ function getTeam() {
 /* Do not watch this. */
 function getAllTeamUser(team, userList) {
   var cnt = 0;
-
-  var teamList = [[]];
-
-  console.log("test");
-  console.log(team);
-
+  var teamList = [];
+  var userTmp = null;
   var i = 0;
   var n = 0;
   var tmp_team = null;
+
   while (cnt < team.length) {
     tmp_team = team[cnt]['id_users'];
     i = 0;
+    userTmp = [];
     while (i < tmp_team.length) {
-      if (tmp_team[i] !== 0) {
-        n = 0;
-        while (n < userList.length) {
-          if (tmp_team[i] === userList[n]['id']) {
-            teamList[cnt][i] = userList[n];
-          }
-          n += 1;
+      n = 0;
+      while (n < userList.length) {
+        if (tmp_team[i] === userList[n]['id']) {
+          userTmp.push(userList[n]);
         }
+        n += 1;
       }
       i += 1;
     }
     cnt += 1;
+    teamList.push(userTmp);
   }
   console.log(teamList);
   fillTeam(teamList);
@@ -182,23 +179,17 @@ function fillTeam(teamList) {
   var i = 0;
   var tmp_team;
 
-  console.log("teamlist");
-  console.log(teamList);
   while (cnt < teamList.length) {
     tmp_team = teamList[cnt];
     i = 0;
-    console.log("First While");
     while (i < tmp_team.length) {
-      console.log("Second While");
       append += '<li class="facet"><img class="rprofil m-2" src="Images/Icons/pompier.png" id="profil_photo">'
           + tmp_team[i].user_name +
-          '<img class="on_off_icon m-2" src="Images/Icons/on.png"><img id="' + cnt + ',' + i + '" class="userBut iconeslist m-2" src="Images/Icons/pencil.png"></li>';
+          '<img class="on_off_icon m-2" src="Images/Icons/on.png"><img id="' + tmp_team[i].id + '" class="iconeslist m-2" src="Images/Icons/pencil.png"></li>';
       i += 1;
     }
     cnt += 1;
   }
-  console.log("test container");
-  console.log(append);
   $("#team_container").append(append);
 }
 
