@@ -182,12 +182,14 @@ function fillTeam(teamList) {
   while (cnt < teamList.length) {
     tmp_team = teamList[cnt];
     i = 0;
+    append += "<div class=''><ul>";
     while (i < tmp_team.length) {
       append += '<li class="facet"><img class="rprofil m-2" src="Images/Icons/pompier.png" id="profil_photo">'
           + tmp_team[i].user_name +
           '<img class="on_off_icon m-2" src="Images/Icons/on.png"><img id="' + tmp_team[i].id + '" class="iconeslist m-2" src="Images/Icons/pencil.png"></li>';
       i += 1;
     }
+    append += "</ul></div>";
     cnt += 1;
   }
   $("#team_container").append(append);
