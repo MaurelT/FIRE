@@ -6,6 +6,20 @@ Date : 05/07/2019
 Description: CSS for Panel-Admin
 */
 
+#team_container {
+    overflow-y: visible;
+    overflow-x: auto;
+    white-space: nowrap;
+    vertical-align: text-top;
+    padding: 0;
+    width: 100%;
+    clear: both;
+    border-spacing: 5px;
+}
+.intro-section {
+    display: table-cell;
+}
+
 .no-shadow {
     box-shadow: unset!important;
     border-radius: 0!important;
@@ -13,6 +27,11 @@ Description: CSS for Panel-Admin
 
 .box-barrack {
     height: 7vh;
+    background-color: #202029;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.box-color {
     background-color: #202029;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }

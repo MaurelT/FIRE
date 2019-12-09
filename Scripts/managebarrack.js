@@ -11,6 +11,24 @@ window.onload = function start() {
   addMarker(lat, lon);
 };
 
+jQuery(function ($) {
+  $.fn.hScroll = function (amount) {
+    amount = amount || 1200;
+    $(this).bind("DOMMouseScroll mousewheel", function (event) {
+      var oEvent = event.originalEvent,
+          direction = oEvent.detail ? oEvent.detail * -amount : oEvent.wheelDelta,
+          position = $(this).scrollLeft();
+      position += direction > 0 ? -amount : amount;
+      $(this).scrollLeft(position);
+      event.preventDefault();
+    })
+  };
+});
+
+$(document).ready(function() {
+  $('#box').hScroll(1350); // You can pass (optionally) scrolling amount
+});
+
 function initBarrack(id) {
   barrackId = id;
   getCaserne(id);
@@ -182,11 +200,11 @@ function fillTeam(teamList) {
   while (cnt < teamList.length) {
     tmp_team = teamList[cnt];
     i = 0;
-    append += "<div class=''><ul>";
+    append += "<div class='col p-0'><ul class='m-0 facet-list ui-sortable'>";
     while (i < tmp_team.length) {
       append += '<li class="facet"><img class="rprofil m-2" src="Images/Icons/pompier.png" id="profil_photo">'
           + tmp_team[i].user_name +
-          '<img class="on_off_icon m-2" src="Images/Icons/on.png"><img id="' + tmp_team[i].id + '" class="iconeslist m-2" src="Images/Icons/pencil.png"></li>';
+          '<img class="on_off_icon m-2" src="Images/Icons/on.png"><img id="' + tmp_team[i].id + '" class="iconeslist m-2" src="Images/Icons/delete.png"></li>';
       i += 1;
     }
     append += "</ul></div>";
