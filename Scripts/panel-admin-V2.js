@@ -47,7 +47,8 @@ $(document).ready(function(){
       removeClass(divSelected, 'selected');
       manageBarrack.classList.add('selected');
       bc.load('allbarrack.html' , function () {
-          initMap();
+          //initMap();
+          getCaserne();
           accesBarrack(bc, divSelected);
         });
     });
