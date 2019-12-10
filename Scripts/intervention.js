@@ -18,7 +18,7 @@ $(document).ready(function(){
     $('#createintervention').click(function () {
         removeClass(divSelected, 'selected');
         bc.load('createintervention.html', function () {
-            initIntervention();
+            createInter();
         });
     });
 
