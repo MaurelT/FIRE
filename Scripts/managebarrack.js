@@ -36,6 +36,7 @@ function initBarrack(id) {
   getCamion();
   getTeam();
   initButtonFct();
+  getUserList();
 }
 
 function initButtonFct() {
@@ -188,15 +189,17 @@ function getAllTeamUser(team, userList) {
     teamList.push(userTmp);
   }
   console.log(teamList);
-  fillTeam(teamList);
+  fillTeam(teamList, team);
 }
 
-function fillTeam(teamList) {
+function fillTeam(teamList,team) {
   var cnt = 0;
   var append = "";
   var i = 0;
   var tmp_team;
 
+  console.log("TEAM TEAMTEAM");
+  console.log(team);
   while (cnt < teamList.length) {
     tmp_team = teamList[cnt];
     i = 0;
@@ -204,13 +207,36 @@ function fillTeam(teamList) {
     while (i < tmp_team.length) {
       append += '<li class="facet"><img class="rprofil m-2" src="Images/Icons/pompier.png" id="profil_photo">'
           + tmp_team[i].user_name +
-          '<img class="on_off_icon m-2" src="Images/Icons/on.png"><img id="' + tmp_team[i].id + '" class="iconeslist m-2" src="Images/Icons/delete.png"></li>';
+          '<img class="on_off_icon m-2" src="Images/Icons/on.png"><img id="' + tmp_team[i].id + '" name="'+ team[cnt].id +'" class="delTeamMember iconeslist m-2" src="Images/Icons/delete.png"></li>';
       i += 1;
     }
     append += "</ul></div>";
     cnt += 1;
   }
   $("#team_container").append(append);
+  initDelTeamMember();
+}
+
+function initDelTeamMember() {
+  $(".delTeamMember").click(function () {
+    var id = $(this).attr('id');
+    var teamId = $(this).attr('name');
+    let userTmp = JSON.parse(GetCookie("UserTmp"));
+    let token = userTmp['token'];
+
+    $.ajax({
+      type: "PUT",
+      url: ApiUrl + "Equipe/update.php?id="+ teamId + "&remove_user=" + id,
+      headers: {'Authorization': token},
+      dataType:"JSON",
+      success: function(response) {
+        console.log("User deleted");
+      },
+      error: function(XMLHttpRequest, textStatus, errorThrown) {
+        console.log("textStatus : " + textStatus + ", errorThrown : " + errorThrown);
+      }
+    });
+  });
 }
 
 /* Fct Call API Pour récupérer la liste de tous les utilisateurs */
@@ -230,4 +256,37 @@ function getAllUsers(team) {
       console.log("textStatus : " + textStatus + ", errorThrown : " + errorThrown);
     }
   });
+}
+
+/* Fct Call API Pour récupérer la liste de tous les utilisateurs */
+function getUserList() {
+  let userTmp = JSON.parse(GetCookie("UserTmp"));
+  let token = userTmp['token'];
+
+  $.ajax({
+    type: "GET",
+    url: ApiUrl + "User/user.php",
+    headers: {'Authorization': token},
+    dataType:"JSON",
+    success: function(response) {
+      fillUsers(response['Users']);
+    },
+    error: function(XMLHttpRequest, textStatus, errorThrown) {
+      console.log("textStatus : " + textStatus + ", errorThrown : " + errorThrown);
+    }
+  });
+}
+
+/* Fonction pour remplir la liste des utilisateurs */
+function fillUsers(users) {
+
+  var cnt = 0;
+  var test = "";
+  while (cnt < users.length) {
+    test += '<li class="facet"><img class="rprofil m-2" src="Images/Icons/pompier.png" id="profil_photo">'
+        + users[cnt].user_name +
+        '<img class="on_off_icon m-2" src="Images/Icons/on.png"></li>';
+    cnt += 1;
+  }
+  $("#usersList").append(test);
 }

@@ -30,6 +30,7 @@ $(document).ready(function(){
         removeClass(divSelected, 'selected');
         bc.load('createbarrack.html', function() {
             //function creat barrack
+            initButtonCreateBarrack();
         });
     });
 
