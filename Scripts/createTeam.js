@@ -1,4 +1,4 @@
-var barrackId = null;
+var userList = [];
 
 function initButtonCreateTeam(id, bc) {
     barrackId = id;
@@ -8,11 +8,34 @@ function initButtonCreateTeam(id, bc) {
         console.log("Userlist = ");
         console.log(userList);
         //createTeam(id, bc);
+        createTeam()
     });
     getAllUsers();
 }
 
-var userList = [];
+function createTeam(id, bc) {
+    let userTmp = JSON.parse(GetCookie("UserTmp"));
+    let token = userTmp['token'];
+    let newTeam = { caserne_id:id };
+
+    $.ajax({
+        type: "POST",
+        url: ApiUrl + "Equipe/create.php",
+        headers: {'Authorization': token},
+        data: JSON.stringify(newTeam),
+        dataType:"JSON",
+        success: function(response) {
+            bc.load('managebarrack.html', function () {
+                initBarrack(id, bc);
+            });
+            console.log(response);
+        },
+        error: function(XMLHttpRequest, textStatus, errorThrown) {
+            console.log("textStatus : " + textStatus + ", errorThrown : " + errorThrown);
+            alert("An error happened");
+        }
+    });
+}
 
 function getAllUsers() {
     let userTmp = JSON.parse(GetCookie("UserTmp"));
@@ -79,10 +102,4 @@ function removeFromSelected(div, id) {
     $('#user_container').append(div);
     $('#'+ id).attr('name', 'userAdd');
     initUserAdd();
-}
-
-function createTeam(id, bc) {
-    bc.load('managebarrack.html', function () {
-        initBarrack(id, bc);
-    });
 }
