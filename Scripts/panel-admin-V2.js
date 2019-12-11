@@ -455,8 +455,9 @@ function getAllUsers() {
 
 /* Fonction pour remplir la liste des utilisateurs */
 function fillTable(users) {
-    console.log("users =");
-    console.log(users);
+    let userTmp = JSON.parse(GetCookie("UserTmp"));
+    let userId = userTmp['user_id'];
+    var saveCnt = 0;
 
     var cnt = 0;
     var test = "";
@@ -464,9 +465,16 @@ function fillTable(users) {
     test += '<li class="facet"><img class="rprofil m-2" src="Images/Icons/pompier.png" id="profil_photo">'
         + users[cnt].user_name +
         '<img id="' + cnt + '" class="userBut iconeslist m-2" src="Images/Icons/pencil.png"></li>';
+    if (users[cnt].id === userId) {
+        saveCnt = cnt;
+    }
     cnt += 1;
     }
     $("#usersList").append(test);
+
+    focusedUser = users[saveCnt].id;
+    fillUser(saveCnt);
+    fillEmbeddedUser(saveCnt);
 
     $(".userBut").click(function () {
         var i = $(this).attr('id');
