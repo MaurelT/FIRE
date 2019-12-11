@@ -260,6 +260,8 @@ function getAllTeamUser(team, userList) {
     teamList.push(userTmp);
   }
   console.log(teamList);
+  console.log("userlist=");
+  console.log(userList);
   fillTeam(teamList, team);
 }
 
@@ -284,6 +286,7 @@ function fillTeam(teamList,team) {
     append += "</ul></div>";
     cnt += 1;
   }
+  console.log(append);
   $("#team_container").append(append);
   initDelTeamMember();
 }

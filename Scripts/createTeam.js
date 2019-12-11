@@ -39,7 +39,7 @@ function createTeam(id, bc) {
     console.log(ApiUrl + "Equipe/create.php?id_caserne="+id+"&id_users="+team);
     $.ajax({
         type: "POST",
-        url: ApiUrl + "Equipe/create.php?caserne_id="+ id +"&user_id=ARRAY[24,21]",
+        url: ApiUrl + "Equipe/create.php?caserne_id="+ id +"&user_id="+team,
         headers: {'Authorization': token},
         data: JSON.stringify(newTeam),
         dataType:"JSON",
