@@ -1,5 +1,12 @@
+var barrackId = null;
+
 function initButtonCreateTeam(id, bc) {
+    barrackId = id;
     $('#submit').click(function () {
+
+        console.log("Caserne id = " + id);
+        console.log("Userlist = ");
+        console.log(userList);
         //createTeam(id, bc);
     });
     getAllUsers();
@@ -47,7 +54,7 @@ function fillUserList(userList) {
 function initUserAdd() {
     $('[name ="userAdd"]').click(function () {
         var id = this.id;
-        userList[id] = id;
+        userList['"'+id+'"'] = id;
         console.log("User selected");
         addToSelected(this, id);
     });
@@ -56,7 +63,7 @@ function initUserAdd() {
 function initUserDel() {
     $('[name ="userDel"]').click(function () {
         var id = this.id;
-        delete userList[id];
+        delete userList['"'+id+'"'];
         console.log("User deleted");
         removeFromSelected(this, id);
     });
