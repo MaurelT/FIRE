@@ -130,3 +130,37 @@ input:checked + .slider:before {
 .slider.round:before {
   border-radius: 50%;
 }
+
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-button {
+  width: 0px;
+  height: 0px;
+}
+::-webkit-scrollbar-thumb {
+  background: #82363B;
+  border: 31px none transparent;
+  border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #82363B;
+}
+::-webkit-scrollbar-thumb:active {
+  background: #82363B;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 5px;
+}
+::-webkit-scrollbar-track:hover {
+  background: transparent;
+}
+::-webkit-scrollbar-track:active {
+  background: transparent;
+}
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
