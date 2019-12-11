@@ -6,21 +6,26 @@ function createInter() {
         var information = $('#information').val();
         var numero = $('#numero').val();
         var adresse = $('#adresse').val();
-        var team_id = $('#team_id').val();
+        var team_id = $('#teamSelected').val();
 
         let userTmp = JSON.parse(GetCookie("UserTmp"));
         let token = userTmp['token'];
-        let newCaserne = { name:name };
+
+        console.log(ApiUrl + "Intervention/create.php?team_id="+team_id+"&type='"+type+"'&information='"+information+"'&numero='"+numero+"'&adresse='"+adresse+"'");
+
+        let newInter = { id_equipe:team_id, type:type, information:information, numero:numero, adresse:adresse };
+
 
         if (team_id !== "") {
             $.ajax({
                 type: "POST",
-                url: ApiUrl + "Intervention/intervention.php?team_id="+team_id+"&type="+type+"&information"+information+"&numero="+numero+"&adresse"+adresse,
+                url: ApiUrl + "Intervention/create.php?team_id="+team_id+"&type='"+type+"'&information='"+information+"'&numero='"+numero+"'&adresse='"+adresse+"'",
                 headers: {'Authorization': token},
-                data: JSON.stringify(newCaserne),
+                data: JSON.stringify(newInter),
                 dataType: "JSON",
                 success: function (response) {
                     console.log("Intervention created");
+                    console.log(response);
                 },
                 error: function (XMLHttpRequest, textStatus, errorThrown) {
                     console.log("textStatus : " + textStatus + ", errorThrown : " + errorThrown);
@@ -35,14 +40,14 @@ function createInter() {
     test("Salut");
     */
 
-    //getTeams();
+    getTeams();
 }
 
 function getTeams() {
     let userTmp = JSON.parse(GetCookie("UserTmp"));
     let token = userTmp['token'];
 
-    let url = ApiUrl + "Equipe/equipe.php?caserne_id=" + barrackId;
+    let url = ApiUrl + "Equipe/equipe.php";
 
     $.ajax({
         type: "GET",
@@ -108,33 +113,50 @@ function getAllTeamUser(team, userList) {
 }
 
 function fillTeam(teamList,team) {
+    console.log(team);
     var cnt = 0;
     var append = "";
     var i = 0;
     var tmp_team;
+    var team_list = null;
+
+    console.log(team);
+    console.log(teamList);
+
+    console.log(teamList.length);
 
     while (cnt < teamList.length) {
+        console.log("cnt = " + cnt + " teamlist = " + teamList.length);
         tmp_team = teamList[cnt];
         i = 0;
-        //append += "<div class='col p-0'><ul class='m-0 facet-list ui-sortable'>";
+        team_list = "";
         while (i < tmp_team.length) {
 
-            /*
-            tmp_team[i] = team member --> tmp_team[i].user_name
-            team[cnt] = team --> team[cnt].id
-
-
-            A MODIFIER
-            append += '<li class="facet"><img class="rprofil m-2" src="Images/Icons/pompier.png" id="profil_photo">'
-                + tmp_team[i].user_name +
-                '<img class="on_off_icon m-2" src="Images/Icons/on.png"><img id="' + tmp_team[i].id + '" name="'+ team[cnt].id +'" class="delTeamMember iconeslist m-2" src="Images/Icons/delete.png"></li>';
-             */
-
-
+            team_list += tmp_team[i].user_name;
+            if (i + 1 < tmp_team.length) {
+                team_list += ", "
+            }
             i += 1;
         }
-        //append += "</ul></div>";
+        append += "<div class='col p-0'>";
+        append += "<ul class='m-0 facet-list ui-sortable'>";
+        append += '<li class="facet">';
+        append += '<img name="chooseEquipe" id="'+ team[cnt]['id'] +'" class="panel-icon m-2" src="Images/firefighter.png">Equipe '+ team[cnt]['id'] +' : '+ team_list;
+        append += "</li>";
+        append += "</ul>";
+        append += "</div>";
         cnt += 1;
     }
-    $("#").append(append);
+    $("#team_container").append(append);
+    initTeamSelection();
 }
+
+function initTeamSelection() {
+    console.log("WTF");
+    $('[name ="chooseEquipe"]').click(function () {
+        console.log("team number " + this.id);
+        $('#teamSelected').val(this.id);
+    });
+}
+
+

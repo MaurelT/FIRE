@@ -20,10 +20,10 @@ function initBarrack(id, bc) {
   getCaserne(id);
   initMap();
   getCamion();
+  getAllTeams();
   getTeam();
   initButtonFct(id, bc);
   getUserList();
-
 }
 
 function initButtonFct(id, bc) {
@@ -49,6 +49,31 @@ function initButtonFct(id, bc) {
     console.log(name);
     updateCaserne(name, barrackId);
   });
+}
+
+function getAllTeams() {
+  let userTmp = JSON.parse(GetCookie("UserTmp"));
+  let token = userTmp['token'];
+
+  let url = ApiUrl + "Equipe/equipe.php?caserne_id=" + barrackId;
+
+  $.ajax({
+    type: "GET",
+    url: url,
+    headers: {'Authorization': token},
+    dataType:"JSON",
+    success: function(response) {
+      fillBarrackTeams(response['Equipe']);
+    },
+    error: function(XMLHttpRequest, textStatus, errorThrown) {
+      console.log("textStatus : " + textStatus + ", errorThrown : " + errorThrown);
+      alert("An error happened");
+    }
+  });
+}
+
+function fillBarrackTeams(teams) {
+
 }
 
 /* Fonction d'initialisation de la carte   /!\ Ce n'est pas la meme fct que dans dashboard.  */
@@ -131,6 +156,53 @@ function getCamion(id) {
     headers: {'Authorization': token},
     dataType:"JSON",
     success: function(response) {
+      console.log(response);
+      fillTrucks(response['Camion']);
+    },
+    error: function(XMLHttpRequest, textStatus, errorThrown) {
+      console.log("textStatus : " + textStatus + ", errorThrown : " + errorThrown);
+      alert("An error happened");
+    }
+  });
+}
+
+function fillTrucks(trucks) {
+  var cnt = 0;
+  var append = "";
+
+  while (cnt < trucks.length) {
+    append += "<div class='col p-0'>";
+    append += "<ul class='m-0 facet-list ui-sortable'>";
+    append += '<li class="facet">';
+    append += '<img class="panel-icon m-2" src="Images/fire-truck.png">'+ trucks[cnt].immatriculation +'<img name="deleteTruck" id="'+ trucks[cnt].id +'" class="delTeamMember iconeslist m-2" src="Images/Icons/delete.png">';
+    append += "</li>";
+    append += "</ul>";
+    append += "</div>";
+    cnt += 1;
+  }
+  $("#bus_container").append(append);
+  initDelTruck();
+}
+
+function initDelTruck() {
+  $('[name ="deleteTruck"]').click(function () {
+    deleteCamion(this.id);
+  });
+}
+
+function deleteCamion(id) {
+  let userTmp = JSON.parse(GetCookie("UserTmp"));
+  let token = userTmp['token'];
+
+  console.log(ApiUrl + "Camion/delete.php?id="+id);
+
+  $.ajax({
+    type: "POST",
+    url: ApiUrl + "Camion/delete.php?id="+id,
+    headers: {'Authorization': token},
+    success: function(response) {
+      $("#bus_container").empty();
+      getCamion();
       console.log(response);
     },
     error: function(XMLHttpRequest, textStatus, errorThrown) {
@@ -223,6 +295,8 @@ function initDelTeamMember() {
     let userTmp = JSON.parse(GetCookie("UserTmp"));
     let token = userTmp['token'];
 
+    console.log(ApiUrl + "Equipe/update.php?id="+ teamId + "&remove_user=" + id);
+
     $.ajax({
       type: "PUT",
       url: ApiUrl + "Equipe/update.php?id="+ teamId + "&remove_user=" + id,
@@ -230,6 +304,8 @@ function initDelTeamMember() {
       dataType:"JSON",
       success: function(response) {
         console.log("User deleted");
+        $("#team_container").empty();
+        getTeam();
       },
       error: function(XMLHttpRequest, textStatus, errorThrown) {
         console.log("textStatus : " + textStatus + ", errorThrown : " + errorThrown);
