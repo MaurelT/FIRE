@@ -91,7 +91,7 @@ function accesBarrack(bc, divSelected) {
     removeClass(divSelected, 'selected');
     console.log(e.currentTarget.id);
     bc.load('managebarrack.html', function () {
-      initBarrack(e.currentTarget.id);
+      initBarrack(e.currentTarget.id, bc);
     });
   });
 }

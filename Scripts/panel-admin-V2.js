@@ -124,7 +124,7 @@ function createEmbeddedList(embeddedList, userEmbedded) {
         embed += '<li class="facet" value="'+ embeddedList[i].id +'">';
         embed += '<img class="iconeslist m-2" src="Images/Icons/embedded-icon.png">';
         embed += 'Système Embarqué ' + embeddedList[i].id;
-        embed += '<img class="on_off_icon m-2" src="Images/Icons/on.png" id="connected_icone"></li>';
+        embed += '</li>';
         i += 1;
     }
     $('#userFacets').empty();
@@ -143,7 +143,7 @@ function createEmbeddedUserList(userEmbedded) {
             embed += '<li class="facet" value="'+ userEmbedded[i].id +'">';
             embed += '<img class="iconeslist m-2" src="Images/Icons/embedded-icon.png">';
             embed += 'Système Embarqué ' + userEmbedded[i].id;
-            embed += '<img class="on_off_icon m-2" src="Images/Icons/on.png" id="connected_icone"></li>';
+            embed += '</li>';
             i += 1;
         }
     }
@@ -463,7 +463,7 @@ function fillTable(users) {
     while (cnt < users.length) {
     test += '<li class="facet"><img class="rprofil m-2" src="Images/Icons/pompier.png" id="profil_photo">'
         + users[cnt].user_name +
-        '<img class="on_off_icon m-2" src="Images/Icons/on.png"><img id="' + cnt + '" class="userBut iconeslist m-2" src="Images/Icons/pencil.png"></li>';
+        '<img id="' + cnt + '" class="userBut iconeslist m-2" src="Images/Icons/pencil.png"></li>';
     cnt += 1;
     }
     $("#usersList").append(test);

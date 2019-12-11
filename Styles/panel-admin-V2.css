@@ -6,7 +6,7 @@ Date : 05/07/2019
 Description: CSS for Panel-Admin
 */
 
-#team_container, #bus_container {
+#team_container, #bus_container, #user_container {
     overflow-y: visible;
     overflow-x: auto;
     white-space: nowrap;
