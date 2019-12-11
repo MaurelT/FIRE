@@ -16,6 +16,11 @@ Description: CSS for Panel-Admin
     clear: both;
     border-spacing: 5px;
 }
+
+.btn {
+    border-radius: 0!important;
+}
+
 .intro-section {
     display: table-cell;
 }
