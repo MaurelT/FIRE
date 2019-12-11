@@ -8,7 +8,7 @@ function initButtonCreateTeam(id, bc) {
         console.log("Userlist = ");
         console.log(userList);
         //createTeam(id, bc);
-        createTeam()
+        createTeam(id, bc)
     });
     getAllUsers();
 }
@@ -16,11 +16,30 @@ function initButtonCreateTeam(id, bc) {
 function createTeam(id, bc) {
     let userTmp = JSON.parse(GetCookie("UserTmp"));
     let token = userTmp['token'];
-    let newTeam = { caserne_id:id };
 
+
+    var cnt = 0;
+    var team = "ARRAY[";
+    while (cnt < userList.length) {
+        if (userList[cnt] !== undefined) {
+            team += userList[cnt].toString();
+            if (cnt + 1 < userList.length) {
+                team += ","
+            }
+        }
+        cnt += 1;
+    }
+    team += "]";
+
+    console.log("team =");
+    let newTeam = { id_caserne:id, id_users:team};
+    console.log(team);
+    console.log(newTeam);
+
+    console.log(ApiUrl + "Equipe/create.php?id_caserne="+id+"&id_users="+team);
     $.ajax({
         type: "POST",
-        url: ApiUrl + "Equipe/create.php",
+        url: ApiUrl + "Equipe/create.php?caserne_id="+ id +"&user_id=ARRAY[24,21]",
         headers: {'Authorization': token},
         data: JSON.stringify(newTeam),
         dataType:"JSON",
@@ -77,7 +96,7 @@ function fillUserList(userList) {
 function initUserAdd() {
     $('[name ="userAdd"]').click(function () {
         var id = this.id;
-        userList['"'+id+'"'] = id;
+        userList[id] = id;
         console.log("User selected");
         addToSelected(this, id);
     });
@@ -86,7 +105,7 @@ function initUserAdd() {
 function initUserDel() {
     $('[name ="userDel"]').click(function () {
         var id = this.id;
-        delete userList['"'+id+'"'];
+        delete userList[id];
         console.log("User deleted");
         removeFromSelected(this, id);
     });
