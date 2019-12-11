@@ -16,8 +16,8 @@
             </div>
             <div class="mt-3 m-0 pt-2 pb-3 border-bot">
                 <p>Informations sur l'intervention :</p>
-                <textarea type="text" class="form-control" id="infosup"></textarea>
-                <button type="button" class="btn btn-success w-100 mt-2">
+                <textarea disabled type="text" class="form-control" id="infosup"></textarea>
+                <button id="call" type="button" class="btn btn-success w-100 mt-2">
                     <img class="panel-icon mr-2" src="Images/call-answer.png">Appeler le Signaleur
                 </button>
             </div>
@@ -26,11 +26,11 @@
                 <textarea type="text" class="form-control" id="comment"></textarea>
                 <div class="row mt-2">
                     <div class="col-6">
-                        <button type="button" class="btn btn-success w-100">
+                        <button id="transportBut" type="button" class="btn btn-success w-100">
                             Transport Hôpital
                         </button>
                     </div>
-                    <div class="col-6 align-self-center h-100">
+                    <div id="transport_effectuer" style="display: none;" class="col-6 align-self-center h-100">
                         <div class="row m-0">
                             <div class="divBox mt-auto mb-auto">
                                 <input type="checkbox" value="1" id="checkboxFourInput" name=""/>
@@ -42,7 +42,7 @@
                 </div>
             </div>
             <div class="mt-3 m-0 pt-2 pb-3">
-                <button type="button" class="btn btn-danger w-100 mt-2">
+                <button id="end_intervention" type="button" class="btn btn-danger w-100 mt-2">
                     Terminer l'intervention
                 </button>
             </div>

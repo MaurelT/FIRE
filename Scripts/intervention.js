@@ -11,7 +11,8 @@ $(document).ready(function(){
 
     inprogress.classList.add('selected');
     bc.load('inprogress.html', function () {
-        initMap();
+        initInProgressIntervention();
+        //initMap();
     });
 
 
@@ -26,7 +27,7 @@ $(document).ready(function(){
         removeClass(divSelected, 'selected');
         inprogress.classList.add('selected');
         bc.load('inprogress.html', function () {
-            initMap();
+            initInProgressIntervention();
         });
     });
 
@@ -34,8 +35,12 @@ $(document).ready(function(){
         removeClass(divSelected, 'selected');
         historic.classList.add('selected');
         bc.load('allintervention.html', function () {
+            initAllInterventions(bc, divSelected);
+
+            /*
             initMap();
             accessIntervention(bc, divSelected);
+            */
         });
     });
 
