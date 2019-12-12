@@ -37,6 +37,7 @@ function fillInterventionInProgress(intervention) {
     initMap();
   }
 
+  
   //intervention['numero'] = "+33658582366";
   if (intervention['numero'] != null) {
     $('#call').click(function () {
@@ -45,13 +46,13 @@ function fillInterventionInProgress(intervention) {
     });
   }
   if (intervention['type'] != null) {
-    $('#type').text()
+    $('#type').text(intervention['type'])
   }
   if (intervention['information'] != null) {
-    $('#infosup').text()
+    $('#infosup').text(intervention['information'])
   }
   if (intervention['commentaire'] != null) {
-    $('#comment').text()
+    $('#comment').text(intervention['commentaire'])
   }
   if (intervention['transport'] != null && intervention['transport'] === true) {
     $('#transport_effectuer').css("display", "block");

@@ -1,4 +1,4 @@
-function createInter() {
+function createInter(bc) {
 
 
     $('#submit').click(function () {
@@ -19,12 +19,15 @@ function createInter() {
         if (team_id !== "") {
             $.ajax({
                 type: "POST",
-                url: ApiUrl + "Intervention/create.php?id_equipe="+team_id+"&type='"+type+"'&information='"+information+"'&numero='"+numero+"'&adresse='"+adresse+"'",
+                url: ApiUrl + "Intervention/create.php?id_equipe="+team_id+"&type="+type+"&information="+information+"&numero="+numero+"&adresse="+adresse,
                 headers: {'Authorization': token},
                 dataType: "JSON",
                 success: function (response) {
                     console.log("Intervention created");
                     console.log(response);
+                    bc.load('inprogress.html', function () {
+                        initInProgressIntervention();
+                    });
                 },
                 error: function (XMLHttpRequest, textStatus, errorThrown) {
                     console.log("textStatus : " + textStatus + ", errorThrown : " + errorThrown);
