@@ -49,6 +49,8 @@ function drawInterventions(interventionList) {
   var date = "";
   console.log(interventionList);
 
+  interventionList = interventionList.reverse();
+
   while (cnt < interventionList.length) {
     date = interventionList[cnt]['start'];
     append += '<div id="allintervention" class="row blockcolor m-0 mt-3">';
@@ -66,7 +68,7 @@ function drawInterventions(interventionList) {
     append += '<div class="row p-3">';
     append += '<img class="panel-icon ml-3 mt-auto mb-auto" src="Images/calendar.png">';
     append += '<p class="ml-3 mt-auto mb-auto">Date :</p>';
-    append += '<p id="interventionAdress" class="ml-3 mt-auto mb-auto">'+ date.substr(0, date.search(" ")) +'</p>';
+    append += '<p id="interventionAdress" class="ml-3 mt-auto mb-auto">'+ /*date.substr(0, date.search(" "))*/ date +'</p>';
     append += '</div>';
     append += '</div>';
     append += '<div class="col-xl-6 p-0">';

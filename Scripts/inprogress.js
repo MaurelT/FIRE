@@ -63,7 +63,6 @@ function fillInterventionInProgress(intervention) {
     $('#checkboxFourInput').attr('checked', true);
   }
 
-
   $('#transportBut').click(function () {
       if (transport_hospital === false) {
         transport_hospital = true;
@@ -71,6 +70,8 @@ function fillInterventionInProgress(intervention) {
       } else {
         transport_hospital = false;
         $('#transport_effectuer').css("display", "none");
+        $('#checkboxFourInput').attr('checked', false);
+        transport_over = false;
      }
   });
 
@@ -79,9 +80,27 @@ function fillInterventionInProgress(intervention) {
   });
 
   $('#end_intervention').click(function () {
-    console.log("transporthopital = " + transport_hospital);
-    console.log("transportover =" + transport_over);
-    console.log("commentaire  = " + $('#comment').val());
+    let id = intervention['id'];
+    let comment = $('#comment').val();
+
+    let userTmp = JSON.parse(GetCookie("UserTmp"));
+    let token = userTmp['token'];
+
+    console.log(ApiUrl + "Intervention/update.php?=id"+ id + "&commentaire="+ comment + "&transport_hopital" +transport_hospital + "&transport=" + transport_over);
+
+    $.ajax({
+      type: "PUT",
+      url: ApiUrl + "Intervention/update.php?id="+ id + "&commentaire="+ comment + "&transport_hopital=" +transport_hospital + "&transport=" + transport_over,
+      headers: {'Authorization': token},
+      success: function(response) {
+        console.log("Intervention terminée.");
+        alert("Intervention terminée.");
+      },
+      error: function(XMLHttpRequest, textStatus, errorThrown) {
+        console.log("textStatus : " + textStatus + ", errorThrown : " + errorThrown);
+        alert("An error happened");
+      }
+    });
   });
 }
 
@@ -94,6 +113,9 @@ function fillIntervention(intervention) {
     initMap();
   }
 
+  console.log("Intervention est ===");
+  console.log(intervention);
+
   //intervention['numero'] = "+33658582366";
   if (intervention['numero'] != null) {
     $('#call').click(function () {
@@ -102,22 +124,22 @@ function fillIntervention(intervention) {
     });
   }
   if (intervention['type'] != null) {
-    $('#type').text()
+    $('#type').text(intervention['type'])
   }
   if (intervention['information'] != null) {
-    $('#infosup').text()
+    $('#infosup').text(intervention['information'])
   }
   if (intervention['commentaire'] != null) {
-    $('#comment').text()
+    $('#comment').text(intervention['commentaire'])
   }
-  if (intervention['transport'] != null && intervention['transport'] === true) {
+  if (intervention['transport_hopital'] != null && intervention['transport_hopital'] === true) {
     $('#transport_effectuer').css("display", "block");
     console.log("display");
   } else {
     $('#transport_effectuer').css("display", "none");
     console.log("Hide");
   }
-  if (intervention['transport_hopital'] != null && intervention['transport_hopital'] === true) {
+  if (intervention['transport'] !== null && intervention['transport'] === true) {
     $('#checkboxFourInput').attr('checked', true);
   }
 }
