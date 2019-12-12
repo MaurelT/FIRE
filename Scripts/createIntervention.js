@@ -19,9 +19,8 @@ function createInter() {
         if (team_id !== "") {
             $.ajax({
                 type: "POST",
-                url: ApiUrl + "Intervention/create.php?team_id="+team_id+"&type='"+type+"'&information='"+information+"'&numero='"+numero+"'&adresse='"+adresse+"'",
+                url: ApiUrl + "Intervention/create.php?id_equipe="+team_id+"&type='"+type+"'&information='"+information+"'&numero='"+numero+"'&adresse='"+adresse+"'",
                 headers: {'Authorization': token},
-                data: JSON.stringify(newInter),
                 dataType: "JSON",
                 success: function (response) {
                     console.log("Intervention created");
