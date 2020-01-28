@@ -142,8 +142,8 @@ function fillTeam(teamList,team) {
         }
         append += "<div class='col p-0'>";
         append += "<ul class='m-0 facet-list ui-sortable'>";
-        append += '<li class="facet">';
-        append += '<img name="chooseEquipe" id="'+ team[cnt]['id'] +'" class="panel-icon m-2" src="Images/firefighter.png">Equipe '+ team[cnt]['id'] +' : '+ team_list;
+        append += '<li name="chooseEquipe" id="'+ team[cnt]['id'] +'" class="facet">';
+        append += '<img id="'+ team[cnt]['id'] +'" class="panel-icon m-2" src="Images/firefighter.png">Equipe '+ team[cnt]['id'] +' : '+ team_list;
         append += "</li>";
         append += "</ul>";
         append += "</div>";
