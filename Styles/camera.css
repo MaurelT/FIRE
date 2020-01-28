@@ -141,6 +141,12 @@ p.captors {
   height:32px;
 }
 
+.blue {
+  width: 64px;
+  height: 32px;
+  background-color: #0652DD;
+}
+
 .yellow {
   width: 64px;
   height: 32px;
