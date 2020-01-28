@@ -147,6 +147,12 @@ p.captors {
   background-color: #FFF000;
 }
 
+.orange {
+  width: 64px;
+  height: 32px;
+  background-color: #e67e22;
+}
+
 .red {
   width: 64px;
   height: 32px;
