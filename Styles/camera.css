@@ -143,31 +143,31 @@ p.captors {
 
 .blue {
   width: 64px;
-  height: 32px;
+  height: 32px!important;
   background-color: #0652DD;
 }
 
 .yellow {
   width: 64px;
-  height: 32px;
+  height: 32px!important;
   background-color: #FFF000;
 }
 
 .orange {
   width: 64px;
-  height: 32px;
+  height: 32px!important;
   background-color: #e67e22;
 }
 
 .red {
   width: 64px;
-  height: 32px;
+  height: 32px!important;
   background-color: #FF0000;
 }
 
 .white {
   width: 64px;
-  height: 32px;
+  height: 32px!important;
   background-color: #FFFFFF;
 }
 
