@@ -1,6 +1,6 @@
 
-var lat = 43.310213;
-var lon = 5.369871;
+var lat = 48.815361;
+var lon = 2.362765;
 
 var macarte = null;
 var mapList = new Array();
